@@ -2,16 +2,7 @@
 A history of live shows of my rock band St. Emmi
 
 ## Tasks
-1. Create the component structure of the start page
-
-The Structure:
-
-Vue:
-- Header
-- PreviewContainer
-- GoogleMaps / MapBox / OpenStreetMap
-- Contact Page
-- Detail Page
+1. Build the component structure of the start page
 
 Header:
 - Logo
@@ -57,3 +48,13 @@ Authors:
 - ID
 - Name
 - Image Path
+
+3. More:
+- Favicon
+
+4. Create Additional pages:
+- Contact Page
+- Detail Page
+
+5. Try different Maps:
+GoogleMaps / MapBox / OpenStreetMap
