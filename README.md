@@ -49,8 +49,9 @@ Authors:
 - Name
 - Image Path
 
-3. More:
+3. Style:
 - Favicon
+- CSS
 
 4. Create Additional pages:
 - Contact Page

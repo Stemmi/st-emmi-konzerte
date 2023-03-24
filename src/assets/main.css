@@ -1,0 +1,30 @@
+:root {
+    --default-bright-color: beige;
+    --default-brighter-color: #fffff5;
+    --default-dark-color: #8b0000;
+    --default-darker-color: #4b0000;
+    --highlight-dark-color: #cb2020;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: var(--default-darker-color);
+    color: var(--default-bright-color);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  #app {
+    margin: 0 auto;
+  }
+
+  a {
+    color: var(--default-dark-color);
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
