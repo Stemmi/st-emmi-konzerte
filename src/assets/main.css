@@ -16,9 +16,16 @@
     color: var(--default-bright-color);
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
-  
+
   #app {
     margin: 0 auto;
+  }
+
+  section {
+    flex: auto;
+    background-color: var(--default-bright-color);
+    color: var(--default-dark-color);
+    padding: 10px 20px;
   }
 
   a {

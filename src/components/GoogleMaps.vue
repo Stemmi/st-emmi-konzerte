@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <section>
         Google Maps
-    </div>
+    </section>
 </template>
 
 <script>
