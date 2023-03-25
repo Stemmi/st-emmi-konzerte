@@ -1,16 +1,19 @@
 <template>
   <HeaderContainer />
-  <MainContainer />
+  <PreviewContainer />
+  <GoogleMaps />
 </template>
 
 <script>
   import HeaderContainer from "./components/HeaderContainer.vue";
-  import MainContainer from "./components/MainContainer.vue";
+  import PreviewContainer from "./components/PreviewContainer.vue";
+  import GoogleMaps from "./components/GoogleMaps.vue";
 
   export default {
     components: {
       HeaderContainer,
-      MainContainer
+      PreviewContainer,
+      GoogleMaps
     }
   }
 </script>

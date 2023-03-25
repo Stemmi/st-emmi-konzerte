@@ -2,27 +2,24 @@
 A history of live shows of my rock band St. Emmi
 
 ## Tasks
+1. Build the component structure of the start page
+
+Header:
+- Logo
+- Title
+- Contact Link
+- (NewPost)
+- Login
+
 PreviewContainer:
-- Articles from data
  
 GoogleMaps:
 - Map
 - Marker
 - PreviewBox
 
-Common Component:
+Common:
 - Author (Image & Name)
-
-Folders for Components
-
-Additional pages:
-- Contact Page
-- Detail Page
-
-Header:
-- Buttons for New Post & Login
-
-Try different Maps: GoogleMaps / MapBox / OpenStreetMap
 
 2. Create a data structure (data.json):
 
@@ -51,3 +48,14 @@ Authors:
 - ID
 - Name
 - Image Path
+
+3. Style:
+- Favicon
+- CSS
+
+4. Create Additional pages:
+- Contact Page
+- Detail Page
+
+5. Try different Maps:
+GoogleMaps / MapBox / OpenStreetMap

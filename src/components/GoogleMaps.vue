@@ -1,7 +1,7 @@
 <template>
-    <section>
+    <div>
         Google Maps
-    </section>
+    </div>
 </template>
 
 <script>
@@ -11,9 +11,5 @@
 </script>
 
 <style lang="css" scoped>
-    section {
-        background-color: var(--default-bright-color);
-        color: var(--default-dark-color);
-        padding: 10px 20px;
-    }
+
 </style>
