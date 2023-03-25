@@ -21,6 +21,14 @@
     margin: 0 auto;
   }
 
+  section {
+    flex: auto;
+
+    background-color: var(--default-bright-color);
+    color: var(--default-dark-color);
+    padding: 10px 20px;
+  }
+
   a {
     color: var(--default-dark-color);
   }
