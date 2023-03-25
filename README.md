@@ -5,9 +5,6 @@ A history of live shows of my rock band St. Emmi
 1. Build the component structure of the start page
 
 Header:
-- Logo
-- Title
-- Contact Link
 - (NewPost)
 - Login
 

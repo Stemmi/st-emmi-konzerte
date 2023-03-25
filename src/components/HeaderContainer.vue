@@ -4,8 +4,8 @@
         <h1>St. Emmi<br>Konzerte</h1>
         <nav>
             <a href="/kontakt">Kontakt</a>
-            <a href="/new">Neuer Eintrag</a>
-            <a href="/login">Login</a>
+            <button>Neuer Eintrag</button>
+            <button>Login</button>
         </nav>
 
     </header>
@@ -40,7 +40,7 @@
     }
 
     img {
-        border-radius: 10px;
+        border-radius: 50px;
     }
 
     h1 {
@@ -49,6 +49,15 @@
 
     a, p {
         font-size: 1.2rem;
+    }
+
+    button {
+        font-size: 1.1rem;
+
+    }
+
+    a, p, button {
         text-decoration: line-through;
     }
+
 </style>
