@@ -2,18 +2,17 @@
     <header>
         <div><img src="/images/konzerte-logo-100x100.jpg" alt="Die Band spielt live"></div>
         <h1>St. Emmi<br>Konzerte</h1>
-        <nav>
-            <a href="/kontakt">Kontakt</a>
-            <button>Neuer Eintrag</button>
-            <button>Login</button>
-        </nav>
-
+        <Navigation />
     </header>
 </template>
 
 <script>
+    import Navigation from "./Navigation.vue";
+
     export default {
-        
+        components: {
+            Navigation
+        }
     }
 </script>
 
@@ -31,33 +30,12 @@
         padding: 10px 20px;
     }
 
-    nav {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 30px;
-        justify-content: space-between;
-        align-items: center;
-    }
-
     img {
         border-radius: 50px;
     }
 
     h1 {
         flex: 1 1 auto;
-    }
-
-    a, p {
-        font-size: 1.2rem;
-    }
-
-    button {
-        font-size: 1.1rem;
-
-    }
-
-    a, p, button {
-        text-decoration: line-through;
     }
 
 </style>
