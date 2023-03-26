@@ -1,0 +1,81 @@
+{
+    "concerts": [
+        {
+            "id": 0,
+            "subtitle": "Umsonst & Draußen",
+            "date": "2022-08-26",
+            "locationId": 0,
+            "bandsIds": [0, 1],
+            "text": "Dancing in the rain mit den Heartliners und Spandau!",
+            "poster": {
+                "filename": "2022-08-26-boizenburg.jpg",
+                "alt": "",
+                "width": 300,
+                "height": 300
+            },
+            "authorId": 0
+        },
+
+        {
+            "id": 1,
+            "subtitle": "",
+            "date": "",
+            "locationId": 1,
+            "bandsIds": [],
+            "text": "",
+            "poster": {
+                "filename": "",
+                "alt": "",
+                "width": 100,
+                "height": 100
+            },
+            "authorId": 0
+        }
+    ],
+
+    "locations": [
+        {
+            "id": 0,
+            "name": "Fairhafen Skatepark",
+            "city": "Boizenburg",
+            "url": "",
+            "lat": 0,
+            "long": 0
+        },
+        {
+            "id": 1,
+            "name": "",
+            "city": "",
+            "url": "",
+            "lat": 0,
+            "long": 0
+        }
+    ],
+
+    "bands": [
+        {
+            "id": 0,
+            "name": "Heartliners",
+            "url": ""
+        },
+        {
+            "id": 1,
+            "name": "Spandau",
+            "url": ""
+        },
+        {
+            "id": 2,
+            "name": "",
+            "url": ""
+        }
+    ],
+
+    "authors": [
+        {
+            "id": 0,
+            "name": "Stemmi",
+            "imgPath": ""
+        }
+    ]
+}
+

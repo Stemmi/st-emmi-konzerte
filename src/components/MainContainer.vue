@@ -1,6 +1,6 @@
 <template>
     <main>
-        <PreviewContainer />
+        <PreviewContainer :concertData="concertData" />
         <GoogleMaps />
     </main>
 </template>
@@ -13,7 +13,10 @@
         components: {
             PreviewContainer,
             GoogleMaps
-        }
+        },
+        props: [
+            "concertData"
+        ]
     } 
 </script>
 

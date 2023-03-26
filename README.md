@@ -2,14 +2,20 @@
 A history of live shows of my rock band St. Emmi
 
 ## Tasks
-1. Build the component structure of the start page
+Blog Post Previews
 
-Header:
-- (NewPost)
-- Login
+On the left all blog posts are listed as previews.
+The blogs are ordered ascending by visiting date.
+Each preview contains:
+    title
+    visiting date
+    authors image + name (can be hardcoded)
+    image
+    When user clicks on one of the listed blog post than she gets linked to the detail page /post/:id
+
 
 PreviewContainer:
- 
+
 GoogleMaps:
 - Map
 - Marker
@@ -18,41 +24,11 @@ GoogleMaps:
 Common:
 - Author (Image & Name)
 
-2. Create a data structure (data.json):
 
-Concerts:
-- ID
-- Title ?
-- Date
-- Location ID
-- OtherBands ID
-- Text
-- Image Path
-- Author ID
- 
-Locations:
-- ID
-- Name
-- Link
-- Maps Coordinates ?
 
-OtherBands:
-- ID
-- Name
-- Link
-
-Authors:
-- ID
-- Name
-- Image Path
-
-3. Style:
-- Favicon
-- CSS
-
-4. Create Additional pages:
+3. Create Additional pages:
 - Contact Page
 - Detail Page
 
-5. Try different Maps:
+4. Try different Maps:
 GoogleMaps / MapBox / OpenStreetMap
