@@ -31,8 +31,16 @@
   section {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    flex: 49%;
+    gap: 10px;
     justify-content: left;
-    align-items: center;
+    padding: 10px 10px;
   }
+
+  article {
+    width: 320px;
+    padding: 10px;
+    text-align: center;
+  }
+
 </style>

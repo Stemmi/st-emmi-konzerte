@@ -25,5 +25,8 @@
 </script>
 
 <style scoped>
-
+    img {
+        margin-top: 10px;
+        border: 1px solid grey;
+    }
 </style>

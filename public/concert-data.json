@@ -18,16 +18,16 @@
 
         {
             "id": 1,
-            "subtitle": "",
-            "date": "",
+            "subtitle": "Musik für Rainer Festival",
+            "date": "2019-04-30",
             "locationId": 1,
             "bandsIds": [],
-            "text": "",
+            "text": "Mit BA-B, Andi und Ich, Kpt Plasto, US Altona, Sherlock Fish, Chalk Diver, Island Monkeys.",
             "poster": {
-                "filename": "",
-                "alt": "",
-                "width": 100,
-                "height": 100
+                "filename": "2018-04-30-neuland.jpg",
+                "alt": "Handgeschriebenes Schild: Moinsen! alle Getränke 0,50 €, Freisaufen 20 €",
+                "width": 300,
+                "height": 300
             },
             "authorId": 0
         }
@@ -44,8 +44,8 @@
         },
         {
             "id": 1,
-            "name": "",
-            "city": "",
+            "name": "Gasthaus Sieb",
+            "city": "Neuland",
             "url": "",
             "lat": 0,
             "long": 0

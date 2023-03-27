@@ -1,61 +1,67 @@
 :root {
-    --default-bright-color: beige;
-    --default-brighter-color: #fffff5;
-    --default-dark-color: #8b0000;
-    --default-darker-color: #4b0000;
-    --highlight-dark-color: #cb2020;
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    background-color: var(--default-darker-color);
-    color: var(--default-bright-color);
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  }
+  --default-bright-color: beige;
+  --default-brighter-color: #fffff5;
+  --default-dark-color: #8b0000;
+  --default-darker-color: #4b0000;
+  --highlight-dark-color: #cb2020;
+}
 
-  #app {
-    margin: 0 auto;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  section {
-    flex: auto;
-    background-color: var(--default-bright-color);
-    color: var(--default-dark-color);
-    padding: 10px 20px;
-  }
+body {
+  background-color: var(--default-darker-color);
+  color: var(--default-bright-color);
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
-  a {
-    color: var(--default-dark-color);
-  }
+#app {
+  margin: 0 auto;
+}
 
-  a:hover {
-    text-decoration: none;
-  }
+section {
+  flex: auto;
+  background-color: var(--default-bright-color);
+  color: black;
+}
 
-  button {
-    color: var(--default-dark-color);
-    background: var(--default-brighter-color);
-    padding: 4px 12px;
-    border: 1px solid var(--default-dark-color);
-    border-radius: 12px;
-  }
+article {
+  background: var(--default-brighter-color);
+  color: var(--default-dark-color);
+}
 
-  button:hover {
-    text-decoration: none;
-    color: var(--default-bright-color);
-    background: var(--default-dark-color);
-  }
+a {
+  color: var(--default-dark-color);
+}
 
-  button:active {
-    text-decoration: none;
-    color: var(--highlight-dark-color);
-    background: var(--default-brighter-color);
-  }
+a:hover {
+  text-decoration: none;
+}
 
-  svg {
-    padding-right: 6px;
-  }
+button {
+  color: var(--default-dark-color);
+  background: var(--default-brighter-color);
+  padding: 4px 12px;
+  border: 1px solid var(--default-dark-color);
+  border-radius: 12px;
+}
+
+button:hover {
+  text-decoration: none;
+  color: var(--default-bright-color);
+  background: var(--default-dark-color);
+}
+
+button:active {
+  text-decoration: none;
+  color: var(--highlight-dark-color);
+  background: var(--default-brighter-color);
+}
+
+svg {
+  padding-right: 6px;
+}
+

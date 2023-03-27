@@ -1,6 +1,6 @@
 <template>
     <section>
-        Google Maps
+        <p>Google Maps</p> 
     </section>
 </template>
 
@@ -11,5 +11,8 @@
 </script>
 
 <style lang="css" scoped>
-
+    section {
+        flex: 49%;
+        padding: 10px;
+    }
 </style>

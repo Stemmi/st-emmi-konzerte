@@ -24,9 +24,9 @@
     main {
         display: flex;
         flex-wrap: wrap;
+        width: 100%;
         gap: 2px;
         justify-content: space-between;
-        align-items: center;
         margin-top: 2px;
     }
 </style>
