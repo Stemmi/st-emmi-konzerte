@@ -6,7 +6,9 @@
 <script>
   import HeaderContainer from "./components/HeaderContainer.vue";
   import MainContainer from "./components/MainContainer.vue";
-  import concertData from "./assets/concert-data.json"
+
+  const concertData = await fetch("./concert-data.json").then(response => { return response.json(); });
+  // is this a good way? I forgot everything... :-)
 
   export default {
     data() {
@@ -20,7 +22,3 @@
     }
   }
 </script>
-
-<style scoped>
-
-</style>
