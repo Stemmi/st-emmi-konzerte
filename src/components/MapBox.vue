@@ -1,6 +1,6 @@
 <template>
-    <section>
-        <p>Google Maps</p> 
+    <section id="map">
+        <p>Maps</p> 
     </section>
 </template>
 

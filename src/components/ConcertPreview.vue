@@ -4,13 +4,20 @@
     <p>{{ createDate }}</p>
     <img :src="'./images/posters/'+concert.poster.filename" :alt="concert.poster.alt" :width="concert.poster.width" :heigth="concert.poster.height">
     <p>{{ concert.text }}</p>
+    <Author :name="author.name" :imgPath="author.imgPath" />
 </template>
 
 <script>
+    import Author from "./Author.vue";
+
     export default {
+        components: {
+            Author
+        },
         props: [
             "concert",
-            "location"
+            "location",
+            "author"
         ],
         computed: {
             createHeading() {
@@ -26,7 +33,10 @@
 
 <style scoped>
     img {
-        margin-top: 10px;
         border: 1px solid grey;
+    }
+
+    p {
+        margin-bottom: 10px;
     }
 </style>

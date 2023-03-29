@@ -1,18 +1,18 @@
 <template>
     <main>
         <PreviewContainer :concertData="concertData" />
-        <GoogleMaps />
+        <MapBox />
     </main>
 </template>
 
 <script>
     import PreviewContainer from "./PreviewContainer.vue";
-    import GoogleMaps from "./GoogleMaps.vue";
+    import MapBox from "./MapBox.vue";
     
     export default {
         components: {
             PreviewContainer,
-            GoogleMaps
+            MapBox
         },
         props: [
             "concertData"
