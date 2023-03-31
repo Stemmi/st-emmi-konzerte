@@ -2,7 +2,7 @@
 
     <h3>{{ createHeading }}</h3>
     <p>{{ createDate }}</p>
-    <img :src="'./images/posters/'+concert.poster.filename" :alt="concert.poster.alt" :width="concert.poster.width" :heigth="concert.poster.height">
+    <img :src="'./images/posters/'+concert.poster.filename" :alt="concert.poster.alt">
     <p>{{ concert.text }}</p>
     <Author :name="author.name" :imgPath="author.imgPath" />
 </template>
@@ -34,6 +34,9 @@
 <style scoped>
     img {
         border: 1px solid grey;
+        width: 300px;
+        min-height: 200px;
+        object-fit: cover;
     }
 
     p {
