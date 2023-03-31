@@ -1,31 +1,34 @@
 <template>
-
     <h3>{{ createHeading }}</h3>
     <p>{{ createDate }}</p>
-    <img :src="'./images/posters/'+concert.poster.filename" :alt="concert.poster.alt">
-    <p>{{ concert.text }}</p>
-    <Author :name="author.name" :imgPath="author.imgPath" />
+    <img :src="'./images/posters/'+show.poster.filename" :alt="show.poster.alt">
+    <p>{{ show.text }}</p>
+    <!-- <Author :name="author.name" :imgPath="author.imgPath" /> -->
 </template>
 
 <script>
     import Author from "./Author.vue";
 
     export default {
+        data() {
+            return {
+                author: undefined,
+                location: undefined
+            }
+        },
         components: {
             Author
         },
         props: [
-            "concert",
-            "location",
-            "author"
+            "show"
         ],
         computed: {
             createHeading() {
-                if (this.concert.subtitle && this.location) return this.concert.subtitle + ", " + this.location;
-                else return this.concert.subtitle || this.location || "";
+                if (this.show?.subtitle && this.location) return this.show?.subtitle + ", " + this.location;
+                else return this.show.subtitle || this.location || "";
             },
             createDate() {
-                return this.concert.date.split('-').reverse().join('.');
+                return this.show?.date?.split('-').reverse().join('.');
             }
         }
     }

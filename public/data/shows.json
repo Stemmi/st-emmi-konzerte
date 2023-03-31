@@ -1,5 +1,5 @@
 {
-    "concerts": [
+    "shows": [
         {
             "id": 0,
             "subtitle": "Umsonst & Draußen",
@@ -26,51 +26,6 @@
                 "alt": "Handgeschriebenes Schild: Moinsen! alle Getränke 0,50 €, Freisaufen 20 €"
             },
             "authorId": 0
-        }
-    ],
-
-    "locations": [
-        {
-            "id": 0,
-            "name": "Fairhafen Skatepark",
-            "city": "Boizenburg",
-            "url": "",
-            "lat": 0,
-            "long": 0
-        },
-        {
-            "id": 1,
-            "name": "Gasthaus Sieb",
-            "city": "Neuland",
-            "url": "",
-            "lat": 0,
-            "long": 0
-        }
-    ],
-
-    "bands": [
-        {
-            "id": 0,
-            "name": "Heartliners",
-            "url": ""
-        },
-        {
-            "id": 1,
-            "name": "Spandau",
-            "url": ""
-        },
-        {
-            "id": 2,
-            "name": "",
-            "url": ""
-        }
-    ],
-
-    "authors": [
-        {
-            "id": 0,
-            "name": "Stemmi",
-            "image": "stemmi.jpg"
         }
     ]
 }

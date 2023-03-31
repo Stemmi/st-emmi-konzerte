@@ -1,6 +1,6 @@
 <template>
     <main>
-        <PreviewContainer :concertData="concertData" />
+        <PreviewContainer :shows="shows" />
         <MapBox />
     </main>
 </template>
@@ -10,13 +10,20 @@
     import MapBox from "./MapBox.vue";
     
     export default {
+        data() {
+            return {
+                shows: undefined
+            }
+        },
         components: {
             PreviewContainer,
             MapBox
         },
-        props: [
-            "concertData"
-        ]
+        async mounted() {
+            const response = await fetch("./data/shows.json");
+            const result = await response.json();
+            this.shows = result;
+        }
     } 
 </script>
 

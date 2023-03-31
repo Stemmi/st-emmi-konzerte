@@ -1,7 +1,7 @@
 <template>
-  <section>
-    <article v-for="concert in concertData?.concerts">
-      <ConcertPreview :concert="concert" :location="getLocation(concert.locationId)" :author="getAuthor(concert.authorId)" />
+  <section v-if="shows">
+    <article v-for="show in shows?.shows">
+      <ConcertPreview :show="show" />
     </article>
   </section>
 
@@ -15,15 +15,17 @@
         ConcertPreview
       },
       props: [
-        "concertData"
+        "shows"
       ],
       methods: {
         getLocation(id) {
+          return undefined;
           const location = this.concertData.locations[id];
           if (location.name && location.city) return location.name + ", " + location.city;
           else return location.name || location.city || "";
         },
         getAuthor(id) {
+          return undefined;
           const author = this.concertData.authors[id];
           return {
             name: author.name,
