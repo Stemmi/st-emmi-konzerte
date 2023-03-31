@@ -1,6 +1,6 @@
 <template>
   <section>
-    <article v-for="concert in concertData.concerts">
+    <article v-for="concert in concertData?.concerts">
       <ConcertPreview :concert="concert" :location="getLocation(concert.locationId)" :author="getAuthor(concert.authorId)" />
     </article>
   </section>
