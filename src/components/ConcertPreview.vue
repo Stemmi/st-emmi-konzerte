@@ -1,34 +1,34 @@
 <template>
     <h3>{{ createHeading }}</h3>
     <p>{{ createDate }}</p>
-    <img :src="'./images/posters/'+show.poster.filename" :alt="show.poster.alt">
+    <img v-if="this.show.poster" :src="'./images/posters/'+show.poster.filename" :alt="show.poster.alt">
     <p>{{ show.text }}</p>
-    <!-- <Author :name="author.name" :imgPath="author.imgPath" /> -->
+    <AuthorContainer :author="author" />
 </template>
 
 <script>
-    import Author from "./Author.vue";
+    import AuthorContainer from "./AuthorContainer.vue";
 
     export default {
-        data() {
-            return {
-                author: undefined,
-                location: undefined
-            }
-        },
         components: {
-            Author
+            AuthorContainer
         },
         props: [
-            "show"
+            "show", "location", "author"
         ],
         computed: {
             createHeading() {
-                if (this.show?.subtitle && this.location) return this.show?.subtitle + ", " + this.location;
-                else return this.show.subtitle || this.location || "";
+                const subtitle = this.show.subtitle || "";
+                const location = this.location || {};
+                let locationString = "";
+                if (location.name && location.city) locationString = location.name + ", " + location.city;
+                else locationString = location.name || location.city || "";                
+                if (subtitle && locationString) return subtitle + ", " + locationString;
+                else return subtitle || locationString || "";
             },
             createDate() {
-                return this.show?.date?.split('-').reverse().join('.');
+                if (!this.show.date) return "";
+                return this.show.date.split('-').reverse().join('.');
             }
         }
     }

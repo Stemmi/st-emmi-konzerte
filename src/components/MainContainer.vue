@@ -22,7 +22,7 @@
         async mounted() {
             const response = await fetch("./data/shows.json");
             const result = await response.json();
-            this.shows = result;
+            this.shows = result.shows;
         }
     } 
 </script>

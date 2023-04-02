@@ -1,7 +1,7 @@
 <template>
-  <section v-if="shows">
-    <article v-for="show in shows?.shows">
-      <ConcertPreview :show="show" />
+  <section v-if="shows && locations && authors">
+    <article v-for="show in shows">
+      <ConcertPreview :show="show" :location="getLocation(show.locationId)" :author="getAuthor(show.authorId)"/>
     </article>
   </section>
 
@@ -11,6 +11,13 @@
     import ConcertPreview from './ConcertPreview.vue';
 
     export default {
+      data() {
+        return {
+          locations: undefined,
+          authors: undefined
+        }
+      },
+      
       components: {
         ConcertPreview
       },
@@ -19,20 +26,26 @@
       ],
       methods: {
         getLocation(id) {
-          return undefined;
-          const location = this.concertData.locations[id];
-          if (location.name && location.city) return location.name + ", " + location.city;
-          else return location.name || location.city || "";
+          if (!this.locations) return undefined;
+          const filtered = this.locations.filter(loc => loc.id === id);
+          if (!filtered.length) return undefined;
+          return filtered[0];
         },
         getAuthor(id) {
-          return undefined;
-          const author = this.concertData.authors[id];
-          return {
-            name: author.name,
-            imgPath: './images/authors/' + author.image
-          };
+          if (!this.authors) return undefined;
+          const filtered = this.authors.filter(aut => aut.id === id);
+          if (!filtered.length) return undefined;
+          return filtered[0];
         }
-      }
+      },
+      async mounted() {
+            const locationsResponse = await fetch("./data/locations.json");
+            const locationsResult = await locationsResponse.json();
+            this.locations = locationsResult.locations;
+            const authorsResponse = await fetch("./data/authors.json");
+            const authorsResult = await authorsResponse.json();
+            this.authors = authorsResult.authors;
+        }
     }
 </script>
 

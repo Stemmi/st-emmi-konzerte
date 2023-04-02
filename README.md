@@ -2,10 +2,6 @@
 A history of live shows of my rock band St. Emmi
 
 ## Tasks
-- split json files
-- fetch data on mount
-- fetch only in the child who needs the data
-- fetch on demand
 - use vue router and views
 - implement key at v-for
 - check pictures for contain / cover
@@ -32,6 +28,7 @@ Display Blog Posts at Location
 
 PreviewContainer:
 - When user clicks on one of the listed blog post than she gets linked to the detail page /post/:id
+- style: rounded edges
 
 GoogleMaps:
 - Formatting of the container (same height as Previewcontainer)
