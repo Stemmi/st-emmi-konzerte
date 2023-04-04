@@ -1,13 +1,13 @@
 <template>
     <main>
-        <PreviewContainer :shows="shows" />
+        <CardContainer :shows="shows" />
         <MapBox />
     </main>
 </template>
 
 <script>
-    import PreviewContainer from "./PreviewContainer.vue";
-    import MapBox from "./MapBox.vue";
+    import CardContainer from "../components/CardContainer.vue";
+    import MapBox from "../components/MapBox.vue";
     
     export default {
         data() {
@@ -16,7 +16,7 @@
             }
         },
         components: {
-            PreviewContainer,
+            CardContainer,
             MapBox
         },
         async mounted() {
@@ -32,8 +32,9 @@
         display: flex;
         flex-wrap: wrap;
         width: 100%;
-        gap: 2px;
+        gap: 1px;
         justify-content: space-between;
-        margin-top: 2px;
+        background-color: var(--default-dark-color);
+        border-bottom: 1px solid var(--default-dark-color);
     }
 </style>

@@ -22,6 +22,10 @@ body {
   margin: 0 auto;
 }
 
+header {
+  border-bottom: 1px solid var(--default-dark-color);
+}
+
 section {
   flex: auto;
   background-color: var(--default-bright-color);
@@ -31,6 +35,7 @@ section {
 article {
   background: var(--default-brighter-color);
   color: var(--default-dark-color);
+  border-radius: 15px;
 }
 
 a {
@@ -39,6 +44,7 @@ a {
 
 a:hover {
   text-decoration: none;
+  
 }
 
 button {

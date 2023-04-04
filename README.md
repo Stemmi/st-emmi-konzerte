@@ -2,13 +2,12 @@
 A history of live shows of my rock band St. Emmi
 
 ## Tasks
-- use vue router and views
+to do:
 - implement key at v-for
 - check pictures for contain / cover
 - use optional chaining or v-if/-else for fetched data (loading...)
 
 - Use this for mapbox: https://www.npmjs.com/package/@studiometa/vue-mapbox-gl 
-
 
 World Map with Google Maps API
 - Research for a method to integrate the Google Maps API into a Vue-Component to display a world map.
@@ -24,8 +23,6 @@ Display Blog Posts at Location
    - The InfoWindow can be closed by clicking on the "x" (which is placed at right-top in the InfoWindow
 
 ---
-
-
 PreviewContainer:
 - When user clicks on one of the listed blog post than she gets linked to the detail page /post/:id
 - style: rounded edges

@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <a href="/kontakt">Kontakt</a>
+        <RouterLink to="/kontakt">Kontakt</RouterLink>
         
         <button><PlusIcon />Neuer Eintrag</button>
         <button><UserIcon />Login</button>
@@ -36,7 +36,7 @@
         font-size: 0.9rem;
     }
 
-    a, button {
+    button {
         text-decoration: line-through;
     }
 

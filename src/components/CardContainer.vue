@@ -1,14 +1,14 @@
 <template>
   <section v-if="shows && locations && authors">
     <article v-for="show in shows">
-      <ConcertPreview :show="show" :location="getLocation(show.locationId)" :author="getAuthor(show.authorId)"/>
+      <PreviewCard :show="show" :location="getLocation(show.locationId)" :author="getAuthor(show.authorId)"/>
     </article>
   </section>
 
 </template>
 
 <script>
-    import ConcertPreview from './ConcertPreview.vue';
+    import PreviewCard from './PreviewCard.vue';
 
     export default {
       data() {
@@ -19,7 +19,7 @@
       },
       
       components: {
-        ConcertPreview
+        PreviewCard
       },
       props: [
         "shows"
