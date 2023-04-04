@@ -1,5 +1,9 @@
 <template>
-    <main>
+    <div class="loading" v-if="!shows">
+        Loading...
+    </div>
+
+    <main v-else>
         <CardContainer :shows="shows" />
         <MapBox />
     </main>
@@ -35,6 +39,7 @@
         gap: 1px;
         justify-content: space-between;
         background-color: var(--default-dark-color);
-        border-bottom: 1px solid var(--default-dark-color);
+        border-bottom: 1px solid var(--default-bright-color);
     }
+
 </style>

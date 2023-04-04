@@ -35,6 +35,9 @@
 
     img {
         border-radius: 50px;
+        min-width: 100px;
+        height: 100px;
+        object-fit: cover;
     }
 
     h1 {

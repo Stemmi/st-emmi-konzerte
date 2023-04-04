@@ -1,6 +1,6 @@
 <template>
     <div v-if="author">
-        <img :src="createImgPath" :alt="author.name" width="20" height="20">
+        <img :src="createImgPath" :alt="author.name">
         <p>{{ author.name }}</p>
     </div>
 </template>
@@ -38,5 +38,8 @@
     img {
         border-radius: 50%;
         border: 1px solid grey;
+        min-width: 30px;
+        height: 30px;
+        object-fit: cover;
     }
 </style>

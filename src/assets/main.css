@@ -71,3 +71,16 @@ svg {
   padding-right: 6px;
 }
 
+@keyframes pulsating {
+  from {color: var(--default-dark-color);}
+  to {color: var(--default-bright-color);}
+}
+.loading {
+  text-align: center;
+  font-style: italic;
+  font-size: 1.2rem;
+  padding: 10px;
+  background-color: var(--default-bright-color);
+  color: var(--default-dark-color);
+  animation: pulsating 1s linear 1s infinite alternate;
+}

@@ -2,10 +2,10 @@
 A history of live shows of my rock band St. Emmi
 
 ## Tasks
+done:
+
+
 to do:
-- implement key at v-for
-- check pictures for contain / cover
-- use optional chaining or v-if/-else for fetched data (loading...)
 
 - Use this for mapbox: https://www.npmjs.com/package/@studiometa/vue-mapbox-gl 
 

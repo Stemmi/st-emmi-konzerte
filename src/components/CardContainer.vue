@@ -1,6 +1,9 @@
 <template>
-  <section v-if="shows && locations && authors">
-    <article v-for="show in shows">
+  <section class="loading" v-if="!shows || !locations || !authors">
+    Loading...
+  </section>
+  <section v-else>
+    <article v-for="show in shows" :key="show.id">
       <PreviewCard :show="show" :location="getLocation(show.locationId)" :author="getAuthor(show.authorId)"/>
     </article>
   </section>
