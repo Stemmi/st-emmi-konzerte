@@ -5,15 +5,22 @@
             access-token="pk.eyJ1Ijoic3RlbW1pIiwiYSI6ImNsZnNjeWV0MDA1MTAzaHNlNzY1OHl5YTgifQ.fDF5EfP2eLcs0DhN1QNKig"
             map-style="mapbox://styles/mapbox/streets-v11"
             :center="[locations[latestShow.locationId].long, locations[latestShow.locationId].lat]"
-            :zoom="7">
-            <MapboxMarker v-for="location of locations" :lng-lat="[location.long, location.lat]" />
+            :zoom="6">
+            <MapboxMarker
+                v-for="location of locations"
+                :lng-lat="[location.long, location.lat]"
+                popup >
+                    <template v-slot:popup>
+                        <p>Hello world!</p>
+                    </template>
+            </MapboxMarker>
         </MapboxMap>
     </section>
 </template>
 
 <script>
     import 'mapbox-gl/dist/mapbox-gl.css';
-    import { MapboxMap, MapboxMarker } from '@studiometa/vue-mapbox-gl';
+    import { MapboxMap, MapboxMarker, MapboxPopup } from '@studiometa/vue-mapbox-gl';
 
     export default {
         components: {
@@ -38,4 +45,6 @@
         flex: 49%;
         padding: 10px;
     }
+
+
 </style>

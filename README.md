@@ -4,10 +4,9 @@ A history of live shows of my rock band St. Emmi
 ## Tasks
 done:
 - For each (blog post) location, put a marker on the map at the location of the post.
-
-to do:
 - Initially the map gets centered by the newest blog post entry.
 
+to do:
 Display Blog Posts at Location
 - Make the markers clickable: on click, show the short preview of the blog post in the "InfoWindow".
 - It contains:
