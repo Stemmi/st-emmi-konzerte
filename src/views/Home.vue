@@ -1,11 +1,11 @@
 <template>
-    <div class="loading" v-if="!shows">
+    <div class="loading" v-if="!shows || !locations">
         Loading...
     </div>
 
     <main v-else>
-        <CardContainer :shows="shows" />
-        <MapBox />
+        <CardContainer :shows="shows" :locations="locations"/>
+        <MapBox :shows="shows" :locations="locations" />
     </main>
 </template>
 
@@ -16,7 +16,8 @@
     export default {
         data() {
             return {
-                shows: undefined
+                shows: undefined,
+                locations: undefined
             }
         },
         components: {
@@ -24,9 +25,12 @@
             MapBox
         },
         async mounted() {
-            const response = await fetch("./data/shows.json");
-            const result = await response.json();
-            this.shows = result.shows;
+            const showsResponse = await fetch("./data/shows.json");
+            const showsResult = await showsResponse.json();
+            this.shows = showsResult.shows;
+            const locationsResponse = await fetch("./data/locations.json");
+            const locationsResult = await locationsResponse.json();
+            this.locations = locationsResult.locations;
         }
     } 
 </script>

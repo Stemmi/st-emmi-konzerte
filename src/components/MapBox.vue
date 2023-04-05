@@ -3,11 +3,10 @@
         <MapboxMap
             style="height: 100%"
             access-token="pk.eyJ1Ijoic3RlbW1pIiwiYSI6ImNsZnNjeWV0MDA1MTAzaHNlNzY1OHl5YTgifQ.fDF5EfP2eLcs0DhN1QNKig"
-            map-style="mapbox://styles/mapbox/streets-v12"
-            :center="[10.004522218291346, 53.58301762220104]"
-            :zoom="8">
-            <MapboxMarker :lng-lat="[9.303324603170019, 53.747435117712484]" />
-            <MapboxMarker :lng-lat="[10.705824640619618, 53.37610229130491]" />
+            map-style="mapbox://styles/mapbox/streets-v11"
+            :center="[locations[latestShow.locationId].long, locations[latestShow.locationId].lat]"
+            :zoom="7">
+            <MapboxMarker v-for="location of locations" :lng-lat="[location.long, location.lat]" />
         </MapboxMap>
     </section>
 </template>
@@ -20,6 +19,16 @@
         components: {
             MapboxMap,
             MapboxMarker
+        },
+        props: [
+            "shows",
+            "locations"
+        ],
+        computed: {
+            latestShow() {
+                const showsWithValidDate = this.shows.filter(show => show.date);
+                return showsWithValidDate.reduce((prev, curr) => (prev.date > curr.date) ? prev : curr);
+            }
         }
     }
 </script>

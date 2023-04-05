@@ -3,16 +3,11 @@ A history of live shows of my rock band St. Emmi
 
 ## Tasks
 done:
-
+- For each (blog post) location, put a marker on the map at the location of the post.
 
 to do:
-
-- Use this for mapbox: https://www.npmjs.com/package/@studiometa/vue-mapbox-gl 
-
-World Map with Google Maps API
-- Research for a method to integrate the Google Maps API into a Vue-Component to display a world map.
-- For each blog post, put a marker on the map at the location of the post.
 - Initially the map gets centered by the newest blog post entry.
+
 Display Blog Posts at Location
 - Make the markers clickable: on click, show the short preview of the blog post in the "InfoWindow".
 - It contains:

@@ -16,7 +16,6 @@
     export default {
       data() {
         return {
-          locations: undefined,
           authors: undefined
         }
       },
@@ -25,7 +24,7 @@
         PreviewCard
       },
       props: [
-        "shows"
+        "shows", "locations"
       ],
       methods: {
         getLocation(id) {
@@ -42,9 +41,6 @@
         }
       },
       async mounted() {
-            const locationsResponse = await fetch("./data/locations.json");
-            const locationsResult = await locationsResponse.json();
-            this.locations = locationsResult.locations;
             const authorsResponse = await fetch("./data/authors.json");
             const authorsResult = await authorsResponse.json();
             this.authors = authorsResult.authors;
