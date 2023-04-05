@@ -4,8 +4,8 @@
     </div>
 
     <main v-else>
-        <CardContainer :shows="shows" :locations="locations"/>
-        <MapBox :shows="shows" :locations="locations" />
+        <CardContainer :shows="shows" :locations="locations" :authors="authors" />
+        <MapBox :shows="shows" :locations="locations" :authors="authors" />
     </main>
 </template>
 
@@ -17,7 +17,8 @@
         data() {
             return {
                 shows: undefined,
-                locations: undefined
+                locations: undefined,
+                authors: undefined
             }
         },
         components: {
@@ -31,6 +32,9 @@
             const locationsResponse = await fetch("./data/locations.json");
             const locationsResult = await locationsResponse.json();
             this.locations = locationsResult.locations;
+            const authorsResponse = await fetch("./data/authors.json");
+            const authorsResult = await authorsResponse.json();
+            this.authors = authorsResult.authors;
         }
     } 
 </script>

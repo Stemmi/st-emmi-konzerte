@@ -14,17 +14,11 @@
     import PreviewCard from './PreviewCard.vue';
 
     export default {
-      data() {
-        return {
-          authors: undefined
-        }
-      },
-      
       components: {
         PreviewCard
       },
       props: [
-        "shows", "locations"
+        "shows", "locations", "authors"
       ],
       methods: {
         getLocation(id) {
@@ -39,12 +33,7 @@
           if (!filtered.length) return undefined;
           return filtered[0];
         }
-      },
-      async mounted() {
-            const authorsResponse = await fetch("./data/authors.json");
-            const authorsResult = await authorsResponse.json();
-            this.authors = authorsResult.authors;
-        }
+      }
     }
 </script>
 
