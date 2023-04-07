@@ -5,6 +5,8 @@ A history of live shows of my rock band St. Emmi
 done:
 
 to do:
+Push & merge, new branch hw17
+
 Cut code into smaller pieces. Use modules / services!
 Invert the if/else logic, if it is not good to read.
 
@@ -22,6 +24,8 @@ Backend:
 Frontend / Backend in different repos?
 
 DB:
+rename: subtile --> title
+authors --> users (and everywhere else!!!!)
 Check relationships
 relationship incompatible? check signed / unsigned
 MYSQL Workbench: „Sync Model“

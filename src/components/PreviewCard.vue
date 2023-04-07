@@ -3,18 +3,18 @@
     <p>{{ createDate }}</p>
     <img v-if="this.show.poster" :src="'./images/posters/'+show.poster.filename" :alt="show.poster.alt">
     <p>{{ show.text }}</p>
-    <AuthorContainer :author="author" />
+    <UserContainer :user="user" />
 </template>
 
 <script>
-    import AuthorContainer from "./AuthorContainer.vue";
+    import UserContainer from "./UserContainer.vue";
 
     export default {
         components: {
-            AuthorContainer
+            UserContainer
         },
         props: [
-            "show", "location", "author"
+            "show", "location", "user"
         ],
         computed: {
             createHeading() {

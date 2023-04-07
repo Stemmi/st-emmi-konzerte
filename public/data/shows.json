@@ -11,7 +11,7 @@
                 "filename": "2022-08-26-boizenburg.jpg",
                 "alt": ""
             },
-            "authorId": 0
+            "userId": 0
         },
 
         {
@@ -25,7 +25,7 @@
                 "filename": "2018-04-30-neuland.jpg",
                 "alt": "Handgeschriebenes Schild: Moinsen! alle Getränke 0,50 €, Freisaufen 20 €"
             },
-            "authorId": 0
+            "userId": 0
         },
         {
             

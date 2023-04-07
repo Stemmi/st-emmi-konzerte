@@ -2,18 +2,18 @@
     <h3>{{ createHeading }}</h3>
     <p>{{ createDate }}</p>
     <p>{{ show.text }}</p>
-    <AuthorContainer :author="author" />
+    <UserContainer :user="user" />
 </template>
 
 <script>
-    import AuthorContainer from "./AuthorContainer.vue";
+    import UserContainer from "./UserContainer.vue";
 
     export default {
         components: {
-            AuthorContainer
+            UserContainer
         },
         props: [
-            "show", "location", "author"
+            "show", "location", "user"
         ],
         computed: {
             createHeading() {

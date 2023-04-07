@@ -13,7 +13,7 @@
                 popup >
                 <template v-slot:popup>
                     <div v-if="location.shows.length === 1">
-                        <MapBoxPopupOneShow :show="location.shows[0]" :location="location" :author="getAuthor(location.shows[0].authorId)"/>
+                        <MapBoxPopupOneShow :show="location.shows[0]" :location="location" :user="getUser(location.shows[0].userId)"/>
                     </div>
                     <div v-else>
                         <MapBoxPopupMultipleShows :show="location.shows[0]" :location="location"/>
@@ -31,6 +31,7 @@
     import { MapboxMap, MapboxMarker } from '@studiometa/vue-mapbox-gl';
     import MapBoxPopupOneShow from './MapBoxPopupOneShow.vue';
     import MapBoxPopupMultipleShows from './MapBoxPopupMultipleShows.vue';
+    import dataGetters from '../services/dataGetters.js';
 
     export default {
         data() {
@@ -47,7 +48,7 @@
         props: [
             "shows",
             "locations",
-            "authors"
+            "users"
         ],
         computed: {
             latestShowCoordinates() {
@@ -57,11 +58,8 @@
             }
         },
         methods: {
-            getAuthor(id) {
-            if (!this.authors) return undefined;
-            const filtered = this.authors.filter(aut => aut.id === id);
-            if (!filtered.length) return undefined;
-            return filtered[0];
+            getUser(id) {
+                return dataGetters.getUserById(id, this.users);
             }
         },
         mounted() {

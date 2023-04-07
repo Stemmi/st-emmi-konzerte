@@ -1,10 +1,13 @@
 <template>
-  <section class="loading" v-if="!shows || !locations || !authors">
+  <section class="loading" v-if="!shows || !locations || !users">
     Loading...
   </section>
   <section v-else>
     <article v-for="show in shows" :key="show.id">
-      <PreviewCard :show="show" :location="getLocation(show.locationId)" :author="getAuthor(show.authorId)"/>
+      <PreviewCard
+        :show="show"
+        :location="getLocation(show.locationId)"
+        :user="getUser(show.userId)"/>
     </article>
   </section>
 
@@ -12,26 +15,21 @@
 
 <script>
     import PreviewCard from './PreviewCard.vue';
+    import dataGetters from '../services/dataGetters.js';
 
     export default {
       components: {
         PreviewCard
       },
       props: [
-        "shows", "locations", "authors"
+        "shows", "locations", "users"
       ],
       methods: {
         getLocation(id) {
-          if (!this.locations) return undefined;
-          const filtered = this.locations.filter(loc => loc.id === id);
-          if (!filtered.length) return undefined;
-          return filtered[0];
+          return dataGetters.getLocationById(id, this.locations);
         },
-        getAuthor(id) {
-          if (!this.authors) return undefined;
-          const filtered = this.authors.filter(aut => aut.id === id);
-          if (!filtered.length) return undefined;
-          return filtered[0];
+        getUser(id) {
+          return dataGetters.getUserById(id, this.users);
         }
       }
     }

@@ -4,21 +4,22 @@
     </div>
 
     <main v-else>
-        <CardContainer :shows="shows" :locations="locations" :authors="authors" />
-        <MapBox :shows="shows" :locations="locations" :authors="authors" />
+        <CardContainer :shows="shows" :locations="locations" :users="users" />
+        <MapBox :shows="shows" :locations="locations" :users="users" />
     </main>
 </template>
 
 <script>
     import CardContainer from "../components/CardContainer.vue";
     import MapBox from "../components/MapBox.vue";
+    import dataGetters from "../services/dataGetters.js";
     
     export default {
         data() {
             return {
                 shows: undefined,
                 locations: undefined,
-                authors: undefined
+                users: undefined
             }
         },
         components: {
@@ -26,15 +27,9 @@
             MapBox
         },
         async mounted() {
-            const showsResponse = await fetch("./data/shows.json");
-            const showsResult = await showsResponse.json();
-            this.shows = showsResult.shows;
-            const locationsResponse = await fetch("./data/locations.json");
-            const locationsResult = await locationsResponse.json();
-            this.locations = locationsResult.locations;
-            const authorsResponse = await fetch("./data/authors.json");
-            const authorsResult = await authorsResponse.json();
-            this.authors = authorsResult.authors;
+            this.shows = await dataGetters.getShows();
+            this.locations = await dataGetters.getLocations();
+            this.users = await dataGetters.getUsers();
         }
     } 
 </script>
