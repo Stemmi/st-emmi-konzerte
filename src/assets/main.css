@@ -89,3 +89,8 @@ svg {
   color: var(--default-dark-color);
   animation: pulsating 1s linear 1s infinite alternate;
 }
+
+.mapboxgl-popup-close-button {
+  padding: 1px 4px;
+  border-color: var(--default-dark-color);
+}

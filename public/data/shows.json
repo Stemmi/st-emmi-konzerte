@@ -2,7 +2,7 @@
     "shows": [
         {
             "id": 0,
-            "subtitle": "Umsonst & Draußen",
+            "title": "Umsonst & Draußen",
             "date": "2022-08-26",
             "locationId": 0,
             "bandsIds": [0, 1],
@@ -16,7 +16,7 @@
 
         {
             "id": 1,
-            "subtitle": "Musik für Rainer Festival",
+            "title": "Musik für Rainer Festival",
             "date": "2019-04-30",
             "locationId": 1,
             "bandsIds": [],

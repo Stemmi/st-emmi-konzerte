@@ -17,13 +17,13 @@
         ],
         computed: {
             createHeading() {
-                const subtitle = this.show.subtitle || "";
+                const title = this.show.title || "";
                 const location = this.location || {};
                 let locationString = "";
                 if (location.name && location.city) locationString = location.name + ", " + location.city;
                 else locationString = location.name || location.city || "";                
-                if (subtitle && locationString) return subtitle + ", " + locationString;
-                else return subtitle || locationString || "";
+                if (title && locationString) return title + ", " + locationString;
+                else return title || locationString || "";
             },
             createDate() {
                 if (!this.show.date) return "";

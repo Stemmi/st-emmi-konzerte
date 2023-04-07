@@ -1,9 +1,7 @@
 <template>
     <h3>{{ createHeading }}</h3>
     <p>{{ createDate }}</p>
-    <img v-if="this.show.poster" :src="'./images/posters/'+show.poster.filename" :alt="show.poster.alt">
     <p>{{ show.text }}</p>
-    <AuthorContainer :author="author" />
 </template>
 
 <script>

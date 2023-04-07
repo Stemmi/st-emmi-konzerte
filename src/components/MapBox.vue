@@ -16,7 +16,7 @@
                         <MapBoxPopupOneShow :show="location.shows[0]" :location="location" :author="getAuthor(location.shows[0].authorId)"/>
                     </div>
                     <div v-else>
-                        <p>{{ location.shows }}</p>
+                        <MapBoxPopupMultipleShows :show="location.shows[0]" :location="location"/>
                     </div>
                     
                 </template>
@@ -30,6 +30,7 @@
     import 'mapbox-gl/dist/mapbox-gl.css';
     import { MapboxMap, MapboxMarker } from '@studiometa/vue-mapbox-gl';
     import MapBoxPopupOneShow from './MapBoxPopupOneShow.vue';
+    import MapBoxPopupMultipleShows from './MapBoxPopupMultipleShows.vue';
 
     export default {
         data() {
@@ -40,7 +41,8 @@
         components: {
             MapboxMap,
             MapboxMarker,
-            MapBoxPopupOneShow
+            MapBoxPopupOneShow,
+            MapBoxPopupMultipleShows
         },
         props: [
             "shows",
