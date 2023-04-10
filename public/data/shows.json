@@ -27,8 +27,19 @@
             },
             "userId": 0
         },
+
         {
-            
+            "id": 2,
+            "title": "Example Title",
+            "date": "2023-04-10",
+            "locationId": 1,
+            "bandsIds": [],
+            "text": "Some words about the show.",
+            "poster": {
+                "filename": "",
+                "alt": ""
+            },
+            "userId": 0
         }
     ]
 }

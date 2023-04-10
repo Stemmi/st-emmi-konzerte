@@ -1,7 +1,7 @@
 <template>
     <h3>{{ heading }}</h3>
     <p>{{ date }}</p>
-    <img v-if="this.show.poster" :src="'./images/posters/'+show.poster.filename" :alt="show.poster.alt">
+    <img v-if="this.show.poster" :src="image" :alt="show.poster.alt">
     <p>{{ show.text }}</p>
     <UserContainer :user="user" />
 </template>
@@ -23,6 +23,10 @@
             },
             date() {
                 return outputFormatters.createDate(this.show.date);
+            },
+            image() {
+                if (this.show.poster.filename) return './images/posters/'+this.show.poster.filename;
+                return './images/posters/placeholder.jpg';
             }
         }
     }

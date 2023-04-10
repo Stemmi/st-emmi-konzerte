@@ -5,9 +5,6 @@ A history of live shows of my rock band St. Emmi
 done:
 
 to do:
-Map marker popup:
-- Multiple shows (wip)
-- Place a link, which links to the detail page: /post/:id
 
 Bonus 2: Get Blog Posts from Backend
 - Frontend / Backend in different repos?
@@ -25,6 +22,7 @@ MYSQL Workbench: „Sync Model“
 ---
 PreviewContainer:
 - When user clicks on one of the listed blog post than she gets linked to the detail page /post/:id
+- Place a link in Mapbox popup to /post/:id
 
 ---
 

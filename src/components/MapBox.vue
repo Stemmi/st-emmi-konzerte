@@ -16,7 +16,7 @@
                         <MapBoxPopupOneShow :show="location.shows[0]" :location="location" :user="getUser(location.shows[0].userId)"/>
                     </div>
                     <div v-else>
-                        <MapBoxPopupMultipleShows :show="location.shows[0]" :location="location"/>
+                        <MapBoxPopupMultipleShows :shows="location.shows" :location="location"/>
                     </div>
                     
                 </template>

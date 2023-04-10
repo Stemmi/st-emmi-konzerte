@@ -1,7 +1,11 @@
 <template>
     <h3>{{ heading }}</h3>
-    <p>{{ date }}</p>
-    <p>{{ show.text }}</p>
+    <ul>
+        <li v-for="show of shows" :key="show.id">
+            <span>{{ date(show.date) }}</span>
+            <span v-if="show.title">, {{ show.title }}</span>
+        </li>
+    </ul>
 </template>
 
 <script>
@@ -13,14 +17,16 @@
             UserContainer
         },
         props: [
-            "show", "location", "user"
+            "shows", "location", "user"
         ],
         computed: {
             heading() {
-                return outputFormatters.createHeading(this.show, this.location);
-            },
-            date() {
-                return outputFormatters.createDate(this.show.date);
+                return outputFormatters.createHeading('', this.location);
+            }
+        },
+        methods: {
+            date(date) {
+                return outputFormatters.createDate(date);
             }
         }
     }
@@ -36,5 +42,9 @@
 
     p {
         margin-bottom: 10px;
+    }
+
+    ul {
+        list-style-type: none;
     }
 </style>
