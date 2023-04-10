@@ -2,52 +2,85 @@
 A history of live shows of my rock band St. Emmi
 
 ## Tasks
-- split json files
-- fetch data on mount
-- fetch only in the child who needs the data
-- fetch on demand
-- use vue router and views
-- implement key at v-for
-- check pictures for contain / cover
-- use optional chaining or v-if/-else for fetched data (loading...)
+done:
 
-- Use this for mapbox: https://www.npmjs.com/package/@studiometa/vue-mapbox-gl 
+to do:
+Push & merge, new branch hw17
+
+Cut code into smaller pieces. Use modules / services!
+Invert the if/else logic, if it is not good to read.
+
+Map marker popup:
+- Multiple shows (wip)
+- Place a link, which links to the detail page: /post/:id
+
+Bonus 2: Get Blog Posts from Backend
+
+    Create a seperate Node.JS application to handle the BackEnd
+    Serve your Blog Posts thourgh a REST Api with JSON
 
 
-World Map with Google Maps API
-- Research for a method to integrate the Google Maps API into a Vue-Component to display a world map.
-- For each blog post, put a marker on the map at the location of the post.
-- Initially the map gets centered by the newest blog post entry.
-Display Blog Posts at Location
-- Make the markers clickable: on click, show the short preview of the blog post in the "InfoWindow".
-- It contains:
-   - title
-   - visiting date
-   - authors image and name (can be hardcoded)
-   - Place a link, which links to the detail page: /post/:id
-   - The InfoWindow can be closed by clicking on the "x" (which is placed at right-top in the InfoWindow
+Backend:
+Frontend / Backend in different repos?
+
+DB:
+rename: subtile --> title
+authors --> users (and everywhere else!!!!)
+Check relationships
+relationship incompatible? check signed / unsigned
+MYSQL Workbench: „Sync Model“
+
+Express: Use one route per table
 
 ---
-
-
 PreviewContainer:
 - When user clicks on one of the listed blog post than she gets linked to the detail page /post/:id
 
-GoogleMaps:
-- Formatting of the container (same height as Previewcontainer)
-- Map
-- Marker
-- PreviewBox
+---
 
-Common:
-- Author (Image & Name)
+Blog Post Detail
 
-Create Additional pages:
-- Contact Page
-- Detail Page
+    On clicking at the title or the image of the blog post preview, the blog post is opened at the detail page /post/:id.
+    A back button at the details page (position: top-left) links back to the dashboard.
+    The detail page shows the full blog post, with all information.
 
-Try different Maps:
-GoogleMaps / MapBox / OpenStreetMap
+Content of a blog post
+A blog post should contain:
 
-Backend: Use a different github repo
-Express: Use one route per table
+    title
+    visiting date
+    authors name
+    image
+    text
+    location with city and country
+
+Bonus 1: Map for Blog Post Detail Page
+
+    On the Blog Post Detail page, place a the map on the right side next to the blog post.
+    The map shows centered the location of the blog post.
+
+---
+
+Imprint / Contact
+
+    Create a link /contact in the menu bar named "Contact".
+    On the contact page place your (and your team mate's) name.
+    Write two sentences about your project.
+    Put your (or if you prefer Hamburg Coding School's) contact details:
+        name
+        address
+        email
+        phone number
+    Write a note that this was a project from a course at Hamburg Coding School.
+
+---
+
+Extras:
+
+Bonus 3-6 see github
+
+Additional Link in Preview to center the map at the location?
+Or / and centralizing the map or growing of the marker @hover over preview?
+
+Try different Maps: GoogleMaps
+Try to hide the mapbox token from github by outsourcing it into a gitignored file.
