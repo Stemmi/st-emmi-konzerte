@@ -5,8 +5,6 @@ A history of live shows of my rock band St. Emmi
 done:
 
 to do:
-- Invert the if/else logic, if it is not good to read.
-
 Map marker popup:
 - Multiple shows (wip)
 - Place a link, which links to the detail page: /post/:id

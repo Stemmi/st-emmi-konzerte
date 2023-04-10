@@ -1,14 +1,15 @@
 <template>
-  <section class="loading" v-if="!shows || !locations || !users">
-    Loading...
-  </section>
-  <section v-else>
+  <section v-if="shows && locations && users">
     <article v-for="show in shows" :key="show.id">
       <PreviewCard
         :show="show"
         :location="getLocation(show.locationId)"
         :user="getUser(show.userId)"/>
     </article>
+  </section>
+  
+  <section v-else class="loading">
+    Loading...
   </section>
 
 </template>

@@ -1,11 +1,11 @@
 <template>
-    <div class="loading" v-if="!shows || !locations">
-        Loading...
-    </div>
-
-    <main v-else>
+    <main v-if="shows && locations">
         <CardContainer :shows="shows" :locations="locations" :users="users" />
         <MapBox :shows="shows" :locations="locations" :users="users" />
+    </main>
+
+    <main v-else class="loading">
+        Loading...
     </main>
 </template>
 
