@@ -23,17 +23,40 @@ function getLocationById(id, locations) {
     return filtered[0];
   }
 
-  function getUserById(id, users) {
+function getUserById(id, users) {
     if (!users) return undefined;
     const filtered = users.filter(user => user.id === id);
     if (!filtered.length) return undefined;
     return filtered[0];
-  }
+}
+
+function getLatestShow(shows) {
+    const showsWithValidDate = shows.filter(show => show.date);
+    const latest = showsWithValidDate.reduce((prev, curr) => (prev.date > curr.date) ? prev : curr);
+    return latest;
+}
+
+function getLocationsWithShows(locations, shows) {
+    let result = [];
+    for (let location of locations) {
+    const currentShows = shows.filter(show => show.locationId === location.id);
+        if (!currentShows.length) continue;
+        result.push(
+            {
+                ...location,
+                shows: currentShows
+            }
+        );
+    }
+    return result;
+}
 
 export default {
     getShows,
     getLocations,
     getUsers,
     getLocationById,
-    getUserById
+    getUserById,
+    getLatestShow,
+    getLocationsWithShows
 }

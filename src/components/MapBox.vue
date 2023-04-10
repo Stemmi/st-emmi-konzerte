@@ -52,8 +52,7 @@
         ],
         computed: {
             latestShowCoordinates() {
-                const showsWithValidDate = this.shows.filter(show => show.date);
-                const latest = showsWithValidDate.reduce((prev, curr) => (prev.date > curr.date) ? prev : curr);
+                const latest = dataGetters.getLatestShow(this.shows);
                 return [this.locations[latest.locationId].long, this.locations[latest.locationId].lat];
             }
         },
@@ -63,16 +62,7 @@
             }
         },
         mounted() {
-            for (let location of this.locations) {
-                const currentShows = this.shows.filter(show => show.locationId === location.id);
-                if (!currentShows.length) continue;
-                this.locationsWithShows.push(
-                    {
-                        ...location,
-                        shows: currentShows
-                    }
-                );
-            }
+            this.locationsWithShows = dataGetters.getLocationsWithShows(this.locations, this.shows);
         }
     }
 </script>

@@ -1,12 +1,13 @@
 <template>
-    <h3>{{ createHeading }}</h3>
-    <p>{{ createDate }}</p>
+    <h3>{{ heading }}</h3>
+    <p>{{ date }}</p>
     <p>{{ show.text }}</p>
     <UserContainer :user="user" />
 </template>
 
 <script>
     import UserContainer from "./UserContainer.vue";
+    import outputFormatters from "../services/outputFormatters.js";
 
     export default {
         components: {
@@ -16,18 +17,11 @@
             "show", "location", "user"
         ],
         computed: {
-            createHeading() {
-                const title = this.show.title || "";
-                const location = this.location || {};
-                let locationString = "";
-                if (location.name && location.city) locationString = location.name + ", " + location.city;
-                else locationString = location.name || location.city || "";                
-                if (title && locationString) return title + ", " + locationString;
-                else return title || locationString || "";
+            heading() {
+                return outputFormatters.createHeading(this.show, this.location);
             },
-            createDate() {
-                if (!this.show.date) return "";
-                return this.show.date.split('-').reverse().join('.');
+            date() {
+                return outputFormatters.createDate(this.show.date);
             }
         }
     }

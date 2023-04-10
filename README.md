@@ -5,23 +5,17 @@ A history of live shows of my rock band St. Emmi
 done:
 
 to do:
-Push & merge, new branch hw17
-
-Cut code into smaller pieces. Use modules / services!
-Invert the if/else logic, if it is not good to read.
+- Invert the if/else logic, if it is not good to read.
 
 Map marker popup:
 - Multiple shows (wip)
 - Place a link, which links to the detail page: /post/:id
 
 Bonus 2: Get Blog Posts from Backend
-
-    Create a seperate Node.JS application to handle the BackEnd
-    Serve your Blog Posts thourgh a REST Api with JSON
-
-
-Backend:
-Frontend / Backend in different repos?
+- Frontend / Backend in different repos?
+- Create a seperate Node.JS application to handle the BackEnd
+- Serve your Blog Posts thourgh a REST Api with JSON
+- Express: Use one route per table
 
 DB:
 rename: subtile --> title
@@ -29,8 +23,6 @@ authors --> users (and everywhere else!!!!)
 Check relationships
 relationship incompatible? check signed / unsigned
 MYSQL Workbench: „Sync Model“
-
-Express: Use one route per table
 
 ---
 PreviewContainer:

@@ -1,6 +1,6 @@
 <template>
     <div v-if="user">
-        <img :src="createImgPath" :alt="user.name">
+        <img :src="'/images/users/'+this.user.image" :alt="user.name">
         <p>{{ user.name }}</p>
     </div>
 </template>
@@ -14,12 +14,7 @@
         },
         props: [
             "user"
-        ],
-        computed: {
-            createImgPath() {
-                return this.imgPath = '/images/users/' + this.user.image;
-            }
-        }
+        ]
     }
 
 </script>
