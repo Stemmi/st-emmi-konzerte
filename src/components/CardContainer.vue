@@ -27,7 +27,7 @@
       },
       async mounted() {
             this.shows = await dataGetters.getShows();
-        }
+      }
     }
 </script>
 

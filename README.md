@@ -5,8 +5,6 @@ A history of live shows of my rock band St. Emmi
 done:
 
 to do:
-refactor Mapbox Popups, only one Component, one/many with v-if, get showsByLoc from there
-
 Get Blog Posts from Backend
 
 ---

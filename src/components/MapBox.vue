@@ -12,13 +12,7 @@
                 color="#ab0000"
                 popup >
                 <template v-slot:popup>
-                    <div v-if="location.shows.length === 1">
-                        <MapBoxPopupOneShow :show="location.shows[0]" :location="location" />
-                    </div>
-                    <div v-else>
-                        <MapBoxPopupMultipleShows :shows="location.shows" :location="location" />
-                    </div>
-                    
+                    <MapBoxPopup :location="location" />
                 </template>
             </MapboxMarker>
         </span>
@@ -33,8 +27,7 @@
 <script>
     import 'mapbox-gl/dist/mapbox-gl.css';
     import { MapboxMap, MapboxMarker } from '@studiometa/vue-mapbox-gl';
-    import MapBoxPopupOneShow from './MapBoxPopupOneShow.vue';
-    import MapBoxPopupMultipleShows from './MapBoxPopupMultipleShows.vue';
+    import MapBoxPopup from './MapBoxPopup.vue';
     import dataGetters from '../services/dataGetters.js';
 
     export default {
@@ -47,8 +40,7 @@
         components: {
             MapboxMap,
             MapboxMarker,
-            MapBoxPopupOneShow,
-            MapBoxPopupMultipleShows
+            MapBoxPopup
         },
         async mounted() {            
             this.locations = await dataGetters.getLocationsWithShows();

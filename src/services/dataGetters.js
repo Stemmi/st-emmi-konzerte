@@ -63,6 +63,12 @@ async function getLocationsWithShows() {
     return result;
 }
 
+async function getShowsByLocation(locationId) {
+    const shows = await getShows();
+    const showsByLocation = shows.filter(show => show.locationId === locationId);
+    return showsByLocation;
+}
+
 export default {
     getBands,
     getLocations,
@@ -71,5 +77,6 @@ export default {
     getLocationById,
     getUserById,
     getLatestShowCoordinates,
-    getLocationsWithShows
+    getLocationsWithShows,
+    getShowsByLocation
 }
