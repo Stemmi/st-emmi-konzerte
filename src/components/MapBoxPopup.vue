@@ -12,8 +12,8 @@
             <p>{{ shows[0].text }}</p>
             <UserContainer :userId="shows[0].userId" />
         </div>
-        
     </div>
+    <div v-else>No shows here.</div>
 
 </template>
 
@@ -45,7 +45,7 @@
             }
         },
         async mounted() {
-            this.shows = await dataGetters.getShowsByLocation(this.location.id);
+            this.shows = await dataGetters.getShowsByLocationId(this.location.id);
         }
     }
 </script>

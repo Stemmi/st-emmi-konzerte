@@ -5,7 +5,9 @@ A history of live shows of my rock band St. Emmi
 done:
 
 to do:
+Create Date Component (& Heading Component?)
 Get Blog Posts from Backend
+Handle "dead" locations (locations without shows)
 
 ---
 PreviewContainer:

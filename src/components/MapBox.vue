@@ -43,7 +43,7 @@
             MapBoxPopup
         },
         async mounted() {            
-            this.locations = await dataGetters.getLocationsWithShows();
+            this.locations = await dataGetters.getLocations();
             this.latestShowCoordinates = await dataGetters.getLatestShowCoordinates();            
         }
     }

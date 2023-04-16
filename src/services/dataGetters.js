@@ -28,7 +28,15 @@ async function getLocationById(id) {
     const filtered = locations.filter(loc => loc.id === id);
     if (!filtered.length) return undefined;
     return filtered[0];
-  }
+}
+
+async function getLocationByLatestShow() {
+    const shows = await getShows();
+    const showsWithValidDate = shows.filter(show => show.date);
+    const latest = showsWithValidDate.reduce((prev, curr) => (prev.date > curr.date) ? prev : curr);
+    const location = await getLocationById(latest.locationId);
+    return location;
+}
 
 async function getUserById(id) {
     const users = await getUsers();
@@ -39,31 +47,11 @@ async function getUserById(id) {
 }
 
 async function getLatestShowCoordinates() {
-    const shows = await getShows();
-    const showsWithValidDate = shows.filter(show => show.date);
-    const latest = showsWithValidDate.reduce((prev, curr) => (prev.date > curr.date) ? prev : curr);
-    const location = await getLocationById(latest.locationId);
+    const location = await getLocationByLatestShow();
     return [location.long, location.lat];
 }
 
-async function getLocationsWithShows() {
-    let result = [];
-    const locations = await getLocations();
-    const shows = await getShows();
-    for (let location of locations) {
-    const currentShows = shows.filter(show => show.locationId === location.id);
-        if (!currentShows.length) continue;
-        result.push(
-            {
-                ...location,
-                shows: currentShows
-            }
-        );
-    }
-    return result;
-}
-
-async function getShowsByLocation(locationId) {
+async function getShowsByLocationId(locationId) {
     const shows = await getShows();
     const showsByLocation = shows.filter(show => show.locationId === locationId);
     return showsByLocation;
@@ -77,6 +65,5 @@ export default {
     getLocationById,
     getUserById,
     getLatestShowCoordinates,
-    getLocationsWithShows,
-    getShowsByLocation
+    getShowsByLocationId
 }
