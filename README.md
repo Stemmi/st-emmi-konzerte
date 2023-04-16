@@ -5,19 +5,9 @@ A history of live shows of my rock band St. Emmi
 done:
 
 to do:
+refactor Mapbox Popups, only one Component, one/many with v-if, get showsByLoc from there
 
-Bonus 2: Get Blog Posts from Backend
-- Frontend / Backend in different repos?
-- Create a seperate Node.JS application to handle the BackEnd
-- Serve your Blog Posts thourgh a REST Api with JSON
-- Express: Use one route per table
-
-DB:
-rename: subtile --> title
-authors --> users (and everywhere else!!!!)
-Check relationships
-relationship incompatible? check signed / unsigned
-MYSQL Workbench: „Sync Model“
+Get Blog Posts from Backend
 
 ---
 PreviewContainer:

@@ -1,5 +1,6 @@
 {
-    "users": [
+    "count": 1,
+    "results": [
         {
             "id": 0,
             "name": "Stemmi",

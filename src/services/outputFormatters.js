@@ -3,7 +3,8 @@ function createDate(date) {
 }
 
 function createHeading(show, location) {
-    return [show.title, location.name, location.city].filter(item => item).join(', ');
+    if (!location) return show.title;
+    else return [show.title, location.name, location.city].filter(item => item).join(', ');
 }
 
 export default {

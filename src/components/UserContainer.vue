@@ -6,15 +6,19 @@
 </template>
 
 <script>
+    import dataGetters from '../services/dataGetters.js';
+    
     export default {
         data() {
             return {
-                imgPath: undefined
-            }
+                user: undefined            }
         },
         props: [
-            "user"
-        ]
+            "userId"
+        ],
+        async mounted() {
+            this.user = await dataGetters.getUserById(this.userId);
+        }
     }
 
 </script>

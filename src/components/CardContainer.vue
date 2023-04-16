@@ -1,10 +1,7 @@
 <template>
-  <section v-if="shows && locations && users">
+  <section v-if="shows">
     <article v-for="show in shows" :key="show.id">
-      <PreviewCard
-        :show="show"
-        :location="getLocation(show.locationId)"
-        :user="getUser(show.userId)"/>
+      <PreviewCard :show="show"/>
     </article>
   </section>
   
@@ -19,20 +16,18 @@
     import dataGetters from '../services/dataGetters.js';
 
     export default {
+      data() {
+        return {
+          shows: undefined
+        }
+      },
+      
       components: {
         PreviewCard
       },
-      props: [
-        "shows", "locations", "users"
-      ],
-      methods: {
-        getLocation(id) {
-          return dataGetters.getLocationById(id, this.locations);
-        },
-        getUser(id) {
-          return dataGetters.getUserById(id, this.users);
+      async mounted() {
+            this.shows = await dataGetters.getShows();
         }
-      }
     }
 </script>
 

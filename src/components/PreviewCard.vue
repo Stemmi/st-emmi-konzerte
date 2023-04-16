@@ -3,19 +3,24 @@
     <p>{{ date }}</p>
     <img v-if="this.show.poster" :src="image" :alt="show.poster.alt">
     <p>{{ show.text }}</p>
-    <UserContainer :user="user" />
+    <UserContainer :userId="show.userId" />
 </template>
 
 <script>
     import UserContainer from "./UserContainer.vue";
     import outputFormatters from "../services/outputFormatters.js";
+    import dataGetters from "../services/dataGetters";
 
     export default {
+        data() {
+            return {
+                location: undefined            }
+        },
         components: {
             UserContainer
         },
         props: [
-            "show", "location", "user"
+            "show"
         ],
         computed: {
             heading() {
@@ -28,6 +33,9 @@
                 if (this.show.poster.filename) return './images/posters/'+this.show.poster.filename;
                 return './images/posters/placeholder.jpg';
             }
+        },
+        async mounted() {
+            this.location = await dataGetters.getLocationById(this.show.locationId);
         }
     }
 </script>

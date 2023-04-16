@@ -2,7 +2,7 @@
     <h3>{{ heading }}</h3>
     <p>{{ date }}</p>
     <p>{{ show.text }}</p>
-    <UserContainer :user="user" />
+    <UserContainer :userId="show.userId" />
 </template>
 
 <script>
@@ -14,7 +14,7 @@
             UserContainer
         },
         props: [
-            "show", "location", "user"
+            "show", "location"
         ],
         computed: {
             heading() {
