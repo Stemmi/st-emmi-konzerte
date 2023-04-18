@@ -14,7 +14,9 @@
     export default {
         data() {
             return {
-                location: undefined            }
+                location: undefined,
+                isImgLoaded: false
+            }
         },
         components: {
             UserContainer

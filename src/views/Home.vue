@@ -22,6 +22,7 @@
         display: flex;
         flex-wrap: wrap;
         width: 100%;
+        min-height: 480px;
         gap: 1px;
         justify-content: space-between;
         background-color: var(--default-dark-color);

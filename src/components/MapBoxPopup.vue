@@ -1,5 +1,4 @@
 <template>
-    <div v-if="shows">
         <h3>{{ heading }}</h3>
         <ul v-if="shows.length>1">
             <li v-for="show of shows" :key="show.id">
@@ -7,14 +6,12 @@
                 <span v-if="show.title">, {{ show.title }}</span>
             </li>
         </ul>
-        <div v-else>
+        <div v-else-if="shows.length===1">
             <p>{{ date(shows[0].date) }}</p>
             <p>{{ shows[0].text }}</p>
             <UserContainer :userId="shows[0].userId" />
         </div>
-    </div>
-    <div v-else>No shows here.</div>
-
+        <div v-else>No shows here.</div>
 </template>
 
 <script>
@@ -25,7 +22,7 @@
     export default {
         data() {
             return {
-                shows: undefined
+                shows: []
             }
         }, 
         components: {
