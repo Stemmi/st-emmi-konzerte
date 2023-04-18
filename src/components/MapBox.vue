@@ -5,7 +5,7 @@
             access-token="pk.eyJ1Ijoic3RlbW1pIiwiYSI6ImNsZnNjeWV0MDA1MTAzaHNlNzY1OHl5YTgifQ.fDF5EfP2eLcs0DhN1QNKig"
             map-style="mapbox://styles/mapbox/streets-v11"
             :center="latestShowCoordinates"
-            :zoom="10">
+            :zoom="12">
             <span v-for="location of locations" :key="location.id">
             <MapboxMarker
                 :lng-lat="[location.long, location.lat]"

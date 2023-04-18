@@ -1,8 +1,14 @@
 import settings from "./settings";
 console.log(settings.baseUrl());
 
-async function getBands() {
-    const response = await fetch(settings.baseUrl()+"/band");
+// async function getBands() {
+//     const response = await fetch(settings.baseUrl()+"/band");
+//     const bands = await response.json();
+//     return bands.results;    
+// }
+
+async function getBandsByShowId(showId) {
+    const response = await fetch(settings.baseUrl()+"/show/"+showId+"/bands");
     const bands = await response.json();
     return bands.results;    
 }
@@ -20,16 +26,22 @@ async function getShows() {
     return shows.results;
 }
 
-async function getUsers() {
-    const response = await fetch(settings.baseUrl()+"/user");
-    const users = await response.json();
-    return users.results;
-}
+// async function getUsers() {
+//     const response = await fetch(settings.baseUrl()+"/user");
+//     const users = await response.json();
+//     return users.results;
+// }
 
 async function getLocationById(id) {
     const response = await fetch(settings.baseUrl()+"/location/" + id);
     const location = await response.json();
     return location;
+}
+
+async function getShowById(id) {
+    const response = await fetch(settings.baseUrl()+"/show/" + id);
+    const show = await response.json();
+    return show;
 }
 
 async function getLatestShow() {
@@ -57,11 +69,13 @@ async function getShowsByLocationId(locationId) {
 }
 
 export default {
-    getBands,
+    // getBands,
+    getBandsByShowId,
     getLocations,
     getShows,
-    getUsers,
+    // getUsers,
     getLocationById,
+    getShowById,
     getUserById,
     getLatestShowCoordinates,
     getShowsByLocationId
