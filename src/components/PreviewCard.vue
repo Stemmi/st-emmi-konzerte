@@ -45,9 +45,11 @@
 <style scoped>
     img {
         border: 1px solid grey;
-        width: 300px;
+        max-width: 300px;
         min-height: 200px;
-        object-fit: cover;
+        max-height: 300px;
+        object-fit:contain;
+        background: black;
     }
 
     p {

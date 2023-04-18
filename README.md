@@ -5,17 +5,10 @@ A history of live shows of my rock band St. Emmi
 done:
 
 to do:
-Get Blog Posts from Backend
-Handle "dead" locations (locations without shows)
-Check: Multiple shows at location
-
 ---
-PreviewContainer:
-- When user clicks on one of the listed blog post than she gets linked to the detail page /post/:id
+PreviewContainer: - When user clicks on one of the listed blog post than she gets linked to the detail page /post/:id
 - Place a link in Mapbox popup to /post/:id
-
 ---
-
 Blog Post Detail
 
     On clicking at the title or the image of the blog post preview, the blog post is opened at the detail page /post/:id.
@@ -36,6 +29,11 @@ Bonus 1: Map for Blog Post Detail Page
 
     On the Blog Post Detail page, place a the map on the right side next to the blog post.
     The map shows centered the location of the blog post.
+----
+
+Handle "dead" locations (locations without shows)
+Check: Multiple shows at location
+Fill the db
 
 ---
 
