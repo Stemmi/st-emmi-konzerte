@@ -1,13 +1,18 @@
 <template>
-        <h3>{{ heading }}</h3>
-        <ul v-if="shows.length>1">
-            <li v-for="show of shows" :key="show.id">
-                <span>{{ date(show.date) }}</span>
-                <span v-if="show.title">, {{ show.title }}</span>
-            </li>
-        </ul>
-        <div v-else-if="shows.length===1">
-            <p>{{ date(shows[0].date) }}</p>
+        <div v-if="shows.length>1">
+            <h3>{{ heading }}</h3>
+            <ul>
+                <li v-for="show of shows" :key="show.id">
+                    <a :href="'/detail/'+shows[0].id">
+                        {{ date(show.date) }}
+                    </a>
+                    <span v-if="show.title">, {{ show.title }}</span>
+                </li>
+            </ul>
+        </div>
+        <div v-else-if="shows.length===1" class="flex">
+            <h3>{{ heading }}</h3>
+            <a :href="'/detail/'+shows[0].id">{{ date(shows[0].date) }}</a>
             <p>{{ shows[0].text }}</p>
             <UserContainer :user="shows[0].user" />
         </div>
@@ -16,6 +21,7 @@
 
 <script>
     import UserContainer from "./UserContainer.vue";
+
     import dataGetters from "../services/dataGetters.js";
     import outputFormatters from "../services/outputFormatters.js";
 

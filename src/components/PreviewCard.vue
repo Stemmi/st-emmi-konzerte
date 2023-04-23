@@ -1,7 +1,9 @@
 <template>
+    <a :href="'/detail/'+show.id">
     <h3>{{ heading }}</h3>
     <p>{{ date }}</p>
     <img v-if="this.show.poster" :src="image" :alt="show.poster.alt">
+    </a>
     <p>{{ show.text }}</p>
     <UserContainer :user="show.user" />
 </template>
@@ -30,8 +32,8 @@
                 return outputFormatters.createDate(this.show.date);
             },
             image() {
-                if (this.show.poster.filename) return './images/posters/'+this.show.poster.filename;
-                return './images/posters/placeholder.jpg';
+                if (this.show.poster.filename) return '/images/posters/'+this.show.poster.filename;
+                return '/images/posters/placeholder.jpg';
             }
         }
     }

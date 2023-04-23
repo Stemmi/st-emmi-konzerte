@@ -29,7 +29,7 @@ header {
 section {
   flex: auto;
   background-color: var(--default-bright-color);
-  color: black;
+  color: var(--default-dark-color);
 }
 
 article {
@@ -54,6 +54,8 @@ button {
   border: 1px solid var(--default-dark-color);
   border-radius: 12px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 button:hover {

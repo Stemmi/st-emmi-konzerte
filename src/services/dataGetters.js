@@ -67,7 +67,7 @@ export default {
     getShows,
     // getUsers,
     // getLocationById,
-    // getShowById,
+    getShowById,
     // getUserById,
     getLatestLocationPosition,
     getShowsByLocationId

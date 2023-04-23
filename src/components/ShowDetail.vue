@@ -1,0 +1,58 @@
+<template>
+  <section v-if="show">
+    <h2>{{ show.title }}</h2>
+    <h3><Location />{{ '' + heading }}</h3>
+    <p><Calendar />{{ date }}</p>
+    <img v-if="this.show.poster" :src="image" :alt="show.poster.alt">
+    <p>{{ show.text }}</p>
+    <UserContainer :user="show.user" />
+  </section>
+  
+  <section v-else class="loading">
+    Loading...
+  </section>
+
+</template>
+
+<script>
+    import Location from './icons/Location.vue';
+    import Calendar from './icons/Calendar.vue';
+
+
+    import outputFormatters from '../services/outputFormatters.js';
+
+
+    export default {      
+      components: {
+        Location,
+        Calendar
+      },
+      props: [
+        "show"
+      ],
+      computed: {
+            heading() {
+                return outputFormatters.createHeading({ location: this.show.location });
+            },
+            date() {
+                return outputFormatters.createDate(this.show.date);
+            },
+            image() {
+                if (this.show.poster.filename) return '/images/posters/'+this.show.poster.filename;
+                return '/images/posters/placeholder.jpg';
+            }
+        }
+    }
+</script>
+
+<style scoped>
+  section {
+    width: 320px;
+    padding: 10px;
+    /* text-align: center; */
+  }
+
+  img {
+    padding: 10px 0;
+  }
+</style>

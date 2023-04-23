@@ -5,12 +5,6 @@ A history of live shows of my rock band St. Emmi
 done:
 
 to do:
-Optimize Frontend - Backend connection (see flow diagram):
-- Provide all neccessary data from the backend
-- Change getting in the Frontend
-- Delete old gettings from the Frontend
-- Delete old routes from the Backend
-
 ---
 PreviewContainer: - When user clicks on one of the listed blog post than she gets linked to the detail page /post/:id
 - Place a link in Mapbox popup to /post/:id
@@ -70,3 +64,5 @@ Try to hide the mapbox token from github by outsourcing it into a gitignored fil
 Optimize responsiveness
 
 Naming: CardContainer / PreviewCard... better: ShowsContainer, ShowPreview, ShowDetail?
+
+Delete unused / out commented elements
