@@ -9,7 +9,7 @@
         <div v-else-if="shows.length===1">
             <p>{{ date(shows[0].date) }}</p>
             <p>{{ shows[0].text }}</p>
-            <UserContainer :userId="shows[0].userId" />
+            <UserContainer :user="shows[0].user" />
         </div>
         <div v-else>No shows here.</div>
 </template>
@@ -33,7 +33,7 @@
         ],
         computed: {
             heading() {
-                return outputFormatters.createHeading('', this.location);
+                return outputFormatters.createHeading({title: '', location: this.location});
             }
         },
         methods: {

@@ -1,24 +1,15 @@
 <template>
     <div v-if="user">
-        <img :src="'/images/users/'+this.user.image" :alt="user.name">
+        <img :src="'/images/users/'+user.image" :alt="user.name">
         <p>{{ user.name }}</p>
     </div>
 </template>
 
 <script>
-    import dataGetters from '../services/dataGetters.js';
-    
     export default {
-        data() {
-            return {
-                user: undefined            }
-        },
         props: [
-            "userId"
-        ],
-        async mounted() {
-            this.user = await dataGetters.getUserById(this.userId);
-        }
+            "userId", "user"
+        ]
     }
 
 </script>

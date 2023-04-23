@@ -44,13 +44,14 @@
         },
         async mounted() {            
             this.locations = await dataGetters.getLocations();
-            this.latestShowCoordinates = await dataGetters.getLatestShowCoordinates();            
+            this.latestShowCoordinates = await dataGetters.getLatestLocationPosition();            
         }
     }
 </script>
 
 <style lang="css" scoped>
     section {
+        min-height: 500px;
         flex: 49%;
         padding: 10px;
     }

@@ -37,7 +37,7 @@
     flex-wrap: wrap;
     flex: 49%;
     gap: 10px;
-    justify-content: left;
+    justify-content: stretch;
     padding: 10px 10px;
   }
 

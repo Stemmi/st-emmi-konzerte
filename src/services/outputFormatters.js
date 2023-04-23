@@ -5,9 +5,8 @@ function createDate(date) {
     return dateGerman;
 }
 
-function createHeading(show, location) {
-    if (!location) return show.title;
-    else return [show.title, location.name, location.city].filter(item => item).join(', ');
+function createHeading(show) {
+    return [show.title, show.location.name, show.location.city].filter(item => item).join(', ');
 }
 
 export default {
