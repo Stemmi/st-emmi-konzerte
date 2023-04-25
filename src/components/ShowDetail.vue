@@ -1,14 +1,14 @@
 <template>
 
   <section v-if="show">
-    
-      <button><RouterLink to="/"><Back />Zurück zur Liste</RouterLink></button>
-    
+    <button><RouterLink to="/"><Back />Zurück zur Liste</RouterLink></button>
     <h2>{{ show.title }}</h2>
     <h3><Location />{{ '' + heading }}</h3>
     <p><Calendar />{{ date }}</p>
-    <img v-if="this.show.poster" :src="image" :alt="show.poster.alt">
-    <p>{{ show.text }}</p>
+    <div class="blog-content">
+      <img v-if="this.show.poster" :src="image" :alt="show.poster.alt">
+      <p>{{ show.text }}</p>
+    </div>
     <UserContainer :user="show.user" />
   </section>
   
@@ -53,14 +53,26 @@
   section {
     width: 320px;
     padding: 10px;
+    flex: 49%;
     /* text-align: center; */
   }
 
   img {
-    padding: 10px 0;
+    margin-inline-start: 10px 0;
+    
   }
 
-  h2 {
-    margin-top: 10px;
+
+  img {
+        border: 1px solid grey;
+        min-height: 200px;
+        min-width: 200px;
+        object-fit: contain;
+    }
+
+  .blog-content {
+    display: flex;
+    gap: 20px;
+    flex-wrap:wrap;
   }
 </style>
