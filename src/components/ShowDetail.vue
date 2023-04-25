@@ -1,5 +1,9 @@
 <template>
+
   <section v-if="show">
+    
+      <button><RouterLink to="/"><Back />Zurück zur Liste</RouterLink></button>
+    
     <h2>{{ show.title }}</h2>
     <h3><Location />{{ '' + heading }}</h3>
     <p><Calendar />{{ date }}</p>
@@ -17,15 +21,15 @@
 <script>
     import Location from './icons/Location.vue';
     import Calendar from './icons/Calendar.vue';
-
+    import Back from './icons/Back.vue';
 
     import outputFormatters from '../services/outputFormatters.js';
-
 
     export default {      
       components: {
         Location,
-        Calendar
+        Calendar,
+        Back
       },
       props: [
         "show"
@@ -54,5 +58,9 @@
 
   img {
     padding: 10px 0;
+  }
+
+  h2 {
+    margin-top: 10px;
   }
 </style>

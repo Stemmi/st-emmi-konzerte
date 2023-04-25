@@ -6,12 +6,9 @@ done:
 
 to do:
 ---
-PreviewContainer: - When user clicks on one of the listed blog post than she gets linked to the detail page /post/:id
-- Place a link in Mapbox popup to /post/:id
 ---
 Blog Post Detail
 
-    On clicking at the title or the image of the blog post preview, the blog post is opened at the detail page /post/:id.
     A back button at the details page (position: top-left) links back to the dashboard.
     The detail page shows the full blog post, with all information.
 
@@ -24,11 +21,14 @@ A blog post should contain:
     image
     text
     location with city and country
+    bands
 
 Bonus 1: Map for Blog Post Detail Page
 
     On the Blog Post Detail page, place a the map on the right side next to the blog post.
     The map shows centered the location of the blog post.
+
+    No Popup?
 ----
 
 Handle "dead" locations (locations without shows)
