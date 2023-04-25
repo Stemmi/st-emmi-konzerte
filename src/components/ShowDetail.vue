@@ -5,10 +5,13 @@
     <h2>{{ show.title }}</h2>
     <h3><Location />{{ '' + heading }}</h3>
     <p><Calendar />{{ date }}</p>
+
     <div class="blog-content">
+      <p>
       <img v-if="this.show.poster" :src="image" :alt="show.poster.alt">
-      <p>{{ show.text }}</p>
+      {{ show.text }}</p>
     </div>
+
     <UserContainer :user="show.user" />
   </section>
   
@@ -58,22 +61,17 @@
   }
 
   img {
-    margin-inline-start: 10px 0;
-    
+    border: 1px solid grey;
+    float: left;
+    margin-right: 15px;
+    min-height: 200px;
+    min-width: 200px;
+    max-width: 100%;
+    object-fit: contain;
   }
-
-
-  img {
-        border: 1px solid grey;
-        min-height: 200px;
-        min-width: 200px;
-        object-fit: contain;
-    }
-
+  
   .blog-content {
     margin-top: 15px;
-    display: flex;
-    gap: 20px;
-    flex-wrap:wrap;
+    margin-bottom: 15px;
   }
 </style>

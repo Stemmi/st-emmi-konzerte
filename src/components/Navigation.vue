@@ -33,10 +33,6 @@
     }
 
     button {
-        font-size: 0.9rem;
-    }
-
-    button {
         text-decoration: line-through;
     }
 
