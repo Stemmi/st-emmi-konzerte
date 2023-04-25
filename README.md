@@ -5,30 +5,13 @@ A history of live shows of my rock band St. Emmi
 done:
 
 to do:
----
----
-Blog Post Detail
-
-    A back button at the details page (position: top-left) links back to the dashboard.
-    The detail page shows the full blog post, with all information.
-
 Content of a blog post
-A blog post should contain:
-
-    title
-    visiting date
     authors name
-    image
-    text
-    location with city and country
     bands
 
-Bonus 1: Map for Blog Post Detail Page
-
-    On the Blog Post Detail page, place a the map on the right side next to the blog post.
-    The map shows centered the location of the blog post.
-
+Map for Blog Post Detail Page
     No Popup?
+    
 ----
 
 Handle "dead" locations (locations without shows)

@@ -71,6 +71,7 @@
     }
 
   .blog-content {
+    margin-top: 15px;
     display: flex;
     gap: 20px;
     flex-wrap:wrap;
