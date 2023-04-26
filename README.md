@@ -3,12 +3,7 @@ A history of live shows of my rock band St. Emmi
 
 ## To do list
 
-### Styling
-Grow and shrink preview cards
-use space between / space around
-
 ### Content of a blog post
-    authors name
     bands
 
 ### Map for Blog Post Detail Page
@@ -17,6 +12,10 @@ use space between / space around
 ### Map
 Handle "dead" locations (locations without shows)
 Check: Multiple shows at location
+
+### Styling
+Grow and shrink preview cards
+use space between / space around
 
 ### DB
 Fill the db

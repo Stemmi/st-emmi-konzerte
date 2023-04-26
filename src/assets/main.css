@@ -97,6 +97,10 @@ button:active {
   top: 2px;
 }
 
+.clear {
+  clear: both;
+}
+
 #map svg {
   cursor: pointer;
 }

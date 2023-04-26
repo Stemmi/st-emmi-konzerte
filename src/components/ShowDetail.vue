@@ -11,7 +11,7 @@
       <img v-if="this.show.poster" :src="image" :alt="show.poster.alt">
       {{ show.text }}</p>
     </div>
-
+    <div class="clear"></div>
     <UserContainer :user="show.user" />
   </section>
   
@@ -25,6 +25,7 @@
     import Location from './icons/Location.vue';
     import Calendar from './icons/Calendar.vue';
     import Back from './icons/Back.vue';
+    import UserContainer from "../components/UserContainer.vue";
 
     import outputFormatters from '../services/outputFormatters.js';
 
@@ -32,7 +33,8 @@
       components: {
         Location,
         Calendar,
-        Back
+        Back,
+        UserContainer
       },
       props: [
         "show"
