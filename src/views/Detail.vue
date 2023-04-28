@@ -1,6 +1,6 @@
 <template>
     <main>
-        <ShowDetail :show="show"/>
+        <ShowDetail :show="show" :bands="bands"/>
         <MapBoxDetail v-if="show" :location="show.location" />
     </main>
 </template>
@@ -14,7 +14,8 @@
     export default {
         data() {
             return {
-                show: undefined
+                show: undefined,
+                bands: []
             }
         },
         
@@ -24,6 +25,7 @@
         },
         async mounted() {
             this.show = await dataGetters.getShowById(this.$route.params.id);
+            this.bands = await dataGetters.getBandsByShowId(this.show.id);
         }
     } 
 </script>

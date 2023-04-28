@@ -3,9 +3,6 @@ A history of live shows of my rock band St. Emmi
 
 ## To do list
 
-### Content of a blog post
-    bands
-
 ### Map for Blog Post Detail Page
     No or different Popup?
 

@@ -10,6 +10,13 @@
       <p>
       <img v-if="this.show.poster" :src="image" :alt="show.poster.alt">
       {{ show.text }}</p>
+      <br>
+      <p class="bands" v-if="bands.length">
+        <span v-for="(band, index) in bands" :key="band.id">
+          <span v-if="index===0">Mit <a :href="band.url" target="_blank">{{ band.name }}</a></span>
+          <span v-else>, <a :href="band.url" target="_blank">{{ band.name }}</a></span> 
+        </span>
+      </p>
     </div>
     <div class="clear"></div>
     <UserContainer :user="show.user" />
@@ -37,7 +44,7 @@
         UserContainer
       },
       props: [
-        "show"
+        "show", "bands"
       ],
       computed: {
             heading() {
@@ -75,5 +82,9 @@
   .blog-content {
     margin-top: 15px;
     margin-bottom: 15px;
+  }
+
+  .bands {
+    font-style: italic;
   }
 </style>
