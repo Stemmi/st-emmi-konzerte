@@ -1,34 +1,39 @@
 <template>
-    <h3>{{ createHeading }}</h3>
-    <p>{{ createDate }}</p>
-    <img v-if="this.show.poster" :src="'./images/posters/'+show.poster.filename" :alt="show.poster.alt">
+    <a :href="'/detail/'+show.id">
+    <h3>{{ heading }}</h3>
+    <p>{{ date }}</p>
+    <img v-if="this.show.poster" :src="image" :alt="show.poster.alt">
+    </a>
     <p>{{ show.text }}</p>
-    <UserContainer :user="user" />
+    <UserContainer :user="show.user" />
 </template>
 
 <script>
     import UserContainer from "./UserContainer.vue";
+    import outputFormatters from "../services/outputFormatters.js";
 
     export default {
+        data() {
+            return {
+                isImgLoaded: false
+            }
+        },
         components: {
             UserContainer
         },
         props: [
-            "show", "location", "user"
+            "show"
         ],
         computed: {
-            createHeading() {
-                const title = this.show.title || "";
-                const location = this.location || {};
-                let locationString = "";
-                if (location.name && location.city) locationString = location.name + ", " + location.city;
-                else locationString = location.name || location.city || "";                
-                if (title && locationString) return title + ", " + locationString;
-                else return title || locationString || "";
+            heading() {
+                return outputFormatters.createHeading(this.show);
             },
-            createDate() {
-                if (!this.show.date) return "";
-                return this.show.date.split('-').reverse().join('.');
+            date() {
+                return outputFormatters.createDate(this.show.date);
+            },
+            image() {
+                if (this.show.poster.filename) return '/images/posters/'+this.show.poster.filename;
+                return '/images/posters/placeholder.jpg';
             }
         }
     }
@@ -37,9 +42,11 @@
 <style scoped>
     img {
         border: 1px solid grey;
-        width: 300px;
+        max-width: 300px;
         min-height: 200px;
-        object-fit: cover;
+        max-height: 300px;
+        object-fit:contain;
+        background: black;
     }
 
     p {

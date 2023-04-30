@@ -1,25 +1,15 @@
 <template>
     <div v-if="user">
-        <img :src="createImgPath" :alt="user.name">
+        <img :src="'/images/users/'+user.image" :alt="user.name">
         <p>{{ user.name }}</p>
     </div>
 </template>
 
 <script>
     export default {
-        data() {
-            return {
-                imgPath: undefined
-            }
-        },
         props: [
-            "user"
-        ],
-        computed: {
-            createImgPath() {
-                return this.imgPath = '/images/users/' + this.user.image;
-            }
-        }
+            "userId", "user"
+        ]
     }
 
 </script>

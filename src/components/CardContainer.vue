@@ -1,14 +1,12 @@
 <template>
-  <section class="loading" v-if="!shows || !locations || !users">
-    Loading...
-  </section>
-  <section v-else>
+  <section v-if="shows">
     <article v-for="show in shows" :key="show.id">
-      <PreviewCard
-        :show="show"
-        :location="getLocation(show.locationId)"
-        :user="getUser(show.userId)"/>
+      <PreviewCard :show="show"/>
     </article>
+  </section>
+  
+  <section v-else class="loading">
+    Loading...
   </section>
 
 </template>
@@ -18,19 +16,17 @@
     import dataGetters from '../services/dataGetters.js';
 
     export default {
+      data() {
+        return {
+          shows: undefined
+        }
+      },
+      
       components: {
         PreviewCard
       },
-      props: [
-        "shows", "locations", "users"
-      ],
-      methods: {
-        getLocation(id) {
-          return dataGetters.getLocationById(id, this.locations);
-        },
-        getUser(id) {
-          return dataGetters.getUserById(id, this.users);
-        }
+      async mounted() {
+            this.shows = await dataGetters.getShows();
       }
     }
 </script>
@@ -41,7 +37,7 @@
     flex-wrap: wrap;
     flex: 49%;
     gap: 10px;
-    justify-content: left;
+    justify-content: stretch;
     padding: 10px 10px;
   }
 

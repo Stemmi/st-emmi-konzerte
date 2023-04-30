@@ -29,7 +29,7 @@ header {
 section {
   flex: auto;
   background-color: var(--default-bright-color);
-  color: black;
+  color: var(--default-dark-color);
 }
 
 article {
@@ -47,6 +47,11 @@ a:hover {
   
 }
 
+h2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 button {
   color: var(--default-dark-color);
   background: var(--default-brighter-color);
@@ -54,6 +59,13 @@ button {
   border: 1px solid var(--default-dark-color);
   border-radius: 12px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+button a {
+  text-decoration: none;
 }
 
 button:hover {
@@ -62,14 +74,31 @@ button:hover {
   background: var(--default-dark-color);
 }
 
+button:hover a {
+  color: var(--default-bright-color);
+}
+
 button:active {
   text-decoration: none;
   color: var(--highlight-dark-color);
   background: var(--default-brighter-color);
 }
 
-svg {
-  padding-right: 6px;
+.icon {
+  width: 15px;
+  height: 15px;
+  position: relative;
+  top: 0px;
+  margin-right: 6px;
+  fill: var(--default-dark-color);
+}
+
+.icon.back {
+  top: 2px;
+}
+
+.clear {
+  clear: both;
 }
 
 #map svg {

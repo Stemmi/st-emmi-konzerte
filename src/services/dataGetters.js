@@ -1,39 +1,74 @@
-async function getShows() {
-    const response = await fetch("../data/shows.json");
-    const result = await response.json();
-    return result.shows;
+import settings from "./settings";
+
+async function getBands() {
+    const response = await fetch(settings.apiUrl()+"/bands");
+    const bands = await response.json();
+    return bands.results;    
+}
+
+async function getBandsByShowId(showId) {
+    const response = await fetch(settings.apiUrl()+"/shows/"+showId+"/bands");
+    const bands = await response.json();
+    return bands.results;    
 }
 
 async function getLocations() {
-    const response = await fetch("../data/locations.json");
-    const result = await response.json();
-    return result.locations;    
+    const response = await fetch(settings.apiUrl()+"/locations");
+    const locations = await response.json();
+    return locations.results;
+}
+
+async function getShows() {
+    const response = await fetch(settings.apiUrl()+"/shows");
+    const shows = await response.json();
+    return shows.results;
 }
 
 async function getUsers() {
-    const response = await fetch("../data/users.json");
-    const result = await response.json();
-    return result.users;
+    const response = await fetch(settings.apiUrl()+"/users");
+    const users = await response.json();
+    return users.results;
 }
 
-function getLocationById(id, locations) {
-    if (!locations) return undefined;
-    const filtered = locations.filter(loc => loc.id === id);
-    if (!filtered.length) return undefined;
-    return filtered[0];
-  }
+async function getLocationById(id) {
+    const response = await fetch(settings.apiUrl()+"/locations/" + id);
+    const location = await response.json();
+    return location;
+}
 
-  function getUserById(id, users) {
-    if (!users) return undefined;
-    const filtered = users.filter(user => user.id === id);
-    if (!filtered.length) return undefined;
-    return filtered[0];
-  }
+async function getShowById(id) {
+    const response = await fetch(settings.apiUrl()+"/shows/" + id);
+    const show = await response.json();
+    return show;
+}
+
+async function getUserById(id) {
+    const response = await fetch(settings.apiUrl()+"/users/" + id);
+    const user = await response.json();
+    return user;
+}
+
+async function getLatestLocationPosition() {
+    const response = await fetch(settings.apiUrl()+"/locations/latest");
+    const latestLocation = await response.json();
+    return [latestLocation.long, latestLocation.lat];
+}
+
+async function getShowsByLocationId(locationId) { 
+    const response = await fetch(settings.apiUrl()+"/locations/" + locationId + "/shows");
+    const shows = await response.json();
+    return shows.results;
+}
 
 export default {
-    getShows,
+    // getBands,
+    getBandsByShowId,
     getLocations,
-    getUsers,
-    getLocationById,
-    getUserById
+    getShows,
+    // getUsers,
+    // getLocationById,
+    getShowById,
+    // getUserById,
+    getLatestLocationPosition,
+    getShowsByLocationId
 }
