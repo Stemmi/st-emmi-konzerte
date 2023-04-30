@@ -4,7 +4,7 @@ A history of live shows of my rock band St. Emmi
 ## To do list
 
 ### Map for Blog Post Detail Page
-    No or different Popup?
+No or different Popup?
 
 ### Map
 Handle "dead" locations (locations without shows)
