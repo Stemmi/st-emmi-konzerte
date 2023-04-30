@@ -3,10 +3,6 @@ A history of live shows of my rock band St. Emmi
 
 ## To do list
 
-### Map
-Handle "dead" locations (locations without shows)
-Check: Multiple shows at location
-
 ### Styling
 Grow and shrink preview cards
 use space between / space around
