@@ -10,7 +10,7 @@
         <label for="location_id">Location:</label><br>
         <select v-model="location_id" v-if="locations" id="location_id" name="location_id" required>
             <option v-for="location of locations" :value="location.id">{{ [location.name, location.city].filter(item => item).join(', ') }}</option>
-            <option value="-1">+++ Neue Location +++</option>
+            <!-- <option value="-1">+++ Neue Location +++</option> -->
         </select><br><br>
 
         <div v-if="location_id==='-1'">

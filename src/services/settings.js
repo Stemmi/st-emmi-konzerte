@@ -12,5 +12,6 @@ function limit() {
 
 export default {
     baseUrl,
-    apiUrl
+    apiUrl,
+    limit
 }
