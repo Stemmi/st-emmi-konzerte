@@ -3,9 +3,7 @@
 </template>
 
 <script>
-    import UserContainer from "./UserContainer.vue";
-
-    import outputFormatters from "../services/outputFormatters.js";
+    import formatting from "../services/formatting.js";
 
     export default {
         props: [
@@ -13,7 +11,7 @@
         ],
         computed: {
             heading() {
-                return outputFormatters.createHeading({title: '', location: this.location});
+                return formatting.createHeading({title: '', location: this.location});
             }
         }
     }

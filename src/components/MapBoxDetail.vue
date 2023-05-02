@@ -39,6 +39,5 @@
     section {
         min-height: 500px;
         flex: 49%;
-        padding: 10px;
     }
 </style>

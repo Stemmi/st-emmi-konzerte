@@ -10,7 +10,7 @@
 
 <script>
     import UserContainer from "./UserContainer.vue";
-    import outputFormatters from "../services/outputFormatters.js";
+    import formatting from "../services/formatting.js";
 
     export default {
         data() {
@@ -26,10 +26,10 @@
         ],
         computed: {
             heading() {
-                return outputFormatters.createHeading(this.show);
+                return formatting.createHeading(this.show);
             },
             date() {
-                return outputFormatters.createDate(this.show.date);
+                return formatting.createDate(this.show.date);
             },
             image() {
                 if (this.show.poster.filename) return '/images/posters/'+this.show.poster.filename;

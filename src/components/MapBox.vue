@@ -28,7 +28,7 @@
     import 'mapbox-gl/dist/mapbox-gl.css';
     import { MapboxMap, MapboxMarker } from '@studiometa/vue-mapbox-gl';
     import MapBoxPopup from './MapBoxPopup.vue';
-    import dataGetters from '../services/dataGetters.js';
+    import api from '../services/api.js';
 
     export default {
         data() {
@@ -43,8 +43,8 @@
             MapBoxPopup
         },
         async mounted() {            
-            this.locations = await dataGetters.getLocations();
-            this.latestShowCoordinates = await dataGetters.getLatestLocationPosition();            
+            this.locations = await api.getLocations();
+            this.latestShowCoordinates = await api.getLatestLocationPosition();            
         }
     }
 </script>
@@ -53,6 +53,5 @@
     section {
         min-height: 500px;
         flex: 49%;
-        padding: 10px;
     }
 </style>

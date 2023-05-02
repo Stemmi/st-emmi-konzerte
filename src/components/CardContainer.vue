@@ -13,7 +13,7 @@
 
 <script>
     import PreviewCard from './PreviewCard.vue';
-    import dataGetters from '../services/dataGetters.js';
+    import api from '../services/api.js';
 
     export default {
       data() {
@@ -26,7 +26,7 @@
         PreviewCard
       },
       async mounted() {
-            this.shows = await dataGetters.getShows();
+            this.shows = await api.getShows();
       }
     }
 </script>
@@ -38,7 +38,6 @@
     flex: 49%;
     gap: 10px;
     justify-content: stretch;
-    padding: 10px 10px;
   }
 
   article {

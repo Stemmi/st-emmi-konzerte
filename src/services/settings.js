@@ -6,8 +6,6 @@ function apiUrl() {
     return baseUrl()+"/api";
 }
 
-console.log(apiUrl());
-
 export default {
     baseUrl,
     apiUrl

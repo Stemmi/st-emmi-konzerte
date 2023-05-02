@@ -2,36 +2,12 @@
 A history of live shows of my rock band St. Emmi
 
 ## To do list
-
-### Styling
-Grow and shrink preview cards
-use space between / space around
-
-### DB
-Fill the db
-
-## Imprint / Contact
-Create a link /contact in the menu bar named "Contact".
-On the contact page place your (and your team mate's) name.
-Write two sentences about your project.
-Put your (or if you prefer Hamburg Coding School's) contact details:
-    name
-    address
-    email
-    phone number
-Write a note that this was a project from a course at Hamburg Coding School.
+settings -> .env?
 
 ### Bonus 3: New Blog Post
-
     With the path /new a blog post form is shown, where a new blog post can be added.
-
     On submit, the new blog post is sent and stored to the backend.
-
     The form is cleared after adding a new blog post and the user gets directed to the Dashboard, again.
-
-    To navigate between views, you can use the push method of the vue-router such as :
-
-        this.$router.push({ path: '/home' });
 
     For the images: Save the image in your project manually in the public folder and use it with relative path as string.
     For instance: The image barcelona.jpg saved under public/images can be linked in the templates with "/images/barcelona.jpg".
@@ -64,9 +40,27 @@ Write a note that this was a project from a course at Hamburg Coding School.
         on the page where a user can add new blog entries and
         in the menu to show logged in users name and image.
 
-
 ### Modalities and Submission see:
 https://github.com/hamburgcodingschool/fullstack-2022-4_vuejs/blob/main/project.md
+
+### Styling
+Grow and shrink preview cards
+use space between / space around
+button hover: svg color
+
+### DB
+Fill the db
+
+## Imprint / Contact
+Create a link /contact in the menu bar named "Contact".
+On the contact page place your (and your team mate's) name.
+Write two sentences about your project.
+Put your (or if you prefer Hamburg Coding School's) contact details:
+    name
+    address
+    email
+    phone number
+Write a note that this was a project from a course at Hamburg Coding School.
 
 ### misc
 Additional Link in Preview to center the map at the location?

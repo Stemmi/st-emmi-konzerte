@@ -26,10 +26,22 @@ header {
   border-bottom: 1px solid var(--default-dark-color);
 }
 
+main {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 480px;
+  gap: 1px;
+  justify-content: space-between;
+  background-color: var(--default-dark-color);
+  border-bottom: 1px solid var(--default-bright-color);
+}
+
 section {
   flex: auto;
   background-color: var(--default-bright-color);
   color: var(--default-dark-color);
+  padding: 10px;
 }
 
 article {
