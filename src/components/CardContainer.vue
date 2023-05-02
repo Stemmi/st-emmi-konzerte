@@ -16,10 +16,6 @@
   <section v-else class="loading">
     Loading...
   </section>
-
-
-
-
 </template>
 
 <script>
@@ -31,7 +27,7 @@
       data() {
         return {
           shows: undefined,
-          page: 1,
+          page: this.$route.query.page || 1,
           pages: undefined
         }
       },
@@ -42,14 +38,15 @@
         async nextPage() {
           this.page++;
           this.shows = await api.getShows(settings.limit(), this.page);
+          this.$router.push({ path: '/', query: { page: +this.page } });
         },
         async previousPage() {
           this.page--;
           this.shows = await api.getShows(settings.limit(), this.page);
+          this.$router.push({ path: '/', query: { page: +this.page } });
         }
       },
       async mounted() {
-        this.page = this.$route.query.page || 1;
         this.shows = await api.getShows(settings.limit(), this.page);
         this.pages = this.shows ? Math.ceil(this.shows.count / settings.limit()) : 0;
       }

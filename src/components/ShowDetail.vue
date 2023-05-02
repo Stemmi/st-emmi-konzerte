@@ -65,7 +65,6 @@
   section {
     width: 320px;
     flex: 49%;
-    /* text-align: center; */
   }
 
   img {

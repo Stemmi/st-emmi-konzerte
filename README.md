@@ -5,6 +5,7 @@ A history of live shows of my rock band St. Emmi
 How to load detail page after sending the form?
 There is a one day offset at the show dates?
 What to check while posting? Valid user, valid location id... and how? Throw Error?
+Navigation with queries does not work as expected?
 
 ## To do list
 Pagination
