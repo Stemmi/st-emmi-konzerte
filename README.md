@@ -8,6 +8,7 @@ What to check while posting? Valid user, valid location id... and how? Throw Err
 
 ## To do list
 Pagination
+
 New blog post: handle locations existing / new
 New blog post: handle bands
 New blog post: image handling
@@ -73,6 +74,8 @@ Write a note that this was a project from a course at Hamburg Coding School.
 
 ### misc
 settings -> .env?
+
+Load placeholder if image not found
 
 Additional Link in Preview to center the map at the location?
 Or / and centralizing the map or growing of the marker @hover over preview?

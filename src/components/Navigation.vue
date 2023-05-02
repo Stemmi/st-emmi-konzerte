@@ -18,7 +18,7 @@
         },
         methods: {
             loadNew() {
-                this.$router.push({ path: '/new' });
+                this.$router.push({ path: '/neu' });
             }
         }
     }
