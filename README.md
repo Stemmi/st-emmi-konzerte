@@ -1,12 +1,21 @@
 # St. Emmi Konzerte
 A history of live shows of my rock band St. Emmi
 
+## Questions
+How to load detail page after sending the form?
+There is a one day offset at the show dates?
+What to check while posting? Valid user, valid location id... and how? Throw Error?
+
 ## To do list
-settings -> .env?
+Pagination
+New blog post: handle locations existing / new
+New blog post: handle bands
+New blog post: image handling
+
+edit
+delete
 
 ### Bonus 3: New Blog Post
-    With the path /new a blog post form is shown, where a new blog post can be added.
-    On submit, the new blog post is sent and stored to the backend.
     The form is cleared after adding a new blog post and the user gets directed to the Dashboard, again.
 
     For the images: Save the image in your project manually in the public folder and use it with relative path as string.
@@ -63,6 +72,8 @@ Put your (or if you prefer Hamburg Coding School's) contact details:
 Write a note that this was a project from a course at Hamburg Coding School.
 
 ### misc
+settings -> .env?
+
 Additional Link in Preview to center the map at the location?
 Or / and centralizing the map or growing of the marker @hover over preview?
 
