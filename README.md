@@ -6,16 +6,25 @@ How to load detail page after sending the form?
 There is a one day offset at the show dates?
 What to check while posting? Valid user, valid location id... and how? Throw Error?
 Navigation with queries does not work as expected?
+File structure / best practise: Where to put which functionality (services/controller)?
+CV
+WTF
 
 ## To do list
-Pagination
+Fix: Back button from detail view does not work properly
+Fix: Maps marker shows comma when date is missing (and no link)
 
 New blog post: handle locations existing / new
 New blog post: handle bands
 New blog post: image handling
 
+Fix: Alt-Text color if image is missing
+Fix: placeholder if image is missing
+
 edit
 delete
+
+Feat: Implement location url in detail view and in detail map popup
 
 ### Bonus 3: New Blog Post
     The form is cleared after adding a new blog post and the user gets directed to the Dashboard, again.
