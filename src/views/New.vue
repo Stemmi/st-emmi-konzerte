@@ -3,7 +3,7 @@
     <section>
     
     <h3>Neuer Eintrag:</h3>
-    <form @submit="loadHome" :action="actionUrl" method="POST" enctype="application/x-www-form-urlencoded">
+    <form @submit="loadHome" :action="apiUrl+'/shows'" method="POST" enctype="application/x-www-form-urlencoded">
         <label for="title">Titel (optional):</label><br>
         <input type="text" id="title" name="title" maxlength="255" size="40"><br><br>
         
@@ -14,12 +14,12 @@
         </select><br><br>
 
         <div v-if="location_id==='-1'">
-            <br>   
+            <br>
         </div>
 
 
         <label for="date">Datum:</label><br>
-        <input type="date" id="date" name="date" size="10"><br><br>
+        <input type="date" id="date" name="date" size="10" required><br><br>
         
         <label for="text">Beschreibung:</label><br>
         <textarea id="text" name="text" maxlength="255" rows="4" cols="80"></textarea><br><br>
@@ -34,9 +34,6 @@
         
         <button type="submit">OK</button>
 
-<!-- required -->
-
-
     </form>
     
     </section>
@@ -50,7 +47,8 @@
     export default {
         data() {
             return {
-                actionUrl: settings.apiUrl()+'/shows',
+                apiUrl: settings.apiUrl(),
+
                 locations: undefined,
                 location_id: undefined
             }

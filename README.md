@@ -16,7 +16,9 @@ Fix: Maps marker shows comma when date is missing (and no link)
 
 New blog post: handle locations existing / new
 New blog post: handle bands
-New blog post: image handling
+
+Host images in backend folder, not in frontend folder
+New blog post / Uploading images: Use Multipart Form Data
 
 Fix: Alt-Text color if image is missing
 Fix: placeholder if image is missing
@@ -98,3 +100,5 @@ Optimize responsiveness
 Naming: CardContainer / PreviewCard... better: ShowsContainer, ShowPreview, ShowDetail?
 
 Delete unused / out commented elements
+
+Write ReadMe Files
