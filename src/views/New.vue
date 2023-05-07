@@ -3,13 +3,13 @@
     <section>
     
     <h3>Neuer Eintrag:</h3>
-    <form @submit="loadHome" :action="apiUrl+'/shows'" method="POST" enctype="application/x-www-form-urlencoded">
+    <form @submit="loadHome">
         <label for="title">Titel (optional):</label><br>
         <input type="text" id="title" name="title" maxlength="255" size="40"><br><br>
         
         <label for="location_id">Location:</label><br>
         <select v-model="location_id" v-if="locations" id="location_id" name="location_id" required>
-            <option v-for="location of locations" :value="location.id">{{ [location.name, location.city].filter(item => item).join(', ') }}</option>
+            <option v-for="location of locations" :key="location.id" :value="location.id">{{ [location.name, location.city].filter(item => item).join(', ') }}</option>
             <!-- <option value="-1">+++ Neue Location +++</option> -->
         </select><br><br>
 
