@@ -1,44 +1,35 @@
 # St. Emmi Konzerte
 A history of live shows of my rock band St. Emmi
 
+## Questions
+How to load detail page after sending the form?
+There is a one day offset at the show dates?
+What to check while posting? Valid user, valid location id... and how? Throw Error?
+Navigation with queries does not work as expected?
+File structure / best practise: Where to put which functionality (services/controller)?
+CV
+WTF
+
 ## To do list
+Fix: Back button from detail view does not work properly
+Fix: Maps marker shows comma when date is missing (and no link)
 
-### Map for Blog Post Detail Page
-    No or different Popup?
+New blog post: handle locations existing / new
+New blog post: handle bands
 
-### Map
-Handle "dead" locations (locations without shows)
-Check: Multiple shows at location
+Host images in backend folder, not in frontend folder
+New blog post / Uploading images: Use Multipart Form Data
 
-### Styling
-Grow and shrink preview cards
-use space between / space around
+Fix: Alt-Text color if image is missing
+Fix: placeholder if image is missing
 
-### DB
-Fill the db
+edit
+delete
 
-## Imprint / Contact
-Create a link /contact in the menu bar named "Contact".
-On the contact page place your (and your team mate's) name.
-Write two sentences about your project.
-Put your (or if you prefer Hamburg Coding School's) contact details:
-    name
-    address
-    email
-    phone number
-Write a note that this was a project from a course at Hamburg Coding School.
+Feat: Implement location url in detail view and in detail map popup
 
 ### Bonus 3: New Blog Post
-
-    With the path /new a blog post form is shown, where a new blog post can be added.
-
-    On submit, the new blog post is sent and stored to the backend.
-
     The form is cleared after adding a new blog post and the user gets directed to the Dashboard, again.
-
-    To navigate between views, you can use the push method of the vue-router such as :
-
-        this.$router.push({ path: '/home' });
 
     For the images: Save the image in your project manually in the public folder and use it with relative path as string.
     For instance: The image barcelona.jpg saved under public/images can be linked in the templates with "/images/barcelona.jpg".
@@ -71,11 +62,33 @@ Write a note that this was a project from a course at Hamburg Coding School.
         on the page where a user can add new blog entries and
         in the menu to show logged in users name and image.
 
-
 ### Modalities and Submission see:
 https://github.com/hamburgcodingschool/fullstack-2022-4_vuejs/blob/main/project.md
 
+### Styling
+Grow and shrink preview cards
+use space between / space around
+button hover: svg color
+
+### DB
+Fill the db
+
+## Imprint / Contact
+Create a link /contact in the menu bar named "Contact".
+On the contact page place your (and your team mate's) name.
+Write two sentences about your project.
+Put your (or if you prefer Hamburg Coding School's) contact details:
+    name
+    address
+    email
+    phone number
+Write a note that this was a project from a course at Hamburg Coding School.
+
 ### misc
+settings -> .env?
+
+Load placeholder if image not found
+
 Additional Link in Preview to center the map at the location?
 Or / and centralizing the map or growing of the marker @hover over preview?
 
@@ -87,3 +100,5 @@ Optimize responsiveness
 Naming: CardContainer / PreviewCard... better: ShowsContainer, ShowPreview, ShowDetail?
 
 Delete unused / out commented elements
+
+Write ReadMe Files

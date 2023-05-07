@@ -22,8 +22,8 @@
 <script>
     import UserContainer from "./UserContainer.vue";
 
-    import dataGetters from "../services/dataGetters.js";
-    import outputFormatters from "../services/outputFormatters.js";
+    import api from "../services/api.js";
+    import formatting from "../services/formatting.js";
 
     export default {
         data() {
@@ -39,16 +39,16 @@
         ],
         computed: {
             heading() {
-                return outputFormatters.createHeading({title: '', location: this.location});
+                return formatting.createHeading({title: '', location: this.location});
             }
         },
         methods: {
             date(date) {
-                return outputFormatters.createDate(date);
+                return formatting.createDate(date);
             }
         },
         async mounted() {
-            this.shows = await dataGetters.getShowsByLocationId(this.location.id);
+            this.shows = await api.getShowsByLocationId(this.location.id);
         }
     }
 </script>

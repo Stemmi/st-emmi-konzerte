@@ -18,10 +18,11 @@ async function getLocations() {
     return locations.results;
 }
 
-async function getShows() {
-    const response = await fetch(settings.apiUrl()+"/shows");
+async function getShows(limit, page = 1) {
+    let apiUrlString = `${settings.apiUrl()}/shows?limit=${limit}&page=${page}`;
+    const response = await fetch(apiUrlString);
     const shows = await response.json();
-    return shows.results;
+    return shows;
 }
 
 async function getUsers() {

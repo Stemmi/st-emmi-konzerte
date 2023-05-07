@@ -1,14 +1,12 @@
-function baseUrl() {
-    return "http://localhost:3000";
-}
-
 function apiUrl() {
-    return baseUrl()+"/api";
+    return "http://localhost:3000/api";
 }
 
-console.log(apiUrl());
+function limit() {
+    return 6;
+}
 
 export default {
-    baseUrl,
-    apiUrl
+    apiUrl,
+    limit
 }

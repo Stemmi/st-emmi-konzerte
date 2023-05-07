@@ -34,7 +34,7 @@
     import Back from './icons/Back.vue';
     import UserContainer from "../components/UserContainer.vue";
 
-    import outputFormatters from '../services/outputFormatters.js';
+    import formatting from '../services/formatting.js';
 
     export default {      
       components: {
@@ -48,10 +48,10 @@
       ],
       computed: {
             heading() {
-                return outputFormatters.createHeading({ location: this.show.location });
+                return formatting.createHeading({ location: this.show.location });
             },
             date() {
-                return outputFormatters.createDate(this.show.date);
+                return formatting.createDate(this.show.date);
             },
             image() {
                 if (this.show.poster.filename) return '/images/posters/'+this.show.poster.filename;
@@ -64,9 +64,7 @@
 <style scoped>
   section {
     width: 320px;
-    padding: 10px;
     flex: 49%;
-    /* text-align: center; */
   }
 
   img {

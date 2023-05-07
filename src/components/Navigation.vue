@@ -2,8 +2,8 @@
     <nav>
         <RouterLink to="/kontakt">Kontakt</RouterLink>
         
-        <button><PlusIcon />Neuer Eintrag</button>
-        <button><UserIcon />Login</button>
+        <button @click="loadNew"><PlusIcon />Neuer Eintrag</button>
+        <button class="userButton"><UserIcon />Login</button>
     </nav>
 </template>
 
@@ -15,6 +15,11 @@
         components: {
             UserIcon,
             PlusIcon
+        },
+        methods: {
+            loadNew() {
+                this.$router.push({ path: '/neu' });
+            }
         }
     }
 </script>
@@ -32,7 +37,7 @@
         font-size: 1.1rem;
     }
 
-    button {
+    .userButton {
         text-decoration: line-through;
     }
 

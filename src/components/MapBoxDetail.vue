@@ -11,7 +11,7 @@
                 color="#ab0000"
                 popup >
                 <template v-slot:popup>
-                    <MapBoxPopup :location="location" />
+                    <MapBoxDetailPopup :location="location" />
                 </template>
             </MapboxMarker>
         </MapboxMap>
@@ -21,7 +21,7 @@
 <script>
     import 'mapbox-gl/dist/mapbox-gl.css';
     import { MapboxMap, MapboxMarker } from '@studiometa/vue-mapbox-gl';
-    import MapBoxPopup from './MapBoxPopup.vue';
+    import MapBoxDetailPopup from './MapBoxDetailPopup.vue';
 
     export default {
         props: [
@@ -30,7 +30,7 @@
         components: {
             MapboxMap,
             MapboxMarker,
-            MapBoxPopup
+            MapBoxDetailPopup
         }
     }
 </script>
@@ -39,6 +39,5 @@
     section {
         min-height: 500px;
         flex: 49%;
-        padding: 10px;
     }
 </style>
