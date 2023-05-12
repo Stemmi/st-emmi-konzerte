@@ -2,18 +2,32 @@
 A history of live shows of my rock band St. Emmi
 
 ## Questions
--How to load detail page after sending the form?
--There is a one day offset at the show dates?
--What to check while posting? Valid user, valid location id... and how? Throw Error?
--Navigation with queries does not work as expected?
--File structure / best practise: Where to put which functionality (services/controller)?
-CV
-WTF
 
 ## To do list
-1. Merge git & new branch
-2. Generate to dos from last lesson
-3. check if you can do more at the db level (joining shows & locations & bands)
+Backend file structure / best practise: Where to put which functionality (services/controller)?
+- Put complex db calls maybe inside of the database folder or build an extra layer
+- Check if you can do more at the db level (joining shows & locations & bands)
+
+Navigation with queries
+- (CardContainer)
+- Use the updated function in vue.
+- Read vue documentation about it.
+
+What to check while posting? Valid user, valid location id... and how? Throw Error?
+- Escape ot better get rid of code in text? → Decide!
+- You don’t need to limit text – the db is doing it for you
+- REALLY? My db test did say something different...
+
+Error handling
+- create a small .js with a function that throws an error, check what happed if you call it from a function call, from an async funtion, from a try/catch block, from one within the other… experiment!
+- Async throws error automatically
+
+Fix: One day date offset
+- At db, always use UTC (cenntrailzed, fiexed time without DST (summer/winter)).
+- Or Unix epoch (seconds from 01.01.1970)
+- handle time zones in frontend
+- look at database/db.js / connection
+- check time zone settings in DB: SHOW VARIABLES;
 
 Fix: Back button from detail view does not work properly
 Fix: Maps marker shows comma when date is missing (and no link)
@@ -70,9 +84,10 @@ Feat: Implement location url in detail view and in detail map popup
 https://github.com/hamburgcodingschool/fullstack-2022-4_vuejs/blob/main/project.md
 
 ### Styling
-Grow and shrink preview cards
-use space between / space around
-button hover: svg color
+- Grow and shrink preview cards
+- use space between / space around
+- button hover: svg color
+- Optimize responsiveness
 
 ### DB
 Fill the db
@@ -89,20 +104,12 @@ Put your (or if you prefer Hamburg Coding School's) contact details:
 Write a note that this was a project from a course at Hamburg Coding School.
 
 ### misc
-settings -> .env?
-
-Load placeholder if image not found
-
-Additional Link in Preview to center the map at the location?
+- settings -> .env?
+- Load placeholder if image not found
+- Additional Link in Preview to center the map at the location?
 Or / and centralizing the map or growing of the marker @hover over preview?
-
-Try different Maps: GoogleMaps
-Try to hide the mapbox token from github by outsourcing it into a gitignored file.
-
-Optimize responsiveness
-
-Naming: CardContainer / PreviewCard... better: ShowsContainer, ShowPreview, ShowDetail?
-
-Delete unused / out commented elements
-
-Write ReadMe Files
+- Try different Maps: GoogleMaps
+- Try to hide the mapbox token from github by outsourcing it into a gitignored file.
+- Naming: CardContainer / PreviewCard... better: ShowsContainer, ShowPreview, ShowDetail?
+- Delete unused / out commented elements
+- Write ReadMe Files

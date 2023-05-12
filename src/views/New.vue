@@ -3,9 +3,9 @@
     <section>
     
     <h3>Neuer Eintrag:</h3>
-    <form @submit="loadHome">
+    <form @submit="postShow">
         <label for="title">Titel (optional):</label><br>
-        <input type="text" id="title" name="title" maxlength="255" size="40"><br><br>
+        <input type="text" id="title" name="title" maxlength="300" size="40"><br><br>
         
         <label for="location_id">Location:</label><br>
         <select v-model="location_id" v-if="locations" id="location_id" name="location_id" required>
@@ -27,10 +27,10 @@
         <label for="poster_filename">Plakat-Foto:</label><br>
         <input type="text" id="poster_filename" name="poster_filename" maxlength="255" size="40"><br><br>
         
-        <label for="poster_alt">Plakat-Text:</label><br>
+        <label for="poster_alt">Plakat-Alt-Text:</label><br>
         <input type="text" id="poster_alt" name="poster_alt" maxlength="255" size="40"><br><br>
 
-        <input type="hidden" name="user_id" value="1">
+        <input type="hidden" id="user_id" name="user_id" value="1">
         
         <button type="submit">OK</button>
 
@@ -54,9 +54,28 @@
             }
         },
         methods: {
-            loadHome() {
-                // this.$router.push({ path: '/' });
-                console.log('home');
+            async postShow(event) {
+                event.preventDefault();
+
+                const reqBody = {
+                    'title': title.value,
+                    'location_id': location_id.value,
+                    'date': date.value,
+                    'text': text.value,
+                    'poster_filename': poster_filename.value,
+                    'poster_alt': poster_alt.value,
+                    'user_id': user_id.value
+                };
+
+                fetch(this.apiUrl+"/shows", {
+                    method: 'POST',
+                    body: JSON.stringify(reqBody),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8'
+                    },
+                }) 
+                .then((response) => response.json())
+                .then((show) => this.$router.push({ path: `/detail/${show.id}` }));
             }
         },
         async mounted() {            
