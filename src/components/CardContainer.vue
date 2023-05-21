@@ -29,6 +29,7 @@
           shows: undefined,
           page: this.$route.query.page || 1,
           pages: undefined
+          // test: 0
         }
       },
       components: {
@@ -37,7 +38,7 @@
       methods: {
         async nextPage() {
           this.page++;
-          // this.shows = await api.getShows(settings.limit(), this.page);
+          this.shows = await api.getShows(settings.limit(), this.page);
           this.$router.push({ path: '/', query: { page: +this.page } });
           // window.location = "?page="+this.page;
         },
@@ -49,11 +50,15 @@
       },
       async mounted() {
         this.shows = await api.getShows(settings.limit(), this.page);
+        console.log('page', this.page);
         this.pages = this.shows ? Math.ceil(this.shows.count / settings.limit()) : 0;
       },
       async updated() {
-        this.shows = await api.getShows(settings.limit(), this.page);
-        this.pages = this.shows ? Math.ceil(this.shows.count / settings.limit()) : 0;
+        // this.shows = await api.getShows(settings.limit(), this.page);
+        console.log('page', this.page);
+
+        // console.log('test++', this.test++);
+        
       }
     }
 </script>

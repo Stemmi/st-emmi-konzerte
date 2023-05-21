@@ -4,9 +4,12 @@ A history of live shows of my rock band St. Emmi
 ## Questions
 
 ## To do list
+Read about: navigation with "updated". Works not as he said (infinite loop). See below
+Remove unneeded elements from getters
+
+
 Backend file structure / best practise: Where to put which functionality (services/controller)?
-- Put complex db calls maybe inside of the database folder or build an extra layer
-- Check if you can do more at the db level (joining shows & locations & bands)
+- Check if you can do more at the db level (joining shows & locations)
 
 Navigation with queries
 - (CardContainer)
@@ -53,6 +56,8 @@ Feat: Implement location url in detail view and in detail map popup
     For instance: The image barcelona.jpg saved under public/images can be linked in the templates with "/images/barcelona.jpg".
 
     Only signed in user can add new blog posts.
+
+    Create Components or form, location form and bands form
 
 ### Bonus 4: Edit Blog Posts
 
