@@ -27,9 +27,9 @@
       data() {
         return {
           shows: undefined,
-          page: this.$route.query.page || 1,
+          // page: +this.$route.query.page || 1,
+          page: 1,
           pages: undefined
-          // test: 0
         }
       },
       components: {
@@ -38,27 +38,20 @@
       methods: {
         async nextPage() {
           this.page++;
-          this.shows = await api.getShows(settings.limit(), this.page);
-          this.$router.push({ path: '/', query: { page: +this.page } });
-          // window.location = "?page="+this.page;
         },
         async previousPage() {
           this.page--;
-          this.shows = await api.getShows(settings.limit(), this.page);
-          this.$router.push({ path: '/', query: { page: +this.page } });
+        }
+      },
+      watch: {
+        async page(newPage, oldPage) {
+          this.shows = await api.getShows(settings.limit(), newPage);
+          // this.$router.push({ path: '/', query: { page: newPage } });
         }
       },
       async mounted() {
         this.shows = await api.getShows(settings.limit(), this.page);
-        console.log('page', this.page);
         this.pages = this.shows ? Math.ceil(this.shows.count / settings.limit()) : 0;
-      },
-      async updated() {
-        // this.shows = await api.getShows(settings.limit(), this.page);
-        console.log('page', this.page);
-
-        // console.log('test++', this.test++);
-        
       }
     }
 </script>

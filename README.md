@@ -2,12 +2,10 @@
 A history of live shows of my rock band St. Emmi
 
 ## Questions
+Navigation / pagination: I read on 'updated' and created pagination now with a watcher. 
+Works well, but: No visible query in the url. 
 
 ## To do list
-Read about: navigation with "updated". Works not as he said (infinite loop). See below
-Remove unneeded elements from getters
-
-
 Backend file structure / best practise: Where to put which functionality (services/controller)?
 - Check if you can do more at the db level (joining shows & locations)
 
@@ -48,6 +46,10 @@ edit
 delete
 
 Feat: Implement location url in detail view and in detail map popup
+
+Feat: Navigate back to last page from detail view
+
+??? Remove unneeded elements from getters
 
 ### Bonus 3: New Blog Post
     The form is cleared after adding a new blog post and the user gets directed to the Dashboard, again.
