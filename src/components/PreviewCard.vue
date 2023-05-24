@@ -46,7 +46,7 @@
         min-height: 200px;
         max-height: 300px;
         object-fit:contain;
-        background: black;
+        background: var(--default-bright-color);
     }
 
     p {

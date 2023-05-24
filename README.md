@@ -2,54 +2,21 @@
 A history of live shows of my rock band St. Emmi
 
 ## Questions
-Navigation / pagination: I read on 'updated' and created pagination now with a watcher. 
+Navigation / pagination: I read on 'updated' and created pagination now with a watch instead. 
 Works well, but: No visible query in the url. 
 
 ## To do list
-Backend file structure / best practise: Where to put which functionality (services/controller)?
-- Check if you can do more at the db level (joining shows & locations)
+Big steps
+- New blog post: handle locations existing / new // Component
+- New blog post: handle bands
+- Host images in backend folder, not in frontend folder
+- New blog post / Uploading images: Use Multipart Form Data
 
-Navigation with queries
-- (CardContainer)
-- Use the updated function in vue.
-- Read vue documentation about it.
-
-What to check while posting? Valid user, valid location id... and how? Throw Error?
-- Escape ot better get rid of code in text? → Decide!
-- You don’t need to limit text – the db is doing it for you
-- REALLY? My db test did say something different...
-
-Error handling
-- create a small .js with a function that throws an error, check what happed if you call it from a function call, from an async funtion, from a try/catch block, from one within the other… experiment!
-- Async throws error automatically
-
-Fix: One day date offset
-- At db, always use UTC (cenntrailzed, fiexed time without DST (summer/winter)).
-- Or Unix epoch (seconds from 01.01.1970)
-- handle time zones in frontend
-- look at database/db.js / connection
-- check time zone settings in DB: SHOW VARIABLES;
-
-Fix: Back button from detail view does not work properly
-Fix: Maps marker shows comma when date is missing (and no link)
-
-New blog post: handle locations existing / new
-New blog post: handle bands
-
-Host images in backend folder, not in frontend folder
-New blog post / Uploading images: Use Multipart Form Data
-
-Fix: Alt-Text color if image is missing
-Fix: placeholder if image is missing
-
-edit
-delete
-
-Feat: Implement location url in detail view and in detail map popup
-
-Feat: Navigate back to last page from detail view
-
-??? Remove unneeded elements from getters
+Small steps:
+- Fix: Alt-Text color if image is missing
+- Fix: placeholder if image is missing
+- Feat: Implement location url in detail view and in detail map popup
+- Feat: Navigate back to last page from detail view
 
 ### Bonus 3: New Blog Post
     The form is cleared after adding a new blog post and the user gets directed to the Dashboard, again.
@@ -70,6 +37,12 @@ Feat: Navigate back to last page from detail view
 
     The values of the form are pre-filled with the data from the blog post.
     On form submit the blog post gets updated and sent to the Backend.
+
+    Editing of locations & bands?
+
+    Add delete button
+    Delte locations & bands?
+    Delete unused?
 
 ### Bonus 5. Authentication / Login
 
@@ -119,4 +92,5 @@ Or / and centralizing the map or growing of the marker @hover over preview?
 - Try to hide the mapbox token from github by outsourcing it into a gitignored file.
 - Naming: CardContainer / PreviewCard... better: ShowsContainer, ShowPreview, ShowDetail?
 - Delete unused / out commented elements
+- Remove unneeded elements from getters (source out to services)
 - Write ReadMe Files
