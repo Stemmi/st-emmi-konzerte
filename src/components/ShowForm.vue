@@ -1,7 +1,7 @@
 <template>
     <form @submit="postShow">
         <label for="title">Titel (optional):</label><br>
-        <input type="text" id="title" name="title" maxlength="300" size="40"><br><br>
+        <input type="text" id="title" name="title" maxlength="255" size="40"><br><br>
         
         <label for="location_id">Location:</label><br>
         <select v-model="location_id" v-if="locations" id="location_id" name="location_id" required>
