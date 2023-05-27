@@ -7,17 +7,18 @@ Works well, but: No visible query in the url.
 
 ## To do list
 Big steps
-- New blog post: handle locations existing / new // Component
 - New blog post: handle bands
 - Host images in backend folder, not in frontend folder
 - - New blog post / Uploading images: Use Multipart Form Data
 - - Fix: placeholder if image is missing
 - New blog post: Create Components or form, location form and bands form
 - New blog post: Only signed in user can add new blog posts.
+- Create a useful styling concept for new location / new band in new show view
 
 Small steps:
 - Feat: Implement location url in detail view and in detail map popup
 - New blog post: The form is cleared after adding a new blog post and the user gets directed to the Dashboard, again.
+- Don't display locations without lat/long in map
 
 ### Bonus 4: Edit Blog Posts
 

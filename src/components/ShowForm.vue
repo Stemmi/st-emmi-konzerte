@@ -6,13 +6,10 @@
         <label for="location_id">Location:</label><br>
         <select v-model="location_id" v-if="locations" id="location_id" name="location_id" required>
             <option v-for="location of locations" :key="location.id" :value="location.id">{{ [location.name, location.city].filter(item => item).join(', ') }}</option>
-            <!-- <option value="-1">+++ Neue Location +++</option> -->
+            <option value="-1">+++ Neue Location +++</option>
         </select><br><br>
 
-        <div v-if="location_id==='-1'">
-            <br>
-        </div>
-
+        <LocationForm v-if="location_id==='-1'" @new_location_id="updateLocationId"/>
 
         <label for="date">Datum:</label><br>
         <input type="date" id="date" name="date" size="10" required><br><br>
@@ -36,6 +33,7 @@
 <script>
     import settings from '../services/settings.js';
     import api from '../services/api.js';
+    import LocationForm from './LocationForm.vue';
 
     export default {
         data() {
@@ -46,7 +44,14 @@
                 location_id: undefined
             }
         },
+        components: {
+            LocationForm
+        },
         methods: {
+            async updateLocationId(id) {
+                this.locations = await api.getLocations();
+                this.location_id = id;
+            },
             async postShow(event) {
                 event.preventDefault();
 
