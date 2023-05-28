@@ -62,7 +62,7 @@ async function getShowsByLocationId(locationId) {
 }
 
 export default {
-    // getBands,
+    getBands,
     getBandsByShowId,
     getLocations,
     getShows,
