@@ -2,19 +2,15 @@
 Navigation / pagination: I read on 'updated' and created pagination now with watch instead. 
 Works well, but: No visible query in the url. 
 
+Form: When adding a new location, should it immediately be posted (before the show form is completed) or should I post everything in one big move?
+
 GitHub profile: Should I open it up so everyone can see it?
 
 # To do
-New blog post: handle bands
-backend: ok
-frontend:
-- add new band
-
-Refactor form:
-- SelectLocation.vue
-- - NewLocationForm.vue
-- SelectBands.vue
-- - NewBandForm.vue
+New blog post:
+- add new band Component NewBandForm.vue
+- handle disabled ok button while adding new location or band
+- passing location & band data to parent
 
 Big steps
 - Host images in backend folder, not in frontend folder
