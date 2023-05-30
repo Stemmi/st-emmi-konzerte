@@ -31,7 +31,6 @@
         ],
         methods: {
             selectLocation(event) {
-                console.log('value', event.target.value); // jshdgfjwgfhsjhg
                 this.$emit("updateLocation", event.target.value);
             },
             async setNewLocationId(id) {
