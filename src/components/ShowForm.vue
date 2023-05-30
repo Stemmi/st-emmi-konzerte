@@ -3,7 +3,7 @@
         <label for="title">Titel (optional):</label><br>
         <input type="text" id="title" name="title" maxlength="255" size="40"><br><br>
         
-        <SelectLocation :location_id="location_id" @update-location="handleLocationSelection" />
+        <SelectLocation :location_id="locationId" @update-location="handleLocationSelection" />
 
         <label for="date">Datum:</label><br>
         <input type="date" id="date" name="date" size="10" required><br><br>
@@ -17,11 +17,11 @@
         <label for="poster_alt">Plakat-Alt-Text:</label><br>
         <input type="text" id="poster_alt" name="poster_alt" maxlength="255" size="40"><br><br>
 
-        <SelectBands />
+        <SelectBands :selected_band_ids="selectedBandIds" @update-band="handleBandSelection" />
 
         <input type="hidden" id="user_id" name="user_id" value="1">
         
-        <button v-if="location_id != -1" type="submit">OK</button>
+        <button v-if="locationId!=-1&&bandId!=-1" type="submit">OK</button>
     </form>
 </template>
 
@@ -34,7 +34,9 @@
         data() {
             return {
                 apiUrl: settings.apiUrl(),
-                location_id: undefined
+                locationId: undefined,
+                bandId: undefined,
+                selectedBandIds: []
             }
         },
         components: {
@@ -42,18 +44,22 @@
         },
         methods: {
             handleLocationSelection(value) {
-                this.location_id = +value;
+                this.locationId = +value;
+            },
+            handleBandSelection(value) {
+                this.bandId = +value;
             },
             async postShow(event) {
                 event.preventDefault();
 
                 const reqBody = {
                     'title': title.value,
-                    'location_id': this.location_id.toString(),
+                    'location_id': this.locationId.toString(),
                     'date': date.value,
                     'text': text.value,
                     'poster_filename': poster_filename.value,
                     'poster_alt': poster_alt.value,
+                    'bands': this.selectedBandIds.map((id) => id.toString()),
                     'user_id': user_id.value
                 };
 

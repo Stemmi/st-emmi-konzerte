@@ -7,11 +7,6 @@ Form: When adding a new location, should it immediately be posted (before the sh
 GitHub profile: Should I open it up so everyone can see it?
 
 # To do
-New blog post:
-- add new band Component NewBandForm.vue
-- handle disabled ok button while adding new location or band
-- passing location & band data to parent
-
 Big steps
 - Host images in backend folder, not in frontend folder
 - - New blog post / Uploading images: Use Multipart Form Data
@@ -19,6 +14,9 @@ Big steps
 - New blog post: Only signed in user can add new blog posts.
 
 Small steps:
+- Change map language to german
+- Handle correct displaying of " and & and / and ...?
+- Empty new location / new band form
 - Feat: Implement location url in detail view and in detail map popup
 - New blog post: The form is cleared after adding a new blog post and the user gets directed to the Dashboard, again.
 - Don't display locations without lat/long in map
