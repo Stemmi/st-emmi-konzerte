@@ -8,9 +8,8 @@ GitHub profile: Should I open it up so everyone can see it?
 
 # To do
 Big steps
-- Host images in backend folder, not in frontend folder
-- - New blog post / Uploading images: Use Multipart Form Data
-- - Fix: placeholder if image is missing
+- New blog post / Uploading images: Use Multipart Form Data
+- Fix: placeholder if image is missing
 - New blog post: Only signed in user can add new blog posts.
 
 Small steps:

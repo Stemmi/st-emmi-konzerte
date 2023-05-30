@@ -35,6 +35,7 @@
     import UserContainer from "../components/UserContainer.vue";
 
     import formatting from '../services/formatting.js';
+    import settings from '../services/settings.js';
 
     export default {      
       components: {
@@ -43,6 +44,11 @@
         Back,
         UserContainer
       },
+      data() {
+          return {
+            posterUrl: settings.imgUrl() + "/posters/"
+          }
+        },
       props: [
         "show", "bands"
       ],
@@ -54,8 +60,8 @@
                 return formatting.createDate(this.show.date);
             },
             image() {
-                if (this.show.poster.filename) return '/images/posters/'+this.show.poster.filename;
-                return '/images/posters/placeholder.jpg';
+                if (this.show.poster.filename) return this.posterUrl+this.show.poster.filename;
+                return '/images/poster_placeholder.jpg';
             }
         }
     }
