@@ -10,10 +10,10 @@
         <input type="url" id="locurl" name="locurl" maxlength="255" size="40"><br><br>
         
         <label for="loclong">Longitude:</label><br>
-        <input type="number" step="0.00000000000001" min="-180" max="180" id="loclong" name="loclong" size="40"><br><br>
+        <input type="number" step="0.0000000000000001" min="-180" max="180" id="loclong" name="loclong" size="40"><br><br>
 
         <label for="loclat">Latitude:</label><br>
-        <input type="number" step="0.00000000000001" min="-90" max="90" id="loclat" name="loclat" size="40"><br><br>
+        <input type="number" step="0.0000000000000001" min="-90" max="90" id="loclat" name="loclat" size="40"><br><br>
         
         <button type="submit">OK</button>
     </form>
