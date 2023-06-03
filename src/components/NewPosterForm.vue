@@ -20,7 +20,7 @@
                 uploadPosterUrl: settings.apiUrl()+"/upload/poster",
                 posterUrl: settings.imgUrl() + "/posters/",
                 changed: false,
-                image: undefined
+                image: ''
             }
         },
         emits: [

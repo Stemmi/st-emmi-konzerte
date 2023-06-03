@@ -38,7 +38,7 @@
                 bandId: undefined,
                 selectedBandIds: [],
                 hasPosterInputChanged: false,
-                posterFilename: undefined
+                posterFilename: ''
             }
         },
         computed: {

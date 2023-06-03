@@ -7,13 +7,9 @@ Form: When adding a new location, should it immediately be posted (before the sh
 GitHub profile: Should I open it up so everyone can see it?
 
 # To do
-- BE: add file handling (renaming) if file exists
-- Dashboard navigation: Go back to last page
-
 Big steps
 - Fix: placeholder if image is missing
 - New blog post: Only signed in user can add new blog posts.
-
 
 Small steps:
 - Change map language to german
@@ -37,7 +33,7 @@ On form submit the blog post gets updated and sent to the Backend.
 Editing of locations & bands?
 
 Add delete button
-Delte locations & bands?
+Delete locations & bands?
 Delete unused?
 
 ## Bonus 5. Authentication / Login
@@ -82,8 +78,8 @@ Write a note that this was a project from a course at Hamburg Coding School.
 
 ## misc
 - Feat: Navigate back to last page from detail view
+- BE: add image file handling (renaming) if file exists
 - settings -> .env?
-- Load placeholder if image not found
 - Additional Link in Preview to center the map at the location?
 Or / and centralizing the map or growing of the marker @hover over preview?
 - Try different Maps: GoogleMaps
