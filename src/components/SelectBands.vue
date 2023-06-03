@@ -1,9 +1,11 @@
 <template>
         <label for="band_id">Weitere Bands:</label><br>
+        
         <select v-model="band_id" id="band_id" name="band_id">
             <option v-for="band of allBands" :key="band.id" :value="band.id">{{ band.name }}</option>
             <option value="-1">+++ Neue Band +++</option>
         </select>
+        
         <button class="inline_button" type="button" @click="addBand">+</button><br><br>
 
         <NewBandForm v-if="band_id==-1" @new_band_id="setNewBandId"/>       

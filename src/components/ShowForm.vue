@@ -11,6 +11,8 @@
         <label for="text">Beschreibung:</label><br>
         <textarea id="text" name="text" maxlength="255" rows="4" cols="80"></textarea><br><br>
         
+        <NewImageForm />
+
         <label for="poster_filename">Plakat-Foto:</label><br>
         <input type="text" id="poster_filename" name="poster_filename" maxlength="255" size="40"><br><br>
         
@@ -27,6 +29,7 @@
 
 <script>
     import SelectLocation from './SelectLocation.vue';
+    import NewImageForm from './NewImageForm.vue';
     import SelectBands from './SelectBands.vue';
     import settings from '../services/settings.js';
 
@@ -40,7 +43,7 @@
             }
         },
         components: {
-            SelectLocation, SelectBands
+            SelectLocation, NewImageForm, SelectBands
         },
         methods: {
             handleLocationSelection(value) {
