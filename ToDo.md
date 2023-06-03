@@ -7,11 +7,8 @@ Form: When adding a new location, should it immediately be posted (before the sh
 GitHub profile: Should I open it up so everyone can see it?
 
 # To do
-- optimize the upload form (deactivate ok button, small image display etc)
-- pass uploaded file information to the main form
-- remove file path field from main form
 - BE: add file handling (renaming) if file exists
-
+- Dashboard navigation: Go back to last page
 
 Big steps
 - Fix: placeholder if image is missing
@@ -25,6 +22,7 @@ Small steps:
 - Feat: Implement location url in detail view and in detail map popup
 - New blog post: The form is cleared after adding a new blog post and the user gets directed to the Dashboard, again.
 - Don't display locations without lat/long in map
+- new location: paste lat/long in Google format
 
 ## Bonus 4: Edit Blog Posts
 

@@ -3,7 +3,7 @@
         <label for="poster">Plakat (png oder jpg):</label>
         <input @change="changedHandler" type="file" id="poster" name="poster" accept=".jpg, .jpeg, .png" />
         
-        <img class="image_preview" v-if="image" :src="posterUrl+image" />
+        <img class="image_preview" v-if="image&&!changed" :src="posterUrl+image" />
 
         <button v-if="changed">OK</button><br>
 
@@ -24,8 +24,16 @@
             }
         },
         emits: [
-
+            "changed_input", "new_poster"
         ],
+        watch: {
+            changed(newValue, oldValue) {
+                this.$emit("changed_input", newValue);
+            },
+            image(newImage, oldImage) {
+                this.$emit("new_poster", newImage);
+            }
+        },
         methods: {
             submitHandler(event) {
                 event.preventDefault();
@@ -41,29 +49,6 @@
             changedHandler() {
                 this.changed = true;
             }
-
-            // async postImage(event) {
-            //     event.preventDefault();
-            //     console.log(event.target.image.files[0]);
-
-            //     // const reqBody = {
-            //     //     'name': bandname.value,
-            //     //     'url': bandurl.value
-            //     // };
-
-            //     // fetch(this.apiUrl+"/bands", {
-            //     //     method: 'POST',
-            //     //     body: JSON.stringify(reqBody),
-            //     //     headers: {
-            //     //         'Content-type': 'application/json; charset=UTF-8'
-            //     //     },
-            //     // }) 
-            //     // .then((response) => response.json())
-            //     // .then((band) => this.$emit("new_band_id", band.id));
-            // },
-            // changeImage(event) {
-            //     console.log(event.target.files[0]);
-            // }
         }
 
     } 
@@ -73,5 +58,6 @@
     .image_preview {
         height: 100px;
         display: block;
+        margin-bottom: 10px;
     }
 </style>

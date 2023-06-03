@@ -11,10 +11,7 @@
         <label for="text">Beschreibung:</label>
         <textarea id="text" name="text" maxlength="255" rows="4" cols="80"></textarea>
         
-        <NewImageForm />
-
-        <label for="poster_filename">Plakat-Foto:</label>
-        <input type="text" id="poster_filename" name="poster_filename" maxlength="255" size="40">
+        <NewPosterForm @changed_input="handlePosterInputChange" @new_poster="handleNewPoster"/>
         
         <label for="poster_alt">Plakat-Alt-Text:</label>
         <input type="text" id="poster_alt" name="poster_alt" maxlength="255" size="40">
@@ -23,13 +20,13 @@
 
         <input type="hidden" id="user_id" name="user_id" value="1">
         
-        <button v-if="locationId!=-1&&bandId!=-1" type="submit">OK</button>
+        <button :disabled="isOkButtonDisabled" type="submit">OK</button>
     </form>
 </template>
 
 <script>
     import SelectLocation from './SelectLocation.vue';
-    import NewImageForm from './NewImageForm.vue';
+    import NewPosterForm from './NewPosterForm.vue';
     import SelectBands from './SelectBands.vue';
     import settings from '../services/settings.js';
 
@@ -39,11 +36,18 @@
                 apiUrl: settings.apiUrl(),
                 locationId: undefined,
                 bandId: undefined,
-                selectedBandIds: []
+                selectedBandIds: [],
+                hasPosterInputChanged: false,
+                posterFilename: undefined
+            }
+        },
+        computed: {
+            isOkButtonDisabled() {
+                return this.locationId == -1 || this.bandId == -1 || this.hasPosterInputChanged;
             }
         },
         components: {
-            SelectLocation, NewImageForm, SelectBands
+            SelectLocation, NewPosterForm, SelectBands
         },
         methods: {
             handleLocationSelection(value) {
@@ -51,6 +55,12 @@
             },
             handleBandSelection(value) {
                 this.bandId = +value;
+            },
+            handlePosterInputChange(changed) {
+                this.hasPosterInputChanged = changed;
+            },
+            handleNewPoster(filename) {
+                this.posterFilename = filename;
             },
             async postShow(event) {
                 event.preventDefault();
@@ -60,7 +70,7 @@
                     'location_id': this.locationId.toString(),
                     'date': date.value,
                     'text': text.value,
-                    'poster_filename': poster_filename.value,
+                    'poster_filename': this.posterFilename,
                     'poster_alt': poster_alt.value,
                     'bands': this.selectedBandIds.map((id) => id.toString()),
                     'user_id': user_id.value
