@@ -1,12 +1,11 @@
 <template>
     <form id="poster_form" @submit="submitHandler">
-        <label for="poster">Bitte wähle Plakat zum Hochladen aus (png oder jpg):</label><br>
-        <input type="file" id="poster" name="poster" accept=".jpg, .jpeg, .png" /><br><br>
+        <label for="poster">Plakat (png oder jpg):</label>
+        <input @change="changedHandler" type="file" id="poster" name="poster" accept=".jpg, .jpeg, .png" />
         
-        <button>OK</button><br>
+        <img class="image_preview" v-if="image" :src="posterUrl+image" />
 
-        <img v-if="image" :src="posterUrl+image" />
-        <p>{{ image }}</p>
+        <button v-if="changed">OK</button><br>
 
     </form>
 
@@ -20,6 +19,7 @@
             return {
                 uploadPosterUrl: settings.apiUrl()+"/upload/poster",
                 posterUrl: settings.imgUrl() + "/posters/",
+                changed: false,
                 image: undefined
             }
         },
@@ -36,6 +36,10 @@
                 })
                 .then((response) => response.json())
                 .then((file) => this.image = file.filename);
+                this.changed = false;
+            },
+            changedHandler() {
+                this.changed = true;
             }
 
             // async postImage(event) {
@@ -66,5 +70,8 @@
 </script>
 
 <style scoped>
-
+    .image_preview {
+        height: 100px;
+        display: block;
+    }
 </style>

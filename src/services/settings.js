@@ -6,7 +6,6 @@ function imgUrl() {
     return "http://localhost:3000/static/images";
 }
 
-
 function limit() {
     return 6;
 }

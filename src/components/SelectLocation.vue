@@ -1,10 +1,10 @@
 <template>
-    <label for="loc_id">Location:</label><br>
+    <label for="loc_id">Location:</label>
     
     <select v-if="locations" id="loc_id" name="loc_id" required :value="location_id" @input="selectLocation" >
         <option v-for="location of locations" :key="location.id" :value="location.id">{{ [ location.city, location.name ].filter(item => item).join(', ') }}</option>
         <option value="-1">+++ Neue Location +++</option>
-    </select><br><br>
+    </select>
 
     <NewLocationForm v-if="location_id===-1" @new_location_id="setNewLocationId"/>       
 </template>

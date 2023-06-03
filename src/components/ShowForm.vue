@@ -1,23 +1,23 @@
 <template>
     <form @submit="postShow">
-        <label for="title">Titel (optional):</label><br>
-        <input type="text" id="title" name="title" maxlength="255" size="40"><br><br>
+        <label for="title">Titel (optional):</label>
+        <input type="text" id="title" name="title" maxlength="255" size="40">
         
         <SelectLocation :location_id="locationId" @update-location="handleLocationSelection" />
 
-        <label for="date">Datum:</label><br>
-        <input type="date" id="date" name="date" size="10" required><br><br>
+        <label for="date">Datum:</label>
+        <input type="date" id="date" name="date" size="10" required>
         
-        <label for="text">Beschreibung:</label><br>
-        <textarea id="text" name="text" maxlength="255" rows="4" cols="80"></textarea><br><br>
+        <label for="text">Beschreibung:</label>
+        <textarea id="text" name="text" maxlength="255" rows="4" cols="80"></textarea>
         
         <NewImageForm />
 
-        <label for="poster_filename">Plakat-Foto:</label><br>
-        <input type="text" id="poster_filename" name="poster_filename" maxlength="255" size="40"><br><br>
+        <label for="poster_filename">Plakat-Foto:</label>
+        <input type="text" id="poster_filename" name="poster_filename" maxlength="255" size="40">
         
-        <label for="poster_alt">Plakat-Alt-Text:</label><br>
-        <input type="text" id="poster_alt" name="poster_alt" maxlength="255" size="40"><br><br>
+        <label for="poster_alt">Plakat-Alt-Text:</label>
+        <input type="text" id="poster_alt" name="poster_alt" maxlength="255" size="40">
 
         <SelectBands :selected_band_ids="selectedBandIds" @update-band="handleBandSelection" />
 

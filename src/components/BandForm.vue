@@ -1,10 +1,10 @@
 <template>
     <form @submit="postBand">
-        <label for="bandname">Name:</label><br>
-        <input type="text" id="bandname" name="bandname" maxlength="255" size="40" required><br><br>
+        <label for="bandname">Name:</label>
+        <input type="text" id="bandname" name="bandname" maxlength="255" size="40" required>
         
-        <label for="bandurl">Homepage:</label><br>
-        <input type="url" id="bandurl" name="bandurl" maxlength="255" size="40"><br><br>
+        <label for="bandurl">Homepage:</label>
+        <input type="url" id="bandurl" name="bandurl" maxlength="255" size="40">
         
         <button type="submit">OK</button>
     </form>

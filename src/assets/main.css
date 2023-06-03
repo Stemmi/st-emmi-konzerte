@@ -96,6 +96,14 @@ button:active {
   background: var(--default-brighter-color);
 }
 
+label {
+  display: block;
+}
+
+input, select, textarea {
+  margin-bottom: 10px;
+}
+
 .icon {
   width: 15px;
   height: 15px;
