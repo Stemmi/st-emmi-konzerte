@@ -7,16 +7,15 @@ Form: When adding a new location, should it immediately be posted (before the sh
 GitHub profile: Should I open it up so everyone can see it?
 
 # To do
-Big steps
-- Fix: placeholder if image is missing
+Big steps:
 - New blog post: Only signed in user can add new blog posts.
 
 Small steps:
+- Empty new location / new band form
+- New blog post: The form is cleared after adding a new blog post and the user gets directed to the Dashboard, again.
+
 - Change map language to german
 - Handle correct displaying of " and & and / and ...?
-- Empty new location / new band form
-- Feat: Implement location url in detail view and in detail map popup
-- New blog post: The form is cleared after adding a new blog post and the user gets directed to the Dashboard, again.
 - Don't display locations without lat/long in map
 - new location: paste lat/long in Google format
 
@@ -78,7 +77,9 @@ Write a note that this was a project from a course at Hamburg Coding School.
 
 ## misc
 - Feat: Navigate back to last page from detail view
+- Feat: Implement location url in detail view and in detail map popup
 - BE: add image file handling (renaming) if file exists
+- Fix: placeholder if image is missing (done?)
 - settings -> .env?
 - Additional Link in Preview to center the map at the location?
 Or / and centralizing the map or growing of the marker @hover over preview?

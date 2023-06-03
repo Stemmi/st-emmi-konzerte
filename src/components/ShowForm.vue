@@ -84,7 +84,8 @@
                     },
                 }) 
                 .then((response) => response.json())
-                .then((show) => this.$router.push({ path: `/detail/${show.id}` }));
+                .then((show) => this.$router.push({ path: `/detail/${show.id}` }))
+                .then(event.target.reset());
             }
         }
     } 

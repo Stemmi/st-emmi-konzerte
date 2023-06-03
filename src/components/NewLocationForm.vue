@@ -51,7 +51,8 @@
                     },
                 }) 
                 .then((response) => response.json())
-                .then((location) => this.$emit("new_location_id", location.id));
+                .then((location) => this.$emit("new_location_id", location.id))
+                .then(event.target.reset());
             }
         }
 

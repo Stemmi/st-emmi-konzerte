@@ -39,7 +39,8 @@
                     },
                 }) 
                 .then((response) => response.json())
-                .then((band) => this.$emit("new_band_id", band.id));
+                .then((band) => this.$emit("new_band_id", band.id))
+                .then(event.target.reset());
             }
         }
 
