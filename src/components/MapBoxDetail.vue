@@ -3,7 +3,7 @@
         <MapboxMap
             style="height: 100%"
             access-token="pk.eyJ1Ijoic3RlbW1pIiwiYSI6ImNsZnNjeWV0MDA1MTAzaHNlNzY1OHl5YTgifQ.fDF5EfP2eLcs0DhN1QNKig"
-            map-style="mapbox://styles/mapbox/streets-v11"
+            map-style="mapbox://styles/stemmi/clih8mpqz008801pf2lj32zhd"
             :center="[location.long, location.lat]"
             :zoom="14">
             <MapboxMarker

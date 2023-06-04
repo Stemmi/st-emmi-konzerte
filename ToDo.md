@@ -11,10 +11,6 @@ Big steps:
 - New blog post: Only signed in user can add new blog posts.
 
 Small steps:
-- Empty new location / new band form
-- New blog post: The form is cleared after adding a new blog post and the user gets directed to the Dashboard, again.
-
-- Change map language to german
 - Handle correct displaying of " and & and / and ...?
 - Don't display locations without lat/long in map
 - new location: paste lat/long in Google format
