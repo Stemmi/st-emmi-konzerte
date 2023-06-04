@@ -20,12 +20,13 @@
                 uploadPosterUrl: settings.apiUrl()+"/upload/poster",
                 posterUrl: settings.imgUrl() + "/posters/",
                 changed: false,
-                image: ''
+                image: this.poster_filename
             }
         },
         emits: [
             "changed_input", "new_poster"
         ],
+        props: [ "poster_filename" ],
         watch: {
             changed(newValue, oldValue) {
                 this.$emit("changed_input", newValue);

@@ -1,20 +1,20 @@
 <template>
     <form @submit="postShow">
         <label for="title">Titel (optional):</label>
-        <input type="text" id="title" name="title" maxlength="255" size="40">
+        <input v-model="show.title" type="text" id="title" name="title" maxlength="255" size="40" >
         
         <SelectLocation :location_id="locationId" @update-location="handleLocationSelection" />
 
         <label for="date">Datum:</label>
-        <input type="date" id="date" name="date" size="10" required>
+        <input v-model="show.date" type="date" id="date" name="date" size="10" required>
         
         <label for="text">Beschreibung:</label>
-        <textarea id="text" name="text" maxlength="255" rows="4" cols="80"></textarea>
+        <textarea v-model="show.text" id="text" name="text" maxlength="255" rows="4" cols="80"></textarea>
         
-        <NewPosterForm @changed_input="handlePosterInputChange" @new_poster="handleNewPoster"/>
+        <NewPosterForm :poster_filename="posterFilename" @changed_input="handlePosterInputChange" @new_poster="handleNewPoster"/>
         
         <label for="poster_alt">Plakat-Alt-Text:</label>
-        <input type="text" id="poster_alt" name="poster_alt" maxlength="255" size="40">
+        <input v-model="show.poster_alt" type="text" id="poster_alt" name="poster_alt" maxlength="255" size="40">
 
         <SelectBands :selected_band_ids="selectedBandIds" @update-band="handleBandSelection" />
 
@@ -34,21 +34,22 @@
         data() {
             return {
                 apiUrl: settings.apiUrl(),
-                locationId: undefined,
+                locationId: this.show.location_id,
                 bandId: undefined,
-                selectedBandIds: [],
+                selectedBandIds: this.show.bands,
                 hasPosterInputChanged: false,
-                posterFilename: ''
+                posterFilename: this.show.poster_filename
             }
         },
         computed: {
             isOkButtonDisabled() {
-                return this.locationId == -1 || this.bandId == -1 || this.hasPosterInputChanged;
+                return this.show.locationId == -1 || this.bandId == -1 || this.hasPosterInputChanged;
             }
         },
         components: {
             SelectLocation, NewPosterForm, SelectBands
         },
+        props: [ "show" ],
         methods: {
             handleLocationSelection(value) {
                 this.locationId = +value;
