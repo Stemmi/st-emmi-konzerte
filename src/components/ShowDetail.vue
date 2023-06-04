@@ -20,6 +20,7 @@
     </div>
     <div class="clear"></div>
     <UserContainer :user="show.user" />
+    
   </section>
   
   <section v-else class="loading">

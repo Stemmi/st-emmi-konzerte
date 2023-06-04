@@ -12,7 +12,6 @@ Big steps:
 
 Small steps:
 - Handle correct displaying of " and & and / and ...?
-- Don't display locations without lat/long in map
 - new location: paste lat/long in Google format
 
 ## Bonus 4: Edit Blog Posts
