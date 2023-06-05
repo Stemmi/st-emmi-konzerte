@@ -58,7 +58,6 @@
                 this.selected_band_ids.push(id);
                 this.allBands = await api.getBands();
                 this.band_id = id;
-                // this.$emit("updateBand", id);
             }
         },
         async mounted() {            

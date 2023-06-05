@@ -3,7 +3,7 @@
     <section>
     
     <h3>Neuer Eintrag:</h3>
-    <ShowForm :show="show"/>
+    <ShowForm :show="show" :bands="bands"/>
     
     </section>
     </main>
@@ -19,15 +19,20 @@
         data() {
             return {
                 show: {
+                    id: undefined,
                     title: undefined,
-                    location_id: undefined,
+                    location: {
+                        id: undefined
+                    },
                     date: undefined,
                     text: undefined,
-                    poster_filename: undefined,
-                    poster_alt: undefined,
-                    bands: [],
+                    poster: {
+                        filename: undefined,
+                        alt: undefined
+                    },
                     user_id: undefined
-                }
+                },
+                bands: []
             }
         }
     } 

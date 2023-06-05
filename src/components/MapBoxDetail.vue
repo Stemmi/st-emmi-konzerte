@@ -5,7 +5,7 @@
             access-token="pk.eyJ1Ijoic3RlbW1pIiwiYSI6ImNsZnNjeWV0MDA1MTAzaHNlNzY1OHl5YTgifQ.fDF5EfP2eLcs0DhN1QNKig"
             map-style="mapbox://styles/stemmi/clih8mpqz008801pf2lj32zhd"
             :center="location.long&&location.lat?[location.long, location.lat]:[9.956186211022594,53.561359415147024]"
-            :zoom="location.long&&location.lat?14:5">
+            :zoom="location.long&&location.lat?12:5">
             <MapboxMarker v-if="location.long&&location.lat"
                 :lng-lat="[location.long, location.lat]"
                 color="#ab0000"

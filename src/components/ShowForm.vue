@@ -6,15 +6,15 @@
         <SelectLocation :location_id="locationId" @update-location="handleLocationSelection" />
 
         <label for="date">Datum:</label>
-        <input v-model="show.date" type="date" id="date" name="date" size="10" required>
-        
+        <input v-model="date" type="date" id="date" name="date" size="10" required>
+   
         <label for="text">Beschreibung:</label>
         <textarea v-model="show.text" id="text" name="text" maxlength="255" rows="4" cols="80"></textarea>
         
         <NewPosterForm :poster_filename="posterFilename" @changed_input="handlePosterInputChange" @new_poster="handleNewPoster"/>
         
         <label for="poster_alt">Plakat-Alt-Text:</label>
-        <input v-model="show.poster_alt" type="text" id="poster_alt" name="poster_alt" maxlength="255" size="40">
+        <input v-model="show.poster.alt" type="text" id="poster_alt" name="poster_alt" maxlength="255" size="40">
 
         <SelectBands :selected_band_ids="selectedBandIds" @update-band="handleBandSelection" />
 
@@ -33,23 +33,24 @@
     export default {
         data() {
             return {
+                date: this.show.date ? this.show.date.split('T')[0] : undefined,
                 apiUrl: settings.apiUrl(),
-                locationId: this.show.location_id,
+                locationId: this.show.location.id,
                 bandId: undefined,
-                selectedBandIds: this.show.bands,
+                selectedBandIds: this.bands.map((band) => band.id),
                 hasPosterInputChanged: false,
-                posterFilename: this.show.poster_filename
+                posterFilename: this.show.poster.filename
             }
         },
         computed: {
             isOkButtonDisabled() {
-                return this.show.locationId == -1 || this.bandId == -1 || this.hasPosterInputChanged;
+                return this.locationId == -1 || this.bandId == -1 || this.hasPosterInputChanged;
             }
         },
         components: {
             SelectLocation, NewPosterForm, SelectBands
         },
-        props: [ "show" ],
+        props: [ "show", "bands" ],
         methods: {
             handleLocationSelection(value) {
                 this.locationId = +value;
