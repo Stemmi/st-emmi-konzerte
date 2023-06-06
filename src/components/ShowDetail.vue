@@ -1,7 +1,7 @@
 <template>
 
   <section v-if="show">
-    <button><RouterLink to="/"><Back />Zurück zur Liste</RouterLink></button>
+    <RouterLink to="/"><button><Back />Zurück zur Liste</button></RouterLink>
     <h2>{{ show.title }}</h2>
     <h3><Location />{{ '' + heading }}</h3>
     <p><Calendar />{{ date }}</p>
@@ -20,6 +20,7 @@
     </div>
     <div class="clear"></div>
     <UserContainer :user="show.user" />
+    <RouterLink to=""><button>Edit</button></RouterLink>
     
   </section>
   

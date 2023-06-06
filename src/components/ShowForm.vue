@@ -1,5 +1,5 @@
 <template>
-    <form @submit="postShow">
+    <form @submit="submitForm">
         <label for="title">Titel (optional):</label>
         <input v-model="show.title" type="text" id="title" name="title" maxlength="255" size="40" >
         
@@ -39,7 +39,7 @@
                 bandId: undefined,
                 selectedBandIds: this.bands.map((band) => band.id),
                 hasPosterInputChanged: false,
-                posterFilename: this.show.poster.filename
+                posterFilename: this.show.poster.filename || ''
             }
         },
         computed: {
@@ -50,6 +50,7 @@
         components: {
             SelectLocation, NewPosterForm, SelectBands
         },
+        emits: [ "send-form" ],
         props: [ "show", "bands" ],
         methods: {
             handleLocationSelection(value) {
@@ -64,7 +65,7 @@
             handleNewPoster(filename) {
                 this.posterFilename = filename;
             },
-            async postShow(event) {
+            async submitForm(event) {
                 event.preventDefault();
 
                 const reqBody = {
@@ -78,16 +79,8 @@
                     'user_id': user_id.value
                 };
 
-                fetch(this.apiUrl+"/shows", {
-                    method: 'POST',
-                    body: JSON.stringify(reqBody),
-                    headers: {
-                        'Content-type': 'application/json; charset=UTF-8'
-                    },
-                }) 
-                .then((response) => response.json())
-                .then((show) => this.$router.push({ path: `/detail/${show.id}` }))
-                .then(event.target.reset());
+                this.$emit("send-form", reqBody);
+                event.target.reset();
             }
         }
     } 

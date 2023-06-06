@@ -13,6 +13,7 @@ Big steps:
 Small steps:
 - Handle correct displaying of " and & and / and ...?
 - new location: paste lat/long in Google format
+- Edit icon
 
 ## Bonus 4: Edit Blog Posts
 
@@ -55,6 +56,7 @@ https://github.com/hamburgcodingschool/fullstack-2022-4_vuejs/blob/main/project.
 - button hover: svg color
 - Optimize responsiveness
 - Nicer forms
+- back button is full width ?
 
 ## DB
 Fill the db

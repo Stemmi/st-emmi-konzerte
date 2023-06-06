@@ -3,7 +3,7 @@
     <section>
     
     <h3>Neuer Eintrag:</h3>
-    <ShowForm :show="show" :bands="bands"/>
+    <ShowForm :show="show" :bands="bands" @sendForm="postShow"/>
     
     </section>
     </main>
@@ -11,6 +11,8 @@
 
 <script>
     import ShowForm from '../components/ShowForm.vue';
+    import settings from '../services/settings';
+
 
     export default {
         components: { 
@@ -18,21 +20,25 @@
         },
         data() {
             return {
+                apiUrl: settings.apiUrl(),
                 show: {
-                    id: undefined,
-                    title: undefined,
-                    location: {
-                        id: undefined
-                    },
-                    date: undefined,
-                    text: undefined,
-                    poster: {
-                        filename: undefined,
-                        alt: undefined
-                    },
-                    user_id: undefined
+                    location: {},
+                    poster: {},
                 },
                 bands: []
+            }
+        },
+        methods: {
+            async postShow(reqBody) {
+                fetch(this.apiUrl+"/shows", {
+                    method: 'POST',
+                    body: JSON.stringify(reqBody),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8'
+                    },
+                }) 
+                .then((response) => response.json())
+                .then((show) => this.$router.push({ path: `/detail/${show.id}` }));
             }
         }
     } 

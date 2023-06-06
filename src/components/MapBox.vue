@@ -5,7 +5,7 @@
             access-token="pk.eyJ1Ijoic3RlbW1pIiwiYSI6ImNsZnNjeWV0MDA1MTAzaHNlNzY1OHl5YTgifQ.fDF5EfP2eLcs0DhN1QNKig"
             map-style="mapbox://styles/stemmi/clih8mpqz008801pf2lj32zhd"
             :center="hasLatestLocationCoordinates?latestShowCoordinates:[9.956186211022594,53.561359415147024]"
-            :zoom="hasLatestLocationCoordinates?10:5">
+            :zoom="hasLatestLocationCoordinates?6:5">
             <span v-for="location of locations" :key="location.id">
             <MapboxMarker v-if="location.long&&location.lat"
                 :lng-lat="[location.long, location.lat]"
