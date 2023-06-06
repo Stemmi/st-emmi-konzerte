@@ -2,8 +2,8 @@
     <main>
     <section>
     
-    <h3>Neuer Eintrag:</h3>
-    <ShowForm :show="show" :bands="bands" @sendForm="postShow"/>
+    <h3>Eintrag bearbeiten:</h3>
+    <ShowForm v-if="show&&bands" :show="show" :bands="bands"  @sendForm="putShow" />
     
     </section>
     </main>
@@ -11,8 +11,8 @@
 
 <script>
     import ShowForm from '../components/ShowForm.vue';
+    import api from '../services/api';
     import settings from '../services/settings';
-
 
     export default {
         components: { 
@@ -21,17 +21,16 @@
         data() {
             return {
                 apiUrl: settings.apiUrl(),
-                show: {
-                    location: {},
-                    poster: {},
-                },
-                bands: []
+                show: undefined,
+                bands: undefined,
+                id: this.$route.params.id
             }
         },
         methods: {
-            async postShow(reqBody) {
-                fetch(this.apiUrl+"/shows", {
-                    method: 'POST',
+            async putShow(reqBody) {
+                reqBody.id = this.id;
+                fetch(this.apiUrl+"/shows/"+this.id, {
+                    method: 'PUT',
                     body: JSON.stringify(reqBody),
                     headers: {
                         'Content-type': 'application/json; charset=UTF-8'
@@ -40,6 +39,10 @@
                 .then((response) => response.json())
                 .then((show) => this.$router.push({ path: `/detail/${show.id}` }));
             }
+        },
+        async mounted() {
+            this.show = await api.getShowById(this.$route.params.id);
+            this.bands = await api.getBandsByShowId(this.show.id);
         }
     } 
 </script>

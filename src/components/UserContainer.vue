@@ -1,17 +1,24 @@
 <template>
     <div v-if="user">
-        <img :src="'/images/users/'+user.image" :alt="user.name">
+        <img :src="userImgUrl+user.image" :alt="user.name">
         <p>{{ user.name }}</p>
     </div>
 </template>
 
 <script>
+    import settings from '../services/settings.js';
+    
     export default {
+        data() {
+            return {
+                userImgUrl: settings.imgUrl() + "/users/"
+                
+            }
+        },
         props: [
             "userId", "user"
         ]
     }
-
 </script>
 
 <style scoped>

@@ -96,6 +96,21 @@ button:active {
   background: var(--default-brighter-color);
 }
 
+button:disabled {
+  text-decoration: none;
+  color: grey;
+  background: lightgrey;
+  border-color: grey;
+}
+
+label {
+  display: block;
+}
+
+input, select, textarea {
+  margin-bottom: 10px;
+}
+
 .icon {
   width: 15px;
   height: 15px;

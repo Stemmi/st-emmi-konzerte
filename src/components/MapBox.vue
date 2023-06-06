@@ -3,11 +3,11 @@
         <MapboxMap
             style="height: 100%"
             access-token="pk.eyJ1Ijoic3RlbW1pIiwiYSI6ImNsZnNjeWV0MDA1MTAzaHNlNzY1OHl5YTgifQ.fDF5EfP2eLcs0DhN1QNKig"
-            map-style="mapbox://styles/mapbox/streets-v11"
-            :center="latestShowCoordinates"
-            :zoom="12">
+            map-style="mapbox://styles/stemmi/clih8mpqz008801pf2lj32zhd"
+            :center="hasLatestLocationCoordinates?latestShowCoordinates:[9.956186211022594,53.561359415147024]"
+            :zoom="hasLatestLocationCoordinates?6:5">
             <span v-for="location of locations" :key="location.id">
-            <MapboxMarker
+            <MapboxMarker v-if="location.long&&location.lat"
                 :lng-lat="[location.long, location.lat]"
                 color="#ab0000"
                 popup >
@@ -35,6 +35,11 @@
             return {
                 locations: undefined,
                 latestShowCoordinates: undefined
+            }
+        },
+        computed: {
+            hasLatestLocationCoordinates() {
+                return (this.latestShowCoordinates[0] && this.latestShowCoordinates[1])
             }
         },
         components: {

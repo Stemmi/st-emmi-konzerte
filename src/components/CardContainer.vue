@@ -27,7 +27,8 @@
       data() {
         return {
           shows: undefined,
-          page: this.$route.query.page || 1,
+          // page: +this.$route.query.page || 1,
+          page: 1,
           pages: undefined
         }
       },
@@ -37,13 +38,15 @@
       methods: {
         async nextPage() {
           this.page++;
-          this.shows = await api.getShows(settings.limit(), this.page);
-          this.$router.push({ path: '/', query: { page: +this.page } });
         },
         async previousPage() {
           this.page--;
-          this.shows = await api.getShows(settings.limit(), this.page);
-          this.$router.push({ path: '/', query: { page: +this.page } });
+        }
+      },
+      watch: {
+        async page(newPage, oldPage) {
+          this.shows = await api.getShows(settings.limit(), newPage);
+          // this.$router.push({ path: '/', query: { page: newPage } });
         }
       },
       async mounted() {

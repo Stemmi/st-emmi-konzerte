@@ -11,11 +11,13 @@
 <script>
     import UserContainer from "./UserContainer.vue";
     import formatting from "../services/formatting.js";
+    import settings from '../services/settings.js';
 
     export default {
         data() {
             return {
-                isImgLoaded: false
+                isImgLoaded: false,
+                posterUrl: settings.imgUrl() + "/posters/"
             }
         },
         components: {
@@ -32,8 +34,8 @@
                 return formatting.createDate(this.show.date);
             },
             image() {
-                if (this.show.poster.filename) return '/images/posters/'+this.show.poster.filename;
-                return '/images/posters/placeholder.jpg';
+                if (this.show.poster.filename) return this.posterUrl+this.show.poster.filename;
+                return '/images/poster_placeholder.jpg';
             }
         }
     }
@@ -46,7 +48,7 @@
         min-height: 200px;
         max-height: 300px;
         object-fit:contain;
-        background: black;
+        background: var(--default-bright-color);
     }
 
     p {

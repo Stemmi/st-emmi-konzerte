@@ -2,7 +2,7 @@
     <header>
         <div>
             <RouterLink to="/">
-                <img src="/images/konzerte-logo-100x100.jpg" alt="Die Band spielt live">
+                <img src="/images/konzerte-logo-100x100.jpg" alt="Die Band spielt live" />
             </RouterLink>
         </div>
         <h1>St. Emmi<br>Konzerte</h1>
