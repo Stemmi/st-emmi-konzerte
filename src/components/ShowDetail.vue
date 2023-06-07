@@ -20,7 +20,7 @@
     </div>
     <div class="clear"></div>
     <UserContainer :user="show.user" />
-    <RouterLink to=""><button>Edit</button></RouterLink>
+    <RouterLink :to="'/edit/'+show.id"><button>Edit</button></RouterLink>
     
   </section>
   
