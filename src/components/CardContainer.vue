@@ -27,8 +27,7 @@
       data() {
         return {
           shows: undefined,
-          // page: +this.$route.query.page || 1,
-          page: 1,
+          page: +this.$route.query.page || 1,
           pages: undefined
         }
       },
@@ -46,7 +45,7 @@
       watch: {
         async page(newPage, oldPage) {
           this.shows = await api.getShows(settings.limit(), newPage);
-          // this.$router.push({ path: '/', query: { page: newPage } });
+          this.$router.push({ path: '/', query: { page: newPage } });
         }
       },
       async mounted() {
