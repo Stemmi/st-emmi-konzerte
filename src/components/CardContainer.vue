@@ -46,6 +46,9 @@
         async page(newPage, oldPage) {
           this.shows = await api.getShows(settings.limit(), newPage);
           this.$router.push({ path: '/', query: { page: newPage } });
+        },
+          '$route' (to, from) {
+          if (this.page != this.$route.query.page) this.page = +this.$route.query.page || 1;
         }
       },
       async mounted() {
