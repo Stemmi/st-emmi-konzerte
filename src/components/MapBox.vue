@@ -4,8 +4,8 @@
             style="height: 100%"
             access-token="pk.eyJ1Ijoic3RlbW1pIiwiYSI6ImNsZnNjeWV0MDA1MTAzaHNlNzY1OHl5YTgifQ.fDF5EfP2eLcs0DhN1QNKig"
             map-style="mapbox://styles/stemmi/clih8mpqz008801pf2lj32zhd"
-            :center="hasLatestLocationCoordinates?latestShowCoordinates:[9.956186211022594,53.561359415147024]"
-            :zoom="hasLatestLocationCoordinates?6:5">
+            :center="latestShowCoordinates.length===2?latestShowCoordinates:[10.5,53.5]"
+            :zoom="6">
             <span v-for="location of locations" :key="location.id">
             <MapboxMarker v-if="location.long&&location.lat"
                 :lng-lat="[location.long, location.lat]"
@@ -22,6 +22,7 @@
     <section v-else class="loading">
         Loading...
     </section>
+
 </template>
 
 <script>
@@ -37,11 +38,6 @@
                 latestShowCoordinates: undefined
             }
         },
-        computed: {
-            hasLatestLocationCoordinates() {
-                return (this.latestShowCoordinates[0] && this.latestShowCoordinates[1])
-            }
-        },
         components: {
             MapboxMap,
             MapboxMarker,
@@ -49,7 +45,7 @@
         },
         async mounted() {            
             this.locations = await api.getLocations();
-            this.latestShowCoordinates = await api.getLatestLocationPosition();            
+            this.latestShowCoordinates = await api.getLatestLocationPosition();   
         }
     }
 </script>
