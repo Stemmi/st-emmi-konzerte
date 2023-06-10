@@ -1,9 +1,9 @@
 <template>
-    <a :href="'/detail/'+show.id">
-    <h3>{{ heading }}</h3>
-    <p>{{ date }}</p>
-    <img v-if="this.show.poster" :src="image" :alt="show.poster.alt">
-    </a>
+    <RouterLink :to="'/detail/'+show.id"> 
+        <h3>{{ heading }}</h3>
+        <p>{{ date }}</p>
+        <img v-if="this.show.poster" :src="image" :alt="show.poster.alt">
+    </RouterLink>
     <p>{{ show.text }}</p>
     <UserContainer :user="show.user" />
 </template>
