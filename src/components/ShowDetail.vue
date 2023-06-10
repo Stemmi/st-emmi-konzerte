@@ -1,10 +1,10 @@
 <template>
 
   <section v-if="show">
-    <RouterLink to="/"><button><Back />Zurück zur Liste</button></RouterLink>
+    <RouterLink to="/"><button><BackIcon />Zurück zur Liste</button></RouterLink>
     <h2>{{ show.title }}</h2>
-    <h3><Location />{{ '' + heading }}</h3>
-    <p><Calendar />{{ date }}</p>
+    <h3><LocationIcon />{{ '' + heading }}</h3>
+    <p><CalendarIcon />{{ date }}</p>
 
     <div class="blog-content">
       <p>
@@ -31,9 +31,9 @@
 </template>
 
 <script>
-    import Location from './icons/Location.vue';
-    import Calendar from './icons/Calendar.vue';
-    import Back from './icons/Back.vue';
+    import LocationIcon from './icons/LocationIcon.vue';
+    import CalendarIcon from './icons/CalendarIcon.vue';
+    import BackIcon from './icons/BackIcon.vue';
     import UserContainer from "../components/UserContainer.vue";
 
     import formatting from '../services/formatting.js';
@@ -41,9 +41,9 @@
 
     export default {      
       components: {
-        Location,
-        Calendar,
-        Back,
+        LocationIcon,
+        CalendarIcon,
+        BackIcon,
         UserContainer
       },
       data() {

@@ -8,8 +8,8 @@
 </template>
 
 <script>
-    import UserIcon from "./icons/UserSolid.vue";
-    import PlusIcon from "./icons/CirclePlusSolid.vue";
+    import UserIcon from "./icons/UserIcon.vue";
+    import PlusIcon from "./icons/PlusIcon.vue";
 
     export default {
         components: {
