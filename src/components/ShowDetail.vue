@@ -7,16 +7,17 @@
     <p><CalendarIcon />{{ date }}</p>
 
     <div class="blog-content">
-      <p>
-      <img v-if="this.show.poster" :src="image" :alt="show.poster.alt">
-      {{ show.text }}</p>
+      <div>
+        <img v-if="this.show.poster" :src="image" :alt="show.poster.alt">
+        <p v-for="paragraph of paragraphs">{{ paragraph }}</p>
+      </div>
       <br>
-      <p class="bands" v-if="bands.length">
+      <div class="bands" v-if="bands.length">
         <span v-for="(band, index) in bands" :key="band.id">
           <span v-if="index===0">Mit <a :href="band.url" target="_blank">{{ band.name }}</a></span>
           <span v-else>, <a :href="band.url" target="_blank">{{ band.name }}</a></span> 
         </span>
-      </p>
+      </div>
     </div>
     <div class="clear"></div>
     <UserContainer :user="show.user" />
@@ -60,6 +61,10 @@
             },
             date() {
                 return formatting.createDate(this.show.date);
+            },
+            paragraphs() {
+                if (!this.show.text) return [];
+                return this.show.text.split('\n');
             },
             image() {
                 if (this.show.poster.filename) return this.posterUrl+this.show.poster.filename;
