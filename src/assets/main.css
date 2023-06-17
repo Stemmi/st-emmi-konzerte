@@ -128,6 +128,12 @@ input, select, textarea {
   clear: both;
 }
 
+.form-button-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
 #map svg {
   cursor: pointer;
 }

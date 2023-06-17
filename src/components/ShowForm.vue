@@ -20,8 +20,12 @@
 
         <input type="hidden" id="user_id" name="user_id" value="1">
         
-        <button :disabled="isOkButtonDisabled" type="submit">OK</button>
-        <button :disabled="isOkButtonDisabled" type="button" @click="handleCancel">Abbrechen</button>
+        <div class="form-button-container">
+            <button :disabled="isOkButtonDisabled" type="submit">OK</button>
+            <button :disabled="isOkButtonDisabled" type="button" @click="handleCancel">Abbrechen</button>
+        </div>
+
+
     </form>
 </template>
 
@@ -91,8 +95,5 @@
 </script>
     
 <style scoped>
-    button {
-        display: inline;
-        margin-right: 10px;
-    }
+
 </style>

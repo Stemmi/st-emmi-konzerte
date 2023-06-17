@@ -15,7 +15,11 @@
         <label for="loclat">Latitude:</label>
         <input type="number" step="0.0000000000000001" min="-90" max="90" id="loclat" name="loclat" size="40">
         
-        <button type="submit">OK</button>
+        <div class="form-button-container">
+            <button type="submit">OK</button>
+            <button type="button" @click="handleCancel">Abbrechen</button>
+        </div>
+
     </form>
 </template>
 
@@ -32,6 +36,9 @@
             "new_location_id"
         ],
         methods: {
+            handleCancel() {
+                this.$emit("new_location_id", undefined);
+            },
             async postLocation(event) {
                 event.preventDefault();
 

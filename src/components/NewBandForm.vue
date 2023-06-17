@@ -6,7 +6,11 @@
         <label for="bandurl">Homepage:</label>
         <input type="url" id="bandurl" name="bandurl" maxlength="255" size="40">
         
-        <button type="submit">OK</button>
+        <div class="form-button-container">
+            <button type="submit">OK</button>
+            <button type="button" @click="handleCancel">Abbrechen</button>
+        </div>
+
     </form>
 </template>
 
@@ -23,6 +27,9 @@
             "new_band_id"
         ],
         methods: {
+            handleCancel() {
+                this.$emit("new_band_id", undefined);
+            },
             async postBand(event) {
                 event.preventDefault();
 
