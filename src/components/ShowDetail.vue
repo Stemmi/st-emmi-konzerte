@@ -1,7 +1,7 @@
 <template>
 
   <section v-if="show">
-    <RouterLink to="/"><button><BackIcon />Zurück zur Liste</button></RouterLink>
+    <button @click="$router.back()"><BackIcon />Zurück zur Liste</button>
     <h2>{{ show.title }}</h2>
     <h3><LocationIcon />{{ '' + heading }}</h3>
     <p><CalendarIcon />{{ date }}</p>
