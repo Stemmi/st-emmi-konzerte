@@ -21,7 +21,7 @@
     </div>
     <div class="clear"></div>
     <UserContainer :user="show.user" />
-    <RouterLink :to="'/edit/'+show.id"><button>Edit</button></RouterLink>
+    <button @click="$router.push('/edit/'+show.id)">Edit</button>
     
   </section>
   
