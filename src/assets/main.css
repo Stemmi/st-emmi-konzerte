@@ -90,6 +90,10 @@ button:hover a {
   color: var(--default-bright-color);
 }
 
+button:hover svg {
+  fill: var(--default-bright-color);
+}
+
 button:active {
   text-decoration: none;
   color: var(--highlight-dark-color);
