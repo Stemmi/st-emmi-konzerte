@@ -25,7 +25,6 @@
             <button :disabled="isOkButtonDisabled" type="button" @click="handleCancel">Abbrechen</button>
         </div>
 
-
     </form>
 </template>
 
