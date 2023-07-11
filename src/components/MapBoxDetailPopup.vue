@@ -1,5 +1,7 @@
 <template>
     <h3>{{ heading }}</h3>
+    <p><a :href="location.url" target="_blank">{{ location.url }}</a></p>
+    
 </template>
 
 <script>

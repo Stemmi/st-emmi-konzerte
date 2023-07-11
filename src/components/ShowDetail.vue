@@ -18,6 +18,9 @@
           <span v-else>, <a :href="band.url" target="_blank">{{ band.name }}</a></span> 
         </span>
       </div>
+      <div class="location-link">
+        <p><a :href="show.location.url" target="_blank">{{ show.location.url }}</a></p>
+      </div>
     </div>
     <div class="clear"></div>
     <UserContainer :user="show.user" />
@@ -97,5 +100,6 @@
 
   .bands {
     font-style: italic;
+    margin-bottom: 15px;
   }
 </style>
