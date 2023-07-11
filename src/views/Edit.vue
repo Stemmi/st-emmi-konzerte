@@ -3,6 +3,10 @@
     <section>
     
     <h3>Eintrag bearbeiten:</h3>
+    <button @click="handleDelete">
+        <DeleteIcon />
+        Diese Show Löschen
+    </button>
     <ShowForm v-if="show&&bands" :show="show" :bands="bands"  @sendForm="putShow" />
     
     </section>
@@ -11,13 +15,15 @@
 
 <script>
     import ShowForm from '../components/ShowForm.vue';
+    import DeleteIcon from '../components/icons/DeleteIcon.vue';
     import api from '../services/api';
     import settings from '../services/settings';
 
     export default {
-        components: { 
-            ShowForm
-        },
+        components: {
+    ShowForm,
+    DeleteIcon
+},
         data() {
             return {
                 apiUrl: settings.apiUrl(),
@@ -38,17 +44,31 @@
                 }) 
                 .then((response) => response.json())
                 .then((show) => this.$router.push({ path: `/detail/${show.id}` }));
+            },
+            async handleDelete() {
+                const isDeleteOk = confirm("Soll diese Show gelöscht werden?");
+                // DON'T USE CONFIRM HERE, MAKE IT NICER
+                if(isDeleteOk) {
+                    fetch(this.apiUrl+"/shows/"+this.id, {
+                    method: 'DELETE'
+                }) 
+                .then((response) => response.json())
+                .then(() => this.$router.push({ path: `/` }));
+                }
             }
         },
         async mounted() {
             this.show = await api.getShowById(this.$route.params.id);
             this.bands = await api.getBandsByShowId(this.show.id);
         }
-    } 
+    }  
 </script>
 
 <style scoped>
     h3 {
+        margin-bottom: 20px;
+    }
+    button {
         margin-bottom: 20px;
     }
 </style>

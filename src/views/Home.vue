@@ -9,7 +9,7 @@
     import CardContainer from "../components/CardContainer.vue";
     import MapBox from "../components/MapBox.vue";
     
-    export default {
+    export default {     
         components: {
             CardContainer,
             MapBox

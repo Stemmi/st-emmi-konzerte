@@ -1,26 +1,30 @@
 <template>
 
   <section v-if="show">
-    <RouterLink to="/"><button><Back />Zurück zur Liste</button></RouterLink>
+    <button @click="$router.back()"><BackIcon />Zurück zur Liste</button>
     <h2>{{ show.title }}</h2>
-    <h3><Location />{{ '' + heading }}</h3>
-    <p><Calendar />{{ date }}</p>
+    <h3><LocationIcon />{{ '' + heading }}</h3>
+    <p><CalendarIcon />{{ date }}</p>
 
     <div class="blog-content">
-      <p>
-      <img v-if="this.show.poster" :src="image" :alt="show.poster.alt">
-      {{ show.text }}</p>
+      <div>
+        <img v-if="this.show.poster" :src="image" :alt="show.poster.alt">
+        <p v-for="paragraph of paragraphs">{{ paragraph }}</p>
+      </div>
       <br>
-      <p class="bands" v-if="bands.length">
+      <div class="bands" v-if="bands.length">
         <span v-for="(band, index) in bands" :key="band.id">
           <span v-if="index===0">Mit <a :href="band.url" target="_blank">{{ band.name }}</a></span>
           <span v-else>, <a :href="band.url" target="_blank">{{ band.name }}</a></span> 
         </span>
-      </p>
+      </div>
+      <div class="location-link">
+        <p><a :href="show.location.url" target="_blank">{{ show.location.url }}</a></p>
+      </div>
     </div>
     <div class="clear"></div>
     <UserContainer :user="show.user" />
-    <RouterLink to=""><button>Edit</button></RouterLink>
+    <button @click="$router.push('/edit/'+show.id)">Edit</button>
     
   </section>
   
@@ -31,9 +35,9 @@
 </template>
 
 <script>
-    import Location from './icons/Location.vue';
-    import Calendar from './icons/Calendar.vue';
-    import Back from './icons/Back.vue';
+    import LocationIcon from './icons/LocationIcon.vue';
+    import CalendarIcon from './icons/CalendarIcon.vue';
+    import BackIcon from './icons/BackIcon.vue';
     import UserContainer from "../components/UserContainer.vue";
 
     import formatting from '../services/formatting.js';
@@ -41,9 +45,9 @@
 
     export default {      
       components: {
-        Location,
-        Calendar,
-        Back,
+        LocationIcon,
+        CalendarIcon,
+        BackIcon,
         UserContainer
       },
       data() {
@@ -60,6 +64,10 @@
             },
             date() {
                 return formatting.createDate(this.show.date);
+            },
+            paragraphs() {
+                if (!this.show.text) return [];
+                return this.show.text.split('\n');
             },
             image() {
                 if (this.show.poster.filename) return this.posterUrl+this.show.poster.filename;
@@ -92,5 +100,6 @@
 
   .bands {
     font-style: italic;
+    margin-bottom: 15px;
   }
 </style>

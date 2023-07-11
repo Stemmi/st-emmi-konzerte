@@ -6,7 +6,7 @@
             <option value="-1">+++ Neue Band +++</option>
         </select>
         
-        <button class="inline_button" type="button" @click="addBand">+</button>
+        <!-- <button class="inline_button" type="button" @click="addBand">+</button> -->
 
         <NewBandForm v-if="band_id==-1" @new_band_id="setNewBandId"/>       
         
@@ -44,13 +44,12 @@
         watch: {
             band_id(newId, oldId) {
                 this.$emit("updateBand", newId);
+                if (this.selected_band_ids.includes(this.band_id)) return;
+                else if (+this.band_id == -1) return;
+                else this.selected_band_ids.push(this.band_id);
             }
         },
         methods: {
-            addBand() {
-                if (this.selected_band_ids.includes(this.band_id)) return;
-                this.selected_band_ids.push(this.band_id);
-            },
             removeBand(event) {
                 this.selected_band_ids.splice(event.target.dataset.index, 1);
             },

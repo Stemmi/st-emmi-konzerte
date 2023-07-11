@@ -90,6 +90,10 @@ button:hover a {
   color: var(--default-bright-color);
 }
 
+button:hover svg {
+  fill: var(--default-bright-color);
+}
+
 button:active {
   text-decoration: none;
   color: var(--highlight-dark-color);
@@ -126,6 +130,12 @@ input, select, textarea {
 
 .clear {
   clear: both;
+}
+
+.form-button-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
 #map svg {

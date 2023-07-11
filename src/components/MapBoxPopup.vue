@@ -3,16 +3,18 @@
             <h3>{{ heading }}</h3>
             <ul>
                 <li v-for="show of shows" :key="show.id">
-                    <a :href="'/detail/'+shows[0].id">
+                    <RouterLink :to="'/detail/'+show.id">
                         {{ date(show.date) }}
-                    </a>
+                    </RouterLink>
                     <span v-if="show.title">, {{ show.title }}</span>
                 </li>
             </ul>
         </div>
         <div v-else-if="shows.length===1" class="flex">
             <h3>{{ heading }}</h3>
-            <a :href="'/detail/'+shows[0].id">{{ date(shows[0].date) }}</a>
+            <RouterLink :to="'/detail/'+shows[0].id">
+                {{ date(shows[0].date) }}
+            </RouterLink>
             <p>{{ shows[0].text }}</p>
             <UserContainer :user="shows[0].user" />
         </div>

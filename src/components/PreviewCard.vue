@@ -1,10 +1,10 @@
 <template>
-    <a :href="'/detail/'+show.id">
-    <h3>{{ heading }}</h3>
-    <p>{{ date }}</p>
-    <img v-if="this.show.poster" :src="image" :alt="show.poster.alt">
-    </a>
-    <p>{{ show.text }}</p>
+    <RouterLink :to="'/detail/'+show.id"> 
+        <h3>{{ heading }}</h3>
+        <p>{{ date }}</p>
+        <img v-if="this.show.poster" :src="image" :alt="show.poster.alt">
+    </RouterLink>
+    <p v-for="paragraph of paragraphs">{{ paragraph }}</p>
     <UserContainer :user="show.user" />
 </template>
 
@@ -32,6 +32,10 @@
             },
             date() {
                 return formatting.createDate(this.show.date);
+            },
+            paragraphs() {
+                if (!this.show.text) return [];
+                return this.show.text.split('\n');
             },
             image() {
                 if (this.show.poster.filename) return this.posterUrl+this.show.poster.filename;

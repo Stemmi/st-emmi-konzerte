@@ -20,7 +20,11 @@
 
         <input type="hidden" id="user_id" name="user_id" value="1">
         
-        <button :disabled="isOkButtonDisabled" type="submit">OK</button>
+        <div class="form-button-container">
+            <button :disabled="isOkButtonDisabled" type="submit">OK</button>
+            <button :disabled="isOkButtonDisabled" type="button" @click="handleCancel">Abbrechen</button>
+        </div>
+
     </form>
 </template>
 
@@ -65,6 +69,9 @@
             handleNewPoster(filename) {
                 this.posterFilename = filename;
             },
+            handleCancel() {
+                this.$router.back();
+            },
             async submitForm(event) {
                 event.preventDefault();
 
@@ -85,7 +92,7 @@
         }
     } 
 </script>
-
-<style scoped>
     
+<style scoped>
+
 </style>

@@ -5,7 +5,12 @@
         
         <img class="image_preview" v-if="image&&!changed" :src="posterUrl+image" />
 
-        <button v-if="changed">OK</button><br>
+        <div class="form-button-container" v-if="changed">
+            <button >OK</button>
+            <button type="reset" @click="handleCancel">Abbrechen</button>
+        </div>
+        
+
 
     </form>
 
@@ -48,7 +53,11 @@
                 this.changed = false;
             },
             changedHandler() {
+
                 this.changed = true;
+            },
+            handleCancel() {
+                this.changed = false;
             }
         }
 

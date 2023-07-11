@@ -10,12 +10,16 @@
         <input type="url" id="locurl" name="locurl" maxlength="255" size="40">
         
         <label for="loclong">Longitude:</label>
-        <input type="number" step="0.0000000000000001" min="-180" max="180" id="loclong" name="loclong" size="40">
+        <input type="number" step="0.0000000000000001" min="-180" max="180" id="loclong" name="loclong" size="40" @paste="pasteLatLong" :value="longValue">
 
         <label for="loclat">Latitude:</label>
-        <input type="number" step="0.0000000000000001" min="-90" max="90" id="loclat" name="loclat" size="40">
+        <input type="number" step="0.0000000000000001" min="-90" max="90" id="loclat" name="loclat" size="40" @paste="pasteLatLong" :value="latValue">
         
-        <button type="submit">OK</button>
+        <div class="form-button-container">
+            <button type="submit">OK</button>
+            <button type="button" @click="handleCancel">Abbrechen</button>
+        </div>
+
     </form>
 </template>
 
@@ -25,13 +29,18 @@
     export default {
         data() {
             return {
-                apiUrl: settings.apiUrl()
+                apiUrl: settings.apiUrl(),
+                longValue: undefined,
+                latValue: undefined
             }
         },
         emits: [
             "new_location_id"
         ],
         methods: {
+            handleCancel() {
+                this.$emit("new_location_id", undefined);
+            },
             async postLocation(event) {
                 event.preventDefault();
 
@@ -53,6 +62,19 @@
                 .then((response) => response.json())
                 .then((location) => this.$emit("new_location_id", location.id))
                 .then(event.target.reset());
+            },
+            pasteLatLong(event) {
+                event.preventDefault();
+                const paste = (event.clipboardData || window.clipboardData).getData("text");
+                if (paste.includes(',')) {
+                    const coordinates = paste.split(',');
+                    this.latValue = +coordinates[0].trim();
+                    this.longValue = +coordinates[1].trim();
+                } else {
+                    if (typeof(+paste) === "number") {
+                        event.target.value = paste
+                    } 
+                }
             }
         }
 
