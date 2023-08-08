@@ -11,7 +11,7 @@
 
 <script>
     import NewLocationForm from './NewLocationForm.vue';
-    import api from '../services/api.js';
+    import api from '../../services/api.js';
 
 
     export default {

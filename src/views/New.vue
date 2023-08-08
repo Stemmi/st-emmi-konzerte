@@ -10,7 +10,7 @@
 </template>
 
 <script>
-    import ShowForm from '../components/ShowForm.vue';
+    import ShowForm from '../components/forms/ShowForm.vue';
     import settings from '../services/settings';
 
 

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-    import ShowForm from '../components/ShowForm.vue';
+    import ShowForm from '../components/forms/ShowForm.vue';
     import DeleteIcon from '../components/icons/DeleteIcon.vue';
     import api from '../services/api';
     import settings from '../services/settings';

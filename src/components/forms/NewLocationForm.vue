@@ -24,7 +24,7 @@
 </template>
 
 <script>
-    import settings from '../services/settings.js';
+    import settings from '../../services/settings.js';
 
     export default {
         data() {

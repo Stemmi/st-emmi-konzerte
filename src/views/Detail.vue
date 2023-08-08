@@ -7,7 +7,7 @@
 
 <script>
     import ShowDetail from "../components/ShowDetail.vue";
-    import MapBoxDetail from "../components/MapBoxDetail.vue";
+    import MapBoxDetail from "../components/mapbox/MapBoxDetail.vue";
     import api from '../services/api.js';
 
     

@@ -32,7 +32,7 @@
     import SelectLocation from './SelectLocation.vue';
     import NewPosterForm from './NewPosterForm.vue';
     import SelectBands from './SelectBands.vue';
-    import settings from '../services/settings.js';
+    import settings from '../../services/settings.js';
 
     export default {
         data() {

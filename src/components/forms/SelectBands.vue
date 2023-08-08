@@ -17,8 +17,8 @@
 
 <script>
     import NewBandForm from './NewBandForm.vue';
-    import formatting from '../services/formatting.js';
-    import api from '../services/api.js';
+    import formatting from '../../services/formatting.js';
+    import api from '../../services/api.js';
 
     export default {
         data() {
