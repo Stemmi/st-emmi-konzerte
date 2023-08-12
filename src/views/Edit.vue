@@ -71,4 +71,8 @@
     button {
         margin-bottom: 20px;
     }
+
+    section {
+        width: 100%;
+    }
 </style>

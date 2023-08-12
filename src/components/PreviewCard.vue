@@ -49,12 +49,13 @@
 
 <style scoped>
     img {
-        border: 1px solid grey;
-        max-width: 300px;
-        min-height: 200px;
+        /* border: 1px solid grey; */
+        min-width: 200px;
+        max-width: 90%;
+        min-height: 150px;
         max-height: 300px;
         object-fit:contain;
-        background: var(--default-bright-color);
+        background: var(--default-brighter-color);
     }
 
     p {

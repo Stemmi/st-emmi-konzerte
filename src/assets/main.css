@@ -29,6 +29,7 @@ header {
 main {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   width: 100%;
   min-height: 480px;
   gap: 1px;
@@ -37,14 +38,20 @@ main {
   border-bottom: 1px solid var(--default-bright-color);
 }
 
+/* @media screen and (min-width: 992px) {
+  main {
+    flex-direction: row;
+  }
+} */
+
 section {
-  flex: auto;
   background-color: var(--default-bright-color);
   color: var(--default-dark-color);
   padding: 10px;
 }
 
 article {
+  flex: auto;
   background: var(--default-brighter-color);
   color: var(--default-dark-color);
   border-radius: 15px;
@@ -110,13 +117,6 @@ button:active {
   color: var(--highlight-dark-color);
   background: var(--default-brighter-color);
 }
-
-/* button:disabled {
-  text-decoration: none;
-  color: grey;
-  background: lightgrey;
-  border-color: grey;
-} */
 
 label {
   display: block;

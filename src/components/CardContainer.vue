@@ -59,6 +59,8 @@
 </script>
 
 <style scoped>
+  
+  
   section {
     flex: 49%;
   }
@@ -67,7 +69,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    justify-content: stretch;
+    justify-content: space-around;
   }
 
   .pages {
@@ -83,7 +85,8 @@
   }
 
   article {
-    width: 320px;
+    width: 240px;
+    max-width: 400px;
     padding: 10px;
     text-align: center;
   }
