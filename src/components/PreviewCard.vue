@@ -1,11 +1,13 @@
 <template>
     <RouterLink :to="'/detail/'+show.id"> 
-        <h3>{{ heading }}</h3>
-        <p>{{ date }}</p>
-        <img v-if="this.show.poster" :src="image" :alt="show.poster.alt">
+        <div class="card">
+            <h3>{{ heading }}</h3>
+            <p>{{ date }}</p>
+            <img v-if="this.show.poster" :src="image" :alt="show.poster.alt">
+            <p v-for="paragraph of paragraphs">{{ paragraph }}</p>
+            <UserContainer :user="show.user" />
+        </div>
     </RouterLink>
-    <p v-for="paragraph of paragraphs">{{ paragraph }}</p>
-    <UserContainer :user="show.user" />
 </template>
 
 <script>

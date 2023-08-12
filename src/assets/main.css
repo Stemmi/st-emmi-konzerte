@@ -51,6 +51,15 @@ article {
   box-shadow: 0 0px 10px 0 rgba(100,0,0,0.15);
 }
 
+article a {
+  text-decoration: none;
+}
+
+article:hover {
+  box-shadow: 0 0px 10px 0 rgba(100,0,0,0.3);
+  transform: scale(1.02);
+}
+
 a {
   color: var(--default-dark-color);
 }
@@ -86,8 +95,10 @@ button a {
 
 button:hover {
   text-decoration: none;
-  color: var(--default-bright-color);
-  background: var(--default-dark-color);
+  /* color: var(--default-bright-color);
+  background: var(--default-dark-color); */
+  box-shadow: 0 0px 3px 0 rgba(140,0,0,0.8);
+  transform: scale(1.05);
 }
 
 button:hover a {
@@ -95,7 +106,7 @@ button:hover a {
 }
 
 button:hover svg {
-  fill: var(--default-bright-color);
+  /* fill: var(--default-bright-color); */
 }
 
 button:active {
@@ -104,12 +115,12 @@ button:active {
   background: var(--default-brighter-color);
 }
 
-button:disabled {
+/* button:disabled {
   text-decoration: none;
   color: grey;
   background: lightgrey;
   border-color: grey;
-}
+} */
 
 label {
   display: block;
