@@ -2,7 +2,7 @@
     <header>
         <div>
             <RouterLink to="/">
-                <img src="/images/konzerte-logo-100x100.jpg" alt="Die Band spielt live" />
+                <img id=logo src="/images/konzerte-logo-100x100.jpg" alt="Die Band spielt live" />
             </RouterLink>
         </div>
         <h1>St. Emmi<br>Konzerte</h1>
@@ -42,6 +42,14 @@
 
     h1 {
         flex: 1 1 auto;
+    }
+
+    #logo {
+        box-shadow: 0 0px 10px 0 rgba(100,0,0,0.3);
+    }
+
+    #logo:hover {
+        transform: scale(1.02);
     }
 
 </style>
