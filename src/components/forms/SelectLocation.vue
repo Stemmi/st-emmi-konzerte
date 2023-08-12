@@ -1,4 +1,6 @@
 <template>
+    <NewLocationModal :show="location_id===-1" @new_location_id="setNewLocationId" />
+
     <label for="loc_id">Location:</label>
     
     <select v-if="locations" id="loc_id" name="loc_id" required :value="location_id" @input="selectLocation" >
@@ -6,22 +8,22 @@
         <option value="-1">+++ Neue Location +++</option>
     </select>
 
-    <NewLocationForm v-if="location_id===-1" @new_location_id="setNewLocationId"/>       
 </template>
 
 <script>
-    import NewLocationForm from './NewLocationForm.vue';
+    import NewLocationModal from './NewLocationModal.vue';
     import api from '../../services/api.js';
 
 
     export default {
         data() {
             return {
-                locations: undefined
+                locations: undefined,
+                show: false
             }
         },
         components: {
-            NewLocationForm
+            NewLocationModal
         },
         emits: [
             "updateLocation"
