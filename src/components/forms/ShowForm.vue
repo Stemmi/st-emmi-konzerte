@@ -24,7 +24,6 @@
             <button :disabled="isOkButtonDisabled" type="submit">OK</button>
             <button :disabled="isOkButtonDisabled" type="button" @click="handleCancel">Abbrechen</button>
         </div>
-
     </form>
 </template>
 
@@ -48,7 +47,7 @@
         },
         computed: {
             isOkButtonDisabled() {
-                return this.locationId == -1 || this.bandId == -1 || this.hasPosterInputChanged;
+                return this.hasPosterInputChanged;
             }
         },
         components: {
