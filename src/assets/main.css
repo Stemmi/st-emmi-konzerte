@@ -48,6 +48,7 @@ article {
   background: var(--default-brighter-color);
   color: var(--default-dark-color);
   border-radius: 15px;
+  box-shadow: 0 0px 10px 0 rgba(100,0,0,0.15);
 }
 
 a {
@@ -68,12 +69,15 @@ button {
   color: var(--default-dark-color);
   background: var(--default-brighter-color);
   padding: 4px 12px;
-  border: 1px solid var(--default-dark-color);
+  /* border: 0.1px solid var(--default-dark-color); */
+  border: none;
   border-radius: 12px;
   cursor: pointer;
   display: flex;
   align-items: center;
   font-size: 0.9rem;
+  box-shadow: 0 0px 3px 0 rgba(140,0,0,0.5);
+
 }
 
 button a {
