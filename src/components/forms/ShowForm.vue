@@ -11,7 +11,7 @@
         <label for="text">Beschreibung:</label>
         <textarea v-model="show.text" id="text" name="text" maxlength="255" rows="4" cols="80"></textarea>
         
-        <NewPosterForm :poster_filename="posterFilename" @changed_input="handlePosterInputChange" @new_poster="handleNewPoster"/>
+        <NewPosterForm :poster_filename="posterFilename" @new_poster="handleNewPoster"/>
         
         <label for="poster_alt">Plakat-Alt-Text:</label>
         <input v-model="show.poster.alt" type="text" id="poster_alt" name="poster_alt" maxlength="255" size="40">
@@ -21,8 +21,8 @@
         <input type="hidden" id="user_id" name="user_id" value="1">
         
         <div class="form-button-container">
-            <button :disabled="isOkButtonDisabled" type="submit">OK</button>
-            <button :disabled="isOkButtonDisabled" type="button" @click="handleCancel">Abbrechen</button>
+            <button type="submit">OK</button>
+            <button type="button" @click="handleCancel">Abbrechen</button>
         </div>
     </form>
 </template>
@@ -41,13 +41,7 @@
                 locationId: this.show.location.id,
                 bandId: undefined,
                 selectedBandIds: this.bands.map((band) => band.id),
-                hasPosterInputChanged: false,
                 posterFilename: this.show.poster.filename || ''
-            }
-        },
-        computed: {
-            isOkButtonDisabled() {
-                return this.hasPosterInputChanged;
             }
         },
         components: {
@@ -61,9 +55,6 @@
             },
             handleBandSelection(value) {
                 this.bandId = +value;
-            },
-            handlePosterInputChange(changed) {
-                this.hasPosterInputChanged = changed;
             },
             handleNewPoster(filename) {
                 this.posterFilename = filename;
