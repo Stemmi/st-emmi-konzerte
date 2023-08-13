@@ -20,7 +20,6 @@
     import Navigation from "./Navigation.vue";
     import MenuIcon from "./icons/MenuIcon.vue";
 
-
     export default {
         data() {
             return {
