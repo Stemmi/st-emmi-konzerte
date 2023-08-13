@@ -63,7 +63,7 @@ h2 {
   margin-bottom: 10px;
 }
 
-button {
+button, input[type=file]::file-selector-button {
   color: var(--default-dark-color);
   background: var(--default-brighter-color);
   padding: 4px 12px;
@@ -81,7 +81,7 @@ button a {
   text-decoration: none;
 }
 
-button:hover {
+button:hover, input[type=file]::file-selector-button:hover {
   text-decoration: none;
   box-shadow: 0 0px 3px 0 rgba(140,0,0,0.8);
   transform: scale(1.05);
@@ -101,8 +101,30 @@ label {
   display: block;
 }
 
-input, select, textarea {
+input, select, textarea, input[type=file]::file-selector-button {
   margin-bottom: 10px;
+  margin-top: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0px 3px 0 rgba(70,0,0,0.4);
+}
+
+input:hover, select:hover, textarea:hover {
+  box-shadow: 0 0px 6px 0 rgba(200,150,150,0.8);
+}
+
+select, input[type=file]::file-selector-button {
+  background-color: var(--default-brighter-color);
+}
+
+input[type=file]::file-selector-button {
+  margin: 0 0 10px 5px;
+}
+
+input[type=file] {
+  box-shadow: none;
+  padding-left: 1px;
 }
 
 .icon {

@@ -78,7 +78,7 @@
     }
 
     .bands-text {
-        background-color: white;
+        padding: 5px;
         font-size: 0.9rem;
         color: black;
         margin-bottom: 10px;
