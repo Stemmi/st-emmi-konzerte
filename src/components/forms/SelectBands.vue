@@ -8,8 +8,6 @@
             <option value="-1">+++ Neue Band +++</option>
         </select>
         
-        <!-- <NewBandForm v-if="band_id==-1" @new_band_id="setNewBandId"/>        -->
-        
         <ul class="bands-text">
             <li v-for="band, index in bandsList" :key="band.id">{{ band.name }}<button class="inline_button" type="button" :data-index="index" @click="removeBand">x</button></li>
         </ul>
