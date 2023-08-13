@@ -55,7 +55,5 @@
 </script>
 
 <style scoped>
-    form {
-        background-color: var(--default-brighter-color);
-    }
+
 </style>
