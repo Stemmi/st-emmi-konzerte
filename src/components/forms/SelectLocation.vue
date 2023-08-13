@@ -7,19 +7,18 @@
         <option v-for="location of locations" :key="location.id" :value="location.id">{{ [ location.city, location.name ].filter(item => item).join(', ') }}</option>
         <option value="-1">+++ Neue Location +++</option>
     </select>
-
 </template>
 
 <script>
     import NewLocationModal from './NewLocationModal.vue';
     import api from '../../services/api.js';
 
-
     export default {
         data() {
             return {
                 locations: undefined,
-                show: false
+                show: false,
+                originalLocationId: this.location_id
             }
         },
         components: {
@@ -36,8 +35,9 @@
                 this.$emit("updateLocation", event.target.value);
             },
             async setNewLocationId(id) {
+                const updatedId = id ? id : this.originalLocationId;
                 this.locations = await api.getLocations();
-                this.$emit("updateLocation", id);
+                this.$emit("updateLocation", updatedId);
             }
         },
         async mounted() {            
