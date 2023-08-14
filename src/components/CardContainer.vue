@@ -66,7 +66,7 @@
   }
   
   article {
-    width: 240px;
+    width: 260px;
     max-width: 400px;
     padding: 10px;
     text-align: center;

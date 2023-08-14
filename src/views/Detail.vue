@@ -10,7 +10,6 @@
     import MapBoxDetail from "../components/mapbox/MapBoxDetail.vue";
     import api from '../services/api.js';
 
-    
     export default {
         data() {
             return {
@@ -18,7 +17,6 @@
                 bands: []
             }
         },
-        
         components: {
             ShowDetail,
             MapBoxDetail

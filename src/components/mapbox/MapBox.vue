@@ -53,7 +53,7 @@
 <style lang="css" scoped>
     section {
         min-height: 500px;
-        min-width: 500px;
+        min-width: 529px;
         flex: 49%;
     }
 </style>

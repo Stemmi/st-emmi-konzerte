@@ -97,6 +97,10 @@ button:active {
   background: var(--default-brighter-color);
 }
 
+.mapboxgl-marker svg:hover {
+  transform: scale(1.08);
+}
+
 label {
   display: block;
 }
