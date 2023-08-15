@@ -3,33 +3,37 @@
     <section>
     
     <h3>Eintrag bearbeiten:</h3>
-    <button @click="handleDelete">
+    <button @click="showConfirm=true">
         <DeleteIcon />
         Diese Show Löschen
     </button>
-    <ShowForm v-if="show&&bands" :show="show" :bands="bands"  @sendForm="putShow" />
+    <ConfirmDeleteShow :show="showConfirm" @is-delete-confirmed="handleDelete"/>
+    <ShowForm v-if="show&&bands" :show="show" :bands="bands"  @send-form="putShow" />
     
     </section>
     </main>
 </template>
 
 <script>
-    import ShowForm from '../components/ShowForm.vue';
+    import ShowForm from '../components/forms/ShowForm.vue';
     import DeleteIcon from '../components/icons/DeleteIcon.vue';
+    import ConfirmDeleteShow from '../components/forms/ConfirmDeleteShow.vue';
     import api from '../services/api';
     import settings from '../services/settings';
 
     export default {
         components: {
-    ShowForm,
-    DeleteIcon
-},
+            ShowForm,
+            DeleteIcon,
+            ConfirmDeleteShow
+        },
         data() {
             return {
                 apiUrl: settings.apiUrl(),
                 show: undefined,
                 bands: undefined,
-                id: this.$route.params.id
+                id: this.$route.params.id,
+                showConfirm: false
             }
         },
         methods: {
@@ -45,16 +49,16 @@
                 .then((response) => response.json())
                 .then((show) => this.$router.push({ path: `/detail/${show.id}` }));
             },
-            async handleDelete() {
-                const isDeleteOk = confirm("Soll diese Show gelöscht werden?");
-                // DON'T USE CONFIRM HERE, MAKE IT NICER
-                if(isDeleteOk) {
+            async handleDelete(isConfirmed) {
+                if(isConfirmed) {
                     fetch(this.apiUrl+"/shows/"+this.id, {
                     method: 'DELETE'
                 }) 
                 .then((response) => response.json())
                 .then(() => this.$router.push({ path: `/` }));
                 }
+                this.showConfirm = false;
+
             }
         },
         async mounted() {
@@ -70,5 +74,8 @@
     }
     button {
         margin-bottom: 20px;
+    }
+    section {
+        width: 100%;
     }
 </style>

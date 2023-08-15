@@ -16,7 +16,7 @@
             }
         },
         props: [
-            "userId", "user"
+            "user"
         ]
     }
 </script>

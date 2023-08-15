@@ -59,15 +59,38 @@
 </script>
 
 <style scoped>
+  
+  
   section {
     flex: 49%;
   }
   
+  article {
+    width: 260px;
+    max-width: 400px;
+    padding: 10px;
+    text-align: center;
+    flex: auto;
+    background: var(--default-brighter-color);
+    color: var(--default-dark-color);
+    border-radius: 15px;
+    box-shadow: 0 0px 10px 0 rgba(100,0,0,0.15);
+  }
+
+  article a {
+    text-decoration: none;
+  }
+
+  article:hover {
+    box-shadow: 0 0px 10px 0 rgba(100,0,0,0.3);
+    transform: scale(1.02);
+  }
+
   .cards {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    justify-content: stretch;
+    justify-content: space-around;
   }
 
   .pages {
@@ -80,12 +103,6 @@
 
   .pages p {
     padding: 10px;
-  }
-
-  article {
-    width: 320px;
-    padding: 10px;
-    text-align: center;
   }
 
 </style>

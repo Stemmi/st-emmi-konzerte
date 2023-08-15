@@ -71,7 +71,7 @@
             },
             image() {
                 if (this.show.poster.filename) return this.posterUrl+this.show.poster.filename;
-                return '/images/poster_placeholder.jpg';
+                return '/images/poster-placeholder.jpg';
             }
         }
     }
@@ -84,10 +84,9 @@
   }
 
   img {
-    border: 1px solid grey;
     float: left;
     margin-right: 15px;
-    min-height: 200px;
+    min-height: 150px;
     min-width: 200px;
     max-width: 100%;
     object-fit: contain;

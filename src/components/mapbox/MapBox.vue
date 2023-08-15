@@ -29,7 +29,7 @@
     import 'mapbox-gl/dist/mapbox-gl.css';
     import { MapboxMap, MapboxMarker } from '@studiometa/vue-mapbox-gl';
     import MapBoxPopup from './MapBoxPopup.vue';
-    import api from '../services/api.js';
+    import api from '../../services/api.js';
 
     export default {
         data() {
@@ -53,6 +53,7 @@
 <style lang="css" scoped>
     section {
         min-height: 500px;
+        min-width: 529px;
         flex: 49%;
     }
 </style>

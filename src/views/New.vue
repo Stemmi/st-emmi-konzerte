@@ -3,14 +3,14 @@
     <section>
     
     <h3>Neuer Eintrag:</h3>
-    <ShowForm :show="show" :bands="bands" @sendForm="postShow" />
+    <ShowForm :show="show" :bands="bands" @send-form="postShow" />
     
     </section>
     </main>
 </template>
 
 <script>
-    import ShowForm from '../components/ShowForm.vue';
+    import ShowForm from '../components/forms/ShowForm.vue';
     import settings from '../services/settings';
 
 
@@ -47,5 +47,9 @@
 <style scoped>
     h3 {
         margin-bottom: 20px;
+    }
+
+    section {
+        width: 100%;
     }
 </style>

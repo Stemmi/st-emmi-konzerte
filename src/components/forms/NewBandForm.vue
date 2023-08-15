@@ -15,7 +15,7 @@
 </template>
 
 <script>
-    import settings from '../services/settings.js';
+    import settings from '../../services/settings.js';
 
     export default {
         data() {
@@ -24,11 +24,11 @@
             }
         },
         emits: [
-            "new_band_id"
+            "newBandId"
         ],
         methods: {
             handleCancel() {
-                this.$emit("new_band_id", undefined);
+                this.$emit("newBandId", undefined);
             },
             async postBand(event) {
                 event.preventDefault();
@@ -46,7 +46,7 @@
                     },
                 }) 
                 .then((response) => response.json())
-                .then((band) => this.$emit("new_band_id", band.id))
+                .then((band) => this.$emit("newBandId", band.id))
                 .then(event.target.reset());
             }
         }
@@ -55,7 +55,5 @@
 </script>
 
 <style scoped>
-    form {
-        background-color: var(--default-brighter-color);
-    }
+
 </style>

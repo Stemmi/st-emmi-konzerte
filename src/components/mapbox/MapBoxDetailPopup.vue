@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import formatting from "../services/formatting.js";
+    import formatting from "../../services/formatting.js";
 
     export default {
         props: [

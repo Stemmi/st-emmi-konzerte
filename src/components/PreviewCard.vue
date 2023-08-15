@@ -1,11 +1,13 @@
 <template>
     <RouterLink :to="'/detail/'+show.id"> 
-        <h3>{{ heading }}</h3>
-        <p>{{ date }}</p>
-        <img v-if="this.show.poster" :src="image" :alt="show.poster.alt">
+        <div class="card">
+            <h3>{{ heading }}</h3>
+            <p>{{ date }}</p>
+            <img v-if="this.show.poster" :src="image" :alt="show.poster.alt">
+            <p v-for="paragraph of paragraphs">{{ paragraph }}</p>
+            <UserContainer :user="show.user" />
+        </div>
     </RouterLink>
-    <p v-for="paragraph of paragraphs">{{ paragraph }}</p>
-    <UserContainer :user="show.user" />
 </template>
 
 <script>
@@ -39,7 +41,7 @@
             },
             image() {
                 if (this.show.poster.filename) return this.posterUrl+this.show.poster.filename;
-                return '/images/poster_placeholder.jpg';
+                return '/images/poster-placeholder.jpg';
             }
         }
     }
@@ -47,12 +49,13 @@
 
 <style scoped>
     img {
-        border: 1px solid grey;
-        max-width: 300px;
-        min-height: 200px;
+        /* border: 1px solid grey; */
+        min-width: 200px;
+        max-width: 90%;
+        min-height: 150px;
         max-height: 300px;
         object-fit:contain;
-        background: var(--default-bright-color);
+        background: var(--default-brighter-color);
     }
 
     p {

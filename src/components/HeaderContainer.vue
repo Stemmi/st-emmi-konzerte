@@ -1,27 +1,38 @@
 <template>
     <header>
-        <div>
+        <div  @click="showNav=false">
             <RouterLink to="/">
-                <img src="/images/konzerte-logo-100x100.jpg" alt="Die Band spielt live" />
+                <img id=logo src="/images/konzerte-logo-100x100.jpg" alt="Die Band spielt live" />
             </RouterLink>
         </div>
+
         <h1>St. Emmi<br>Konzerte</h1>
-        <Navigation />
+
+        <Navigation v-if="showNav" @click="showNav=false"/>
+
+        <div class="burger">
+            <MenuIcon @click="showNav=!showNav"/>
+        </div>
     </header>
 </template>
 
 <script>
     import Navigation from "./Navigation.vue";
+    import MenuIcon from "./icons/MenuIcon.vue";
 
     export default {
+        data() {
+            return {
+                showNav: false
+            }
+        },
         components: {
-            Navigation
+            Navigation, MenuIcon
         }
     }
 </script>
 
 <style scoped>
-
     header {
         display: flex;
         flex-wrap: wrap;
@@ -44,4 +55,21 @@
         flex: 1 1 auto;
     }
 
+    #logo {
+        box-shadow: 0 0px 10px 0 rgba(100,0,0,0.3);
+    }
+
+    #logo:hover {
+        transform: scale(1.02);
+    }
+
+    .burger svg {
+        fill: var(--default-dark-color);
+        height: 2em;
+    }
+
+    .burger svg:hover {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
 </style>

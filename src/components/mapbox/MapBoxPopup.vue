@@ -22,10 +22,10 @@
 </template>
 
 <script>
-    import UserContainer from "./UserContainer.vue";
+    import UserContainer from "../UserContainer.vue";
 
-    import api from "../services/api.js";
-    import formatting from "../services/formatting.js";
+    import api from "../../services/api.js";
+    import formatting from "../../services/formatting.js";
 
     export default {
         data() {

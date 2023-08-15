@@ -24,7 +24,7 @@
 </template>
 
 <script>
-    import settings from '../services/settings.js';
+    import settings from '../../services/settings.js';
 
     export default {
         data() {
@@ -35,11 +35,11 @@
             }
         },
         emits: [
-            "new_location_id"
+            "newLocationId"
         ],
         methods: {
             handleCancel() {
-                this.$emit("new_location_id", undefined);
+                this.$emit("newLocationId", undefined);
             },
             async postLocation(event) {
                 event.preventDefault();
@@ -60,7 +60,7 @@
                     },
                 }) 
                 .then((response) => response.json())
-                .then((location) => this.$emit("new_location_id", location.id))
+                .then((location) => this.$emit("newLocationId", location.id))
                 .then(event.target.reset());
             },
             pasteLatLong(event) {
@@ -82,7 +82,5 @@
 </script>
 
 <style scoped>
-    form {
-        background-color: var(--default-brighter-color);
-    }
+
 </style>

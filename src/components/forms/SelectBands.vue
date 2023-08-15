@@ -1,14 +1,12 @@
 <template>
+        <NewBandModal :show="+band_id===-1" @new-band-id="setNewBandId" />
+
         <label for="band_id">Weitere Bands:</label>
         
         <select v-model="band_id" id="band_id" name="band_id">
             <option v-for="band of allBands" :key="band.id" :value="band.id">{{ band.name }}</option>
             <option value="-1">+++ Neue Band +++</option>
         </select>
-        
-        <!-- <button class="inline_button" type="button" @click="addBand">+</button> -->
-
-        <NewBandForm v-if="band_id==-1" @new_band_id="setNewBandId"/>       
         
         <ul class="bands-text">
             <li v-for="band, index in bandsList" :key="band.id">{{ band.name }}<button class="inline_button" type="button" :data-index="index" @click="removeBand">x</button></li>
@@ -17,8 +15,9 @@
 
 <script>
     import NewBandForm from './NewBandForm.vue';
-    import formatting from '../services/formatting.js';
-    import api from '../services/api.js';
+    import NewBandModal from './NewBandModal.vue';
+    import formatting from '../../services/formatting.js';
+    import api from '../../services/api.js';
 
     export default {
         data() {
@@ -28,7 +27,7 @@
             }
         },
         components: {
-            NewBandForm
+            NewBandForm, NewBandModal
         },
         emits: [
             "updateBand"
@@ -79,7 +78,7 @@
     }
 
     .bands-text {
-        background-color: white;
+        padding: 5px;
         font-size: 0.9rem;
         color: black;
         margin-bottom: 10px;

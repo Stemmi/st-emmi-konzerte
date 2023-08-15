@@ -11,7 +11,7 @@
         <label for="text">Beschreibung:</label>
         <textarea v-model="show.text" id="text" name="text" maxlength="255" rows="4" cols="80"></textarea>
         
-        <NewPosterForm :poster_filename="posterFilename" @changed_input="handlePosterInputChange" @new_poster="handleNewPoster"/>
+        <NewPosterForm :poster_filename="posterFilename" @newposter="handleNewPoster"/>
         
         <label for="poster_alt">Plakat-Alt-Text:</label>
         <input v-model="show.poster.alt" type="text" id="poster_alt" name="poster_alt" maxlength="255" size="40">
@@ -21,10 +21,9 @@
         <input type="hidden" id="user_id" name="user_id" value="1">
         
         <div class="form-button-container">
-            <button :disabled="isOkButtonDisabled" type="submit">OK</button>
-            <button :disabled="isOkButtonDisabled" type="button" @click="handleCancel">Abbrechen</button>
+            <button type="submit">OK</button>
+            <button type="button" @click="handleCancel">Abbrechen</button>
         </div>
-
     </form>
 </template>
 
@@ -32,7 +31,7 @@
     import SelectLocation from './SelectLocation.vue';
     import NewPosterForm from './NewPosterForm.vue';
     import SelectBands from './SelectBands.vue';
-    import settings from '../services/settings.js';
+    import settings from '../../services/settings.js';
 
     export default {
         data() {
@@ -42,19 +41,13 @@
                 locationId: this.show.location.id,
                 bandId: undefined,
                 selectedBandIds: this.bands.map((band) => band.id),
-                hasPosterInputChanged: false,
                 posterFilename: this.show.poster.filename || ''
-            }
-        },
-        computed: {
-            isOkButtonDisabled() {
-                return this.locationId == -1 || this.bandId == -1 || this.hasPosterInputChanged;
             }
         },
         components: {
             SelectLocation, NewPosterForm, SelectBands
         },
-        emits: [ "send-form" ],
+        emits: [ "sendForm" ],
         props: [ "show", "bands" ],
         methods: {
             handleLocationSelection(value) {
@@ -62,9 +55,6 @@
             },
             handleBandSelection(value) {
                 this.bandId = +value;
-            },
-            handlePosterInputChange(changed) {
-                this.hasPosterInputChanged = changed;
             },
             handleNewPoster(filename) {
                 this.posterFilename = filename;
@@ -86,7 +76,7 @@
                     'user_id': user_id.value
                 };
 
-                this.$emit("send-form", reqBody);
+                this.$emit("sendForm", reqBody);
                 event.target.reset();
             }
         }
