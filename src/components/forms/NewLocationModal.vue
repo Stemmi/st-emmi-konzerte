@@ -3,7 +3,7 @@
         <div class="modal-mask" v-if="show">
             <div class="modal-content">
                 <h3>Neue Location:</h3>
-                <NewLocationForm @new_location_id="handleNewLocationId"/>
+                <NewLocationForm @new-location-id="handleNewLocationId"/>
             </div>
         </div>
     </Transition>
@@ -17,14 +17,14 @@
             NewLocationForm
         },
         emits: [
-            "new_location_id"
+            "newLocationId"
         ],
         props: [
             "show"
         ],
         methods: {
             handleNewLocationId(id) {
-                this.$emit("new_location_id", id);
+                this.$emit("newLocationId", id);
             },
         }
     } 

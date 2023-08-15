@@ -1,5 +1,5 @@
 <template>
-        <NewBandModal :show="+band_id===-1" @new_band_id="setNewBandId" />
+        <NewBandModal :show="+band_id===-1" @new-band-id="setNewBandId" />
 
         <label for="band_id">Weitere Bands:</label>
         

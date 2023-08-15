@@ -11,7 +11,7 @@
         <label for="text">Beschreibung:</label>
         <textarea v-model="show.text" id="text" name="text" maxlength="255" rows="4" cols="80"></textarea>
         
-        <NewPosterForm :poster_filename="posterFilename" @new_poster="handleNewPoster"/>
+        <NewPosterForm :poster_filename="posterFilename" @newposter="handleNewPoster"/>
         
         <label for="poster_alt">Plakat-Alt-Text:</label>
         <input v-model="show.poster.alt" type="text" id="poster_alt" name="poster_alt" maxlength="255" size="40">
@@ -47,7 +47,7 @@
         components: {
             SelectLocation, NewPosterForm, SelectBands
         },
-        emits: [ "send-form" ],
+        emits: [ "sendForm" ],
         props: [ "show", "bands" ],
         methods: {
             handleLocationSelection(value) {
@@ -76,7 +76,7 @@
                     'user_id': user_id.value
                 };
 
-                this.$emit("send-form", reqBody);
+                this.$emit("sendForm", reqBody);
                 event.target.reset();
             }
         }

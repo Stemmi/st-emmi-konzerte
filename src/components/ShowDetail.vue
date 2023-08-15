@@ -71,7 +71,7 @@
             },
             image() {
                 if (this.show.poster.filename) return this.posterUrl+this.show.poster.filename;
-                return '/images/poster_placeholder.jpg';
+                return '/images/poster-placeholder.jpg';
             }
         }
     }

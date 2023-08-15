@@ -3,7 +3,7 @@
         <div class="modal-mask" v-if="show">
             <div class="modal-content">
                 <h3>Neue Band:</h3>
-                <NewBandForm @new_band_id="handleNewBandId"/>
+                <NewBandForm @new-band-id="handleNewBandId"/>
             </div>
         </div>
     </Transition>
@@ -17,14 +17,14 @@
             NewBandForm
         },
         emits: [
-            "new_band_id"
+            "newBandId"
         ],
         props: [
             "show"
         ],
         methods: {
             handleNewBandId(id) {
-                this.$emit("new_band_id", id);
+                this.$emit("newBandId", id);
             },
         }
     } 

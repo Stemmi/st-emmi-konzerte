@@ -1,9 +1,9 @@
 <template>
-    <form id="poster_form">
+    <form id="poster-form">
         <label for="poster">Plakat (png oder jpg):</label>
         <input @change="submitHandler" type="file" id="poster" name="poster" accept=".jpg, .jpeg, .png" />
         
-        <img class="image_preview" v-if="image" :src="posterUrl+image" />
+        <img class="image-preview" v-if="image" :src="posterUrl+image" />
     </form>
 
 </template>
@@ -19,16 +19,17 @@
                 image: this.poster_filename
             }
         },
-        emits: [ "new_poster" ],
+        emits: [ "newPoster" ],
         props: [ "poster_filename" ],
         watch: {
             image(newImage, oldImage) {
-                this.$emit("new_poster", newImage);
+                this.$emit("newPoster", newImage);
             }
         },
         methods: {
             submitHandler(event) {
-                const formData = new FormData(poster_form);
+
+                const formData = new FormData(event.target.form);
                 fetch(this.uploadPosterUrl, {
                     method: 'POST',
                     body: formData
@@ -42,7 +43,7 @@
 </script>
 
 <style scoped>
-    .image_preview {
+    .image-preview {
         height: 100px;
         display: block;
         margin-bottom: 10px;

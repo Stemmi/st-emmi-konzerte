@@ -1,5 +1,5 @@
 <template>
-    <NewLocationModal :show="location_id===-1" @new_location_id="setNewLocationId" />
+    <NewLocationModal :show="location_id===-1" @new-location-id="setNewLocationId" />
 
     <label for="loc_id">Location:</label>
     

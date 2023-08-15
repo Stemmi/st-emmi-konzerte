@@ -17,17 +17,17 @@
     export default {
 
         emits: [
-            "is-delete-confirmed"
+            "isDeleteConfirmed"
         ],
         props: [
             "show"
         ],
         methods: {
             confirmDelete() {
-                this.$emit("is-delete-confirmed", true);
+                this.$emit("isDeleteConfirmed", true);
             },
             cancelDelete() {
-                this.$emit("is-delete-confirmed", false);
+                this.$emit("isDeleteConfirmed", false);
             }
         }
     } 
