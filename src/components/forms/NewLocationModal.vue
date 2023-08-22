@@ -3,7 +3,7 @@
         <div class="modal-mask" v-if="show">
             <div class="modal-content">
                 <h3>Neue Location:</h3>
-                <NewLocationForm @new-location-id="handleNewLocationId"/>
+                <NewLocationForm @newLocationId="handleNewLocationId"/>
             </div>
         </div>
     </Transition>

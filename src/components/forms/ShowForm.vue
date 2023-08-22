@@ -3,7 +3,7 @@
         <label for="title">Titel (optional):</label>
         <input v-model="show.title" type="text" id="title" name="title" maxlength="255" size="40" >
         
-        <SelectLocation :locationId="locationId" @update-location="handleLocationSelection" />
+        <SelectLocation :locationId="locationId" @updateLocation="handleLocationSelection" />
 
         <label for="date">Datum:</label>
         <input v-model="date" type="date" id="date" name="date" size="10" required>
@@ -16,7 +16,7 @@
         <label for="posterAlt">Plakat-Alt-Text:</label>
         <input v-model="show.poster.alt" type="text" id="posterAlt" name="posterAlt" maxlength="255" size="40">
 
-        <SelectBands :selectedBandIds="selectedBandIds" @update-band="handleBandSelection" />
+        <SelectBands :selectedBandIds="selectedBandIds" @updateBand="handleBandSelection" />
 
         <input type="hidden" id="userId" name="userId" value="1">
         
