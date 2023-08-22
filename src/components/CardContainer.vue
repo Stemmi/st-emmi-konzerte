@@ -59,11 +59,7 @@
 </script>
 
 <style scoped>
-  
-  
-  section {
-    flex: 49%;
-  }
+
   
   article {
     width: 260px;

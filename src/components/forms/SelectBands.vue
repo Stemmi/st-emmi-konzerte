@@ -1,15 +1,15 @@
 <template>
-        <NewBandModal :show="+band_id===-1" @new-band-id="setNewBandId" />
+        <NewBandModal :show="+bandId===-1" @new-band-id="setNewBandId" />
 
-        <label for="band_id">Weitere Bands:</label>
+        <label for="bandId">Weitere Bands:</label>
         
-        <select v-model="band_id" id="band_id" name="band_id">
+        <select v-model="bandId" id="bandId" name="bandId">
             <option v-for="band of allBands" :key="band.id" :value="band.id">{{ band.name }}</option>
             <option value="-1">+++ Neue Band +++</option>
         </select>
         
         <ul class="bands-text">
-            <li v-for="band, index in bandsList" :key="band.id">{{ band.name }}<button class="inline_button" type="button" :data-index="index" @click="removeBand">x</button></li>
+            <li v-for="band, index in bandsList" :key="band.id">{{ band.name }}<button class="inline-button" type="button" :data-index="index" @click="removeBand">x</button></li>
         </ul>
 </template>
 
@@ -23,7 +23,7 @@
         data() {
             return {
                 allBands: undefined,
-                band_id: undefined,
+                bandId: undefined,
             }
         },
         components: {
@@ -33,29 +33,29 @@
             "updateBand"
         ],
         props: [
-            "selected_band_ids"
+            "selectedBandIds"
         ],
         computed: {
             bandsList() {
-                return formatting.createBandsList(this.allBands, this.selected_band_ids);
+                return formatting.createBandsList(this.allBands, this.selectedBandIds);
             }
         },
         watch: {
-            band_id(newId, oldId) {
+            bandId(newId, oldId) {
                 this.$emit("updateBand", newId);
-                if (this.selected_band_ids.includes(this.band_id)) return;
-                else if (+this.band_id == -1) return;
-                else this.selected_band_ids.push(this.band_id);
+                if (this.selectedBandIds.includes(this.bandId)) return;
+                else if (+this.bandId == -1) return;
+                else this.selectedBandIds.push(this.bandId);
             }
         },
         methods: {
             removeBand(event) {
-                this.selected_band_ids.splice(event.target.dataset.index, 1);
+                this.selectedBandIds.splice(event.target.dataset.index, 1);
             },
             async setNewBandId(id) {
-                this.selected_band_ids.push(id);
+                this.selectedBandIds.push(id);
                 this.allBands = await api.getBands();
-                this.band_id = id;
+                this.bandId = id;
             }
         },
         async mounted() {            
@@ -70,7 +70,7 @@
         display: flex;
         gap: 10px;
     } 
-    .inline_button {
+    .inline-button {
         font-weight: bold;
         display:inline-block;
         margin: auto 5px auto 5px;

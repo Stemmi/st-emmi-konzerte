@@ -16,11 +16,11 @@
             return {
                 uploadPosterUrl: settings.apiUrl()+"/upload/poster",
                 posterUrl: settings.imgUrl() + "/posters/",
-                image: this.poster_filename
+                image: this.posterFilename
             }
         },
         emits: [ "newPoster" ],
-        props: [ "poster_filename" ],
+        props: [ "posterFilename" ],
         watch: {
             image(newImage, oldImage) {
                 this.$emit("newPoster", newImage);
