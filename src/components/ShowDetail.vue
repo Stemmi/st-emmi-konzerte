@@ -78,11 +78,6 @@
 </script>
 
 <style scoped>
-  section {
-    width: 320px;
-    flex: 49%;
-  }
-
   img {
     float: left;
     margin-right: 15px;

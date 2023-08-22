@@ -1,7 +1,6 @@
 <template>
     <section id="map">
         <MapboxMap
-            style="height: 100%"
             access-token="pk.eyJ1Ijoic3RlbW1pIiwiYSI6ImNsZnNjeWV0MDA1MTAzaHNlNzY1OHl5YTgifQ.fDF5EfP2eLcs0DhN1QNKig"
             map-style="mapbox://styles/stemmi/clih8mpqz008801pf2lj32zhd"
             :center="hasCoordinates?[location.long, location.lat]:[10.5,53.5]"
@@ -39,11 +38,3 @@
         }
     }
 </script>
-
-<style lang="css" scoped>
-    section {
-        min-height: 500px;
-        min-width: 400px;
-        flex: 49%;
-    }
-</style>
