@@ -20,6 +20,7 @@ body {
 
 #app {
   margin: 0 auto;
+  max-width: 1800px;
 }
 
 main {

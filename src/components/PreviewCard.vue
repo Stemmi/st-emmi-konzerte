@@ -49,7 +49,6 @@
 
 <style scoped>
     img {
-        /* border: 1px solid grey; */
         min-width: 200px;
         max-width: 90%;
         min-height: 150px;
