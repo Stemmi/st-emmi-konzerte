@@ -8,7 +8,7 @@
         Diese Show Löschen
     </button>
     <ConfirmDeleteShow :show="showConfirm" @is-delete-confirmed="handleDelete"/>
-    <ShowForm v-if="show&&bands" :show="show" :bands="bands"  @send-form="putShow" />
+    <ShowForm v-if="show&&bands" :show="show" :bands="bands"  @sendForm="putShow" />
     
     </section>
     </main>

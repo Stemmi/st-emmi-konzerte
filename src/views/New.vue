@@ -3,7 +3,7 @@
     <section>
     
     <h3>Neuer Eintrag:</h3>
-    <ShowForm :show="show" :bands="bands" @send-form="postShow" />
+    <ShowForm :show="show" :bands="bands" @sendForm="postShow" />
     
     </section>
     </main>
