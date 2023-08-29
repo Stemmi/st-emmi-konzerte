@@ -42,7 +42,9 @@
         },
         watch: {
             bandId(newId, oldId) {
+                console.log('this.selectedBandIds',this.selectedBandIds);
                 this.$emit("updateBand", newId);
+                console.log('this.selectedBandIds',this.selectedBandIds);
                 if (this.selectedBandIds.includes(this.bandId)) return;
                 else if (+this.bandId == -1) return;
                 else this.selectedBandIds.push(this.bandId);
@@ -50,7 +52,11 @@
         },
         methods: {
             removeBand(event) {
-                this.selectedBandIds.splice(event.target.dataset.index, 1);
+                console.log('this.selectedBandIds',this.selectedBandIds);
+                const newSelection = this.selectedBandIds.slice(event.target.dataset.index, 1);
+                this.selectedBandIds = newSelection;
+                
+                this.bandId = undefined;
             },
             async setNewBandId(id) {
                 this.selectedBandIds.push(id);
@@ -60,6 +66,7 @@
         },
         async mounted() {            
             this.allBands = await api.getBands();
+            console.log('this.selectedBandIds',this.selectedBandIds);
         }
     } 
 </script>
