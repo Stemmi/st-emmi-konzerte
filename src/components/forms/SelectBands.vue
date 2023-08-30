@@ -24,16 +24,17 @@
             return {
                 allBands: undefined,
                 bandId: undefined,
+                selectedBandIds: [...this.bandIds]
             }
         },
         components: {
             NewBandForm, NewBandModal
         },
         emits: [
-            "updateBand"
+            "updateBandIds"
         ],
         props: [
-            "selectedBandIds"
+            "bandIds"
         ],
         computed: {
             bandsList() {
@@ -42,21 +43,18 @@
         },
         watch: {
             bandId(newId, oldId) {
-                console.log('this.selectedBandIds',this.selectedBandIds);
-                this.$emit("updateBand", newId);
-                console.log('this.selectedBandIds',this.selectedBandIds);
-                if (this.selectedBandIds.includes(this.bandId)) return;
-                else if (+this.bandId == -1) return;
-                else this.selectedBandIds.push(this.bandId);
+                if (!newId) return;
+                if (this.selectedBandIds.includes(newId)) return;
+                if (+newId === -1) return;
+                this.selectedBandIds.push(this.bandId);
+                this.$emit("updateBandIds", this.selectedBandIds);
             }
         },
         methods: {
             removeBand(event) {
-                console.log('this.selectedBandIds',this.selectedBandIds);
-                const newSelection = this.selectedBandIds.slice(event.target.dataset.index, 1);
-                this.selectedBandIds = newSelection;
-                
+                this.selectedBandIds.splice(event.target.dataset.index, 1);
                 this.bandId = undefined;
+                this.$emit("updateBandIds", this.selectedBandIds);
             },
             async setNewBandId(id) {
                 this.selectedBandIds.push(id);
@@ -66,7 +64,6 @@
         },
         async mounted() {            
             this.allBands = await api.getBands();
-            console.log('this.selectedBandIds',this.selectedBandIds);
         }
     } 
 </script>

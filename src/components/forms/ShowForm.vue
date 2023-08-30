@@ -16,7 +16,7 @@
         <label for="posterAlt">Plakat-Alt-Text:</label>
         <input v-model="show.poster.alt" type="text" id="posterAlt" name="posterAlt" maxlength="255" size="40">
 
-        <SelectBands :selectedBandIds="selectedBandIds" @updateBand="handleBandSelection" />
+        <SelectBands :bandIds="bandIds" @updateBandIds="handleBandsUpdate" />
 
         <input type="hidden" id="userId" name="userId" value="1">
         
@@ -39,8 +39,7 @@
                 date: this.show.date ? this.show.date.split('T')[0] : undefined,
                 apiUrl: settings.apiUrl(),
                 locationId: this.show.location.id,
-                bandId: undefined,
-                selectedBandIds: this.bands.map((band) => band.id),
+                bandIds: this.bands.map((band) => band.id),
                 posterFilename: this.show.poster.filename || ''
             }
         },
@@ -53,8 +52,8 @@
             handleLocationSelection(value) {
                 this.locationId = +value;
             },
-            handleBandSelection(value) {
-                this.bandId = +value;
+            handleBandsUpdate(ids) {
+                this.bandIds = ids;
             },
             handleNewPoster(filename) {
                 this.posterFilename = filename;
@@ -72,7 +71,7 @@
                     'text': text.value,
                     'poster_filename': this.posterFilename,
                     'poster_alt': posterAlt.value,
-                    'bands': this.selectedBandIds.map((id) => id.toString()),
+                    'bands': this.bandIds.map((id) => id.toString()),
                     'user_id': userId.value
                 };
 
