@@ -1,6 +1,6 @@
 <template>
     <header>
-        <div  @click="showNav=false">
+        <div @click="showNav=false">
             <RouterLink to="/">
                 <img id=logo src="/images/konzerte-logo-100x100.jpg" alt="Die Band spielt live" />
             </RouterLink>
@@ -62,6 +62,12 @@
     #logo:hover {
         transform: scale(1.02);
     }
+
+    /* @media screen and (min-width: 800px) {
+        .burger {
+            display: none;
+        }
+    } */
 
     .burger svg {
         fill: var(--default-dark-color);

@@ -53,6 +53,7 @@
 
     @media screen and (min-width: 800px) {
         nav {
+            display: flex;
             background-color: var(--default-bright-color);
             color: var(--default-dark-color);
             padding: 0px;
