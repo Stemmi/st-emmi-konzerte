@@ -8,7 +8,7 @@
 
         <h1>St. Emmi<br>Konzerte</h1>
 
-        <Navigation v-if="showNav" @click="showNav=false"/>
+        <Navigation v-show="showNav" @click="showNav=false"/>
 
         <div class="burger">
             <MenuIcon @click="showNav=!showNav"/>
