@@ -7,7 +7,7 @@
         <DeleteIcon />
         Diese Show Löschen
     </button>
-    <ConfirmDeleteShow :show="showConfirm" @is-delete-confirmed="handleDelete"/>
+    <ConfirmDeleteShow :show="showConfirm" @isDeleteConfirmed="handleDelete"/>
     <ShowForm v-if="show&&bands" :show="show" :bands="bands"  @sendForm="putShow" />
     
     </section>
