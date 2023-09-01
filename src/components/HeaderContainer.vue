@@ -1,6 +1,6 @@
 <template>
     <header>
-        <div @click="showNav=false">
+        <div>
             <RouterLink to="/">
                 <img id=logo src="/images/konzerte-logo-100x100.jpg" alt="Die Band spielt live" />
             </RouterLink>
@@ -8,11 +8,17 @@
 
         <h1>St. Emmi<br>Konzerte</h1>
 
-        <Navigation v-show="showNav" @click="showNav=false"/>
-
-        <div class="burger">
-            <MenuIcon @click="showNav=!showNav"/>
+        <div class="mobile">
+            <Navigation v-if="showNav" />
+            <div class="burger">
+                <MenuIcon @click="showNav=!showNav"/>
+            </div>
         </div>
+        <div class="wide">
+            <Navigation />
+        </div>
+
+
     </header>
 </template>
 
@@ -63,11 +69,23 @@
         transform: scale(1.02);
     }
 
-    /* @media screen and (min-width: 800px) {
-        .burger {
+    .mobile {
+        display: block;
+    }
+
+    .wide {
+        display: none;
+    }
+
+    @media screen and (min-width: 800px) {
+        .mobile {
             display: none;
         }
-    } */
+
+        .wide {
+            display: block;
+        }
+    }
 
     .burger svg {
         fill: var(--default-dark-color);
