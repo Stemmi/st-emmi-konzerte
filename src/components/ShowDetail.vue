@@ -84,7 +84,6 @@
     min-height: 150px;
     min-width: 200px;
     max-width: 100%;
-    /* max-width: 500px; */
     object-fit: contain;
   }
   
