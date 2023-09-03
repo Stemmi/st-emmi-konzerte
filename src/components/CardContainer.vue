@@ -2,15 +2,15 @@
 
   <section v-if="shows">
     <div class="cards">
-    <article v-for="show in shows.results" :key="show.id">
-      <PreviewCard :show="show"/>
-    </article>
-  </div>
-  <div v-if="pages>1" class="pages">
-    <button v-if="page>1" @click="previousPage">←</button>
-    <p>Seite {{ page }} / {{ pages }}</p>
-    <button v-if="page<pages" @click="nextPage">→</button>    
-  </div>
+      <article v-for="show in shows.results" :key="show.id">
+        <PreviewCard :show="show"/>
+      </article>
+    </div>
+    <div v-if="pages>1" class="pages">
+      <button v-if="page>1" @click="previousPage">←</button>
+      <p>Seite {{ page }} / {{ pages }}</p>
+      <button v-if="page<pages" @click="nextPage">→</button>    
+    </div>
   </section>
   
   <section v-else class="loading">

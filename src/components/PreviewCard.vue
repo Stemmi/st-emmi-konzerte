@@ -47,7 +47,7 @@
     }
 </script>
 
-<style scoped>
+<style scoped>    
     img {
         min-width: 200px;
         max-width: 90%;
