@@ -3,7 +3,7 @@
         <label for="title">Titel (optional):</label>
         <input v-model="show.title" type="text" id="title" name="title" maxlength="255" size="40" >
         
-        <SelectLocation :location_id="locationId" @update-location="handleLocationSelection" />
+        <SelectLocation :locationId="locationId" @updateLocation="handleLocationSelection" />
 
         <label for="date">Datum:</label>
         <input v-model="date" type="date" id="date" name="date" size="10" required>
@@ -11,14 +11,14 @@
         <label for="text">Beschreibung:</label>
         <textarea v-model="show.text" id="text" name="text" maxlength="255" rows="4" cols="80"></textarea>
         
-        <NewPosterForm :poster_filename="posterFilename" @newposter="handleNewPoster"/>
+        <NewPosterForm :posterFilename="posterFilename" @newposter="handleNewPoster"/>
         
-        <label for="poster_alt">Plakat-Alt-Text:</label>
-        <input v-model="show.poster.alt" type="text" id="poster_alt" name="poster_alt" maxlength="255" size="40">
+        <label for="posterAlt">Plakat-Alt-Text:</label>
+        <input v-model="show.poster.alt" type="text" id="posterAlt" name="posterAlt" maxlength="255" size="40">
 
-        <SelectBands :selected_band_ids="selectedBandIds" @update-band="handleBandSelection" />
+        <SelectBands :bandIds="bandIds" @updateBandIds="handleBandsUpdate" />
 
-        <input type="hidden" id="user_id" name="user_id" value="1">
+        <input type="hidden" id="userId" name="userId" value="1">
         
         <div class="form-button-container">
             <button type="submit">OK</button>
@@ -39,8 +39,7 @@
                 date: this.show.date ? this.show.date.split('T')[0] : undefined,
                 apiUrl: settings.apiUrl(),
                 locationId: this.show.location.id,
-                bandId: undefined,
-                selectedBandIds: this.bands.map((band) => band.id),
+                bandIds: this.bands.map((band) => band.id),
                 posterFilename: this.show.poster.filename || ''
             }
         },
@@ -53,8 +52,8 @@
             handleLocationSelection(value) {
                 this.locationId = +value;
             },
-            handleBandSelection(value) {
-                this.bandId = +value;
+            handleBandsUpdate(ids) {
+                this.bandIds = ids;
             },
             handleNewPoster(filename) {
                 this.posterFilename = filename;
@@ -71,9 +70,9 @@
                     'date': date.value,
                     'text': text.value,
                     'poster_filename': this.posterFilename,
-                    'poster_alt': poster_alt.value,
-                    'bands': this.selectedBandIds.map((id) => id.toString()),
-                    'user_id': user_id.value
+                    'poster_alt': posterAlt.value,
+                    'bands': this.bandIds.map((id) => id.toString()),
+                    'user_id': userId.value
                 };
 
                 this.$emit("sendForm", reqBody);

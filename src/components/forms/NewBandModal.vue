@@ -3,7 +3,7 @@
         <div class="modal-mask" v-if="show">
             <div class="modal-content">
                 <h3>Neue Band:</h3>
-                <NewBandForm @new-band-id="handleNewBandId"/>
+                <NewBandForm @newBandId="handleNewBandId"/>
             </div>
         </div>
     </Transition>

@@ -1,9 +1,9 @@
 <template>
-    <NewLocationModal :show="location_id===-1" @new-location-id="setNewLocationId" />
+    <NewLocationModal :show="locationId===-1" @newLocationId="setNewLocationId" />
 
-    <label for="loc_id">Location:</label>
+    <label for="locId">Location:</label>
     
-    <select v-if="locations" id="loc_id" name="loc_id" required :value="location_id" @input="selectLocation" >
+    <select v-if="locations" id="locId" name="locId" required :value="locationId" @input="selectLocation" >
         <option v-for="location of locations" :key="location.id" :value="location.id">{{ [ location.city, location.name ].filter(item => item).join(', ') }}</option>
         <option value="-1">+++ Neue Location +++</option>
     </select>
@@ -18,7 +18,7 @@
             return {
                 locations: undefined,
                 show: false,
-                originalLocationId: this.location_id
+                originalLocationId: this.locationId
             }
         },
         components: {
@@ -28,7 +28,7 @@
             "updateLocation"
         ],
         props: [
-            "location_id"
+            "locationId"
         ],
         methods: {
             selectLocation(event) {

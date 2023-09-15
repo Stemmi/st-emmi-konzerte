@@ -1,10 +1,12 @@
 <template>
     <RouterLink :to="'/detail/'+show.id"> 
         <div class="card">
-            <h3>{{ heading }}</h3>
-            <p>{{ date }}</p>
-            <img v-if="this.show.poster" :src="image" :alt="show.poster.alt">
-            <p v-for="paragraph of paragraphs">{{ paragraph }}</p>
+            <div class="content">
+                <h3>{{ heading }}</h3>
+                <p>{{ date }}</p>
+                <img v-if="this.show.poster" :src="image" :alt="show.poster.alt">
+                <p v-for="paragraph of paragraphs">{{ paragraph }}</p>
+            </div>
             <UserContainer :user="show.user" />
         </div>
     </RouterLink>
@@ -47,9 +49,15 @@
     }
 </script>
 
-<style scoped>
+<style scoped>    
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+    
     img {
-        /* border: 1px solid grey; */
         min-width: 200px;
         max-width: 90%;
         min-height: 150px;

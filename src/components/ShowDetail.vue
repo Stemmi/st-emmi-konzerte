@@ -78,14 +78,9 @@
 </script>
 
 <style scoped>
-  section {
-    width: 320px;
-    flex: 49%;
-  }
-
   img {
     float: left;
-    margin-right: 15px;
+    margin: auto 15px 15px auto;
     min-height: 150px;
     min-width: 200px;
     max-width: 100%;
@@ -95,6 +90,13 @@
   .blog-content {
     margin-top: 15px;
     margin-bottom: 15px;
+  }
+
+  .blog-content p::before {
+    content: "";
+    display: block;
+    overflow: hidden;
+    width: 160px;
   }
 
   .bands {

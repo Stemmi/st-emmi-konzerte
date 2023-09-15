@@ -2,15 +2,15 @@
 
   <section v-if="shows">
     <div class="cards">
-    <article v-for="show in shows.results" :key="show.id">
-      <PreviewCard :show="show"/>
-    </article>
-  </div>
-  <div v-if="pages>1" class="pages">
-    <button v-if="page>1" @click="previousPage">←</button>
-    <p>Seite {{ page }} / {{ pages }}</p>
-    <button v-if="page<pages" @click="nextPage">→</button>    
-  </div>
+      <article v-for="show in shows.results" :key="show.id">
+        <PreviewCard :show="show"/>
+      </article>
+    </div>
+    <div v-if="pages>1" class="pages">
+      <button v-if="page>1" @click="previousPage">←</button>
+      <p>Seite {{ page }} / {{ pages }}</p>
+      <button v-if="page<pages" @click="nextPage">→</button>    
+    </div>
   </section>
   
   <section v-else class="loading">
@@ -59,15 +59,9 @@
 </script>
 
 <style scoped>
-  
-  
-  section {
-    flex: 49%;
-  }
-  
   article {
-    width: 260px;
-    max-width: 400px;
+    width: 235px;
+    max-width: 300px;
     padding: 10px;
     text-align: center;
     flex: auto;
@@ -76,6 +70,27 @@
     border-radius: 15px;
     box-shadow: 0 0px 10px 0 rgba(100,0,0,0.15);
   }
+
+@media screen and (min-width: 992px) {
+  article {
+    width: 220px;
+    max-width: 280px;
+  }
+}
+
+@media screen and (min-width: 1198px) {
+  article {
+    width: 230px;
+    max-width: 300px;
+  }
+}
+
+/* @media screen and (min-width: 992px) {
+  article {
+    width: 230px;
+    max-width: 320px;
+  }
+} */
 
   article a {
     text-decoration: none;

@@ -1,6 +1,6 @@
 <template>
     <header>
-        <div  @click="showNav=false">
+        <div>
             <RouterLink to="/">
                 <img id=logo src="/images/konzerte-logo-100x100.jpg" alt="Die Band spielt live" />
             </RouterLink>
@@ -8,11 +8,21 @@
 
         <h1>St. Emmi<br>Konzerte</h1>
 
-        <Navigation v-if="showNav" @click="showNav=false"/>
+        <div class="mobile">
+            <!-- <Navigation v-if="showNav" v-click-anywhere="hideMobileNavMenu" @click="hideMobileNavMenu" /> -->
+            <Navigation v-if="showNav" v-click-anywhere="hideMobileNavMenu" />
 
-        <div class="burger">
-            <MenuIcon @click="showNav=!showNav"/>
+            <div class="burger">
+                <MenuIcon v-if="!showNav" @click="showNav=true"/>
+                <!-- <MenuIcon v-else @click="hideMobileNavMenu"/> -->
+                <MenuIcon v-else />
+            </div>
         </div>
+        <div class="widescreen">
+            <Navigation />
+        </div>
+
+
     </header>
 </template>
 
@@ -28,6 +38,11 @@
         },
         components: {
             Navigation, MenuIcon
+        },
+        methods: {
+            hideMobileNavMenu() {
+                this.showNav = false;
+            }
         }
     }
 </script>
@@ -61,6 +76,24 @@
 
     #logo:hover {
         transform: scale(1.02);
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    .widescreen {
+        display: none;
+    }
+
+    @media screen and (min-width: 800px) {
+        .mobile {
+            display: none;
+        }
+
+        .widescreen {
+            display: block;
+        }
     }
 
     .burger svg {
