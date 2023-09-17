@@ -19,6 +19,9 @@
 </template>
 
 <script>
+    import { mapStores } from 'pinia';
+    import { useDashboardPageStore } from '../stores/dashboardPage.js';
+
     import PreviewCard from './PreviewCard.vue';
     import api from '../services/api.js';
     import settings from '../services/settings.js';
@@ -30,6 +33,9 @@
           page: +this.$route.query.page || 1,
           pages: undefined
         }
+      },
+      computed: {
+        ...mapStores(useDashboardPageStore)
       },
       components: {
         PreviewCard
@@ -44,6 +50,7 @@
       },
       watch: {
         async page(newPage, oldPage) {
+          this.dashboardPageStore.set(newPage);
           this.shows = await api.getShows(settings.limit(), newPage);
           this.$router.push({ path: '/', query: { page: newPage } });
         },
