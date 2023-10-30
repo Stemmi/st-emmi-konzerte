@@ -1,7 +1,7 @@
 <template>
 
   <section v-if="show">
-    <button @click="$router.back()"><BackIcon />Zurück zur Liste</button>
+    <button @click="goBackToList"><BackIcon />Zurück zur Liste</button>
     <h2>{{ show.title }}</h2>
     <h3><LocationIcon />{{ '' + heading }}</h3>
     <p><CalendarIcon />{{ date }}</p>
@@ -35,6 +35,9 @@
 </template>
 
 <script>
+    import { mapStores } from 'pinia';
+    import { useDashboardPageStore } from '../stores/dashboardPage.js';
+
     import LocationIcon from './icons/LocationIcon.vue';
     import CalendarIcon from './icons/CalendarIcon.vue';
     import BackIcon from './icons/BackIcon.vue';
@@ -59,21 +62,27 @@
         "show", "bands"
       ],
       computed: {
-            heading() {
-                return formatting.createHeading({ location: this.show.location });
-            },
-            date() {
-                return formatting.createDate(this.show.date);
-            },
-            paragraphs() {
-                if (!this.show.text) return [];
-                return this.show.text.split('\n');
-            },
-            image() {
-                if (this.show.poster.filename) return this.posterUrl+this.show.poster.filename;
-                return '/images/poster-placeholder.jpg';
-            }
+        ...mapStores(useDashboardPageStore),
+        heading() {
+            return formatting.createHeading({ location: this.show.location });
+        },
+        date() {
+            return formatting.createDate(this.show.date);
+        },
+        paragraphs() {
+            if (!this.show.text) return [];
+            return this.show.text.split('\n');
+        },
+        image() {
+            if (this.show.poster.filename) return this.posterUrl+this.show.poster.filename;
+            return '/images/poster-placeholder.jpg';
         }
+      },
+      methods: {
+        goBackToList() {
+          this.$router.push({ path: '/', query: { page: this.dashboardPageStore.page } });
+        }
+      }
     }
 </script>
 
